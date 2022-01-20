@@ -3,19 +3,8 @@ import MessageDialogs from './MessageDialogs/MessageDialogs';
 import MessageList from './MessageList/MessageList';
 
 
-
-
-const Message = () => { 
-    let mess = [
-        {name: 'Vanya' , id :5 },
-        {name:'Dmitryi', id :6 },
-        {name: 'Oleg' , id: 4},
-        {name:'Andreu' , id:3 },
-        {name:'ALya' , id:1},
-        {name:'MAcs', id :2}
-    ]
-
-let messel = mess.map( m => <MessageList name={m.name} id={m.id}/>);
+const Message = (props) => { 
+let messel = props.state.mess.map( m => <MessageList name={m.name} id={m.id}/>);
 
 
     return (

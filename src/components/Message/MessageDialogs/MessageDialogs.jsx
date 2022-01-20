@@ -7,7 +7,7 @@ const MessageDialogs = () => {
             <div className={ss.dialog_conf}>
                 <div>Hy , how are you ?</div>
                 <div>I miss for you</div>
-            </div>
+            </div> 
         </div >
     )
 }

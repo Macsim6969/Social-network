@@ -3,9 +3,17 @@ import AccLink from './LinkSoc/LinkSoc'
 import ss from './Account.module.scss'
 import LinkLog from './LinkLog/LinkLog'
 import SocialInfo from './LinkSocial/SocialInfo'
+import MainLink from './MainLink/MainLink'
+import Timeline from './MainBlog/Timeline'
+import {NavLink, Route, Routes} from 'react-router-dom'
 
-const Acount = () => {
+const Acount = (props) => {
+debugger;
+    let inform = props.state.info.map(i => <SocialInfo name={i.name} number={i.number} />);
+    let mainnlink = props.state.mainlink.map(m => <NavLink to='timeline'> <MainLink name={m.name} /></NavLink>);
+
     return (
+
         <div className={ss.acc_block}>
             <div className={ss.block_column}>
                 <div className={ss.acc}>
@@ -20,13 +28,19 @@ const Acount = () => {
                         <AccLink link='https://w7.pngwing.com/pngs/772/115/png-transparent-computer-icons-telegram-logo-angle-white-triangle.png' />
                     </div>
                     <div className={ss.link_log}>
-                        <LinkLog  name="M_A_C_S_669"/>
+                        <LinkLog name="M_A_C_S_669" />
                     </div>
                     <div className={ss.link_soc}>
-                        <SocialInfo name='Posts' number='880' />
-                        <SocialInfo name='Followers' number='400' />
-                        <SocialInfo name='Following' number='330' />
+                        {inform}
                     </div>
+                </div>
+                <div className={ss.acc_link_main}>
+                {mainnlink}
+                </div>
+                <div className={ss.acc_main}>
+                    <Routes>
+                        <Route path='timeline' element={<Timeline/>}/>
+                    </Routes>
                 </div>
             </div>
         </div>
