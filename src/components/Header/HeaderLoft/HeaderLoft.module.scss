@@ -1,0 +1,37 @@
+.header_loft {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .loft_nav {
+        width: 34px;
+        height: 35px;
+        margin-right: 15px;
+        padding: 7px;
+    }
+    .loft_nav:hover {
+        background-color: rgb(194, 194, 194);
+        border-radius: 10px;
+    }
+    .loft_acc_nav {
+        text-decoration: none;
+        .loft_acc {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 7px;
+            .loft_acc_im {
+                width: 43px;
+                margin-right: 10px;
+            }
+            .loft_acc_name {
+                font-size: 17px;
+                font-weight: bold;
+                color: black;
+            }
+        }
+    }
+    .loft_acc:hover {
+        background-color: rgb(194, 194, 194);
+        border-radius: 10px;
+    }
+}

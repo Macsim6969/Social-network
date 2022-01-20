@@ -1,0 +1,28 @@
+.mess {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 980px;
+    .mess_peaple{
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        .peaple{
+            padding:10px 15px;
+        }
+    }
+    .mess_dialogs{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        .dialog_log{
+            background-color: #c2c2c2;
+            padding: 10px;
+        }
+        .dialog_conf{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+

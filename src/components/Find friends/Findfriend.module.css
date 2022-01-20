@@ -1,0 +1,17 @@
+.log_find{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.log_find .find{
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+}
+.log_find .find .findimg{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}

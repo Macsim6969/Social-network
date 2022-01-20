@@ -1,0 +1,11 @@
+.nav{
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    padding-left: 3px;
+    justify-content: start;
+    .navlinke{
+        text-decoration: none;
+    }
+    
+}

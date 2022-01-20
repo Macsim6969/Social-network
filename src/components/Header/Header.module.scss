@@ -1,0 +1,17 @@
+header{
+    padding: 8px 20px;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0 0 12px 4px  rgb(194, 194, 194) ;
+    position: fixed;
+    width: -webkit-fill-available;
+    .header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+}
+
+

@@ -1,0 +1,21 @@
+.nav_col{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    flex-direction: row;   
+    img{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+    .nav_nam{
+        color: black;
+        font-weight: bold;
+    }
+}
+.nav_col:hover{
+    background-color: rgb(194, 194, 194) ;
+}

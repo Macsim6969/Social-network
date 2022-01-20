@@ -1,0 +1,18 @@
+.header_search{
+    background-color: rgb(194, 194, 194);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 10px;
+    width: 22%;
+    .header_search{
+        outline: none;
+        width: 88%;
+        padding: 0 0 0 5px;
+        border: 0;
+    }
+    .header_img{
+        width: 25px;
+    }
+}

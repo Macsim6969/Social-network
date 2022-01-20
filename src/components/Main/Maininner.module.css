@@ -1,0 +1,11 @@
+.log{
+    width: 70%;
+}
+.log h1{
+    display: flex;
+    justify-content: center;
+}
+.log  .log_spam{
+ font-size: 22px;
+ padding:  0 20px;
+}

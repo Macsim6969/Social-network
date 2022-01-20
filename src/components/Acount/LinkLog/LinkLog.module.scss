@@ -1,0 +1,12 @@
+.log{
+    display: flex;
+    margin: -140px 0 0 0;
+    flex-direction: column;
+    .log_img{
+        width: 130px;
+    }
+    .log_name{
+        font-size: 19px;
+        font-family: cursive;
+    }
+}
