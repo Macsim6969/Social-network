@@ -4,6 +4,15 @@ import Main_rew from './Main_but/Main_rew';
 
 
 const Maininner = () => {
+
+    let post = React.createRef();
+
+    let typess = () =>{
+        let text = post.current.value;
+        alert(text);
+    }
+
+
     return (
         <div className={ss.log}>
             <h1 className={ss.log_title}>HOME 'Faceebok'</h1>
@@ -12,6 +21,10 @@ const Maininner = () => {
                 consectetur libero rem mollitia tempore porro dicta placeat?</div>
             <div>
                 <Main_rew/>
+            </div>
+            <div>
+                <input ref={post} type="text" placeholder="type comment pls"/>
+                <button onClick={typess}>Type</button>
             </div>
                 
         </div>

@@ -11,6 +11,8 @@ const Main_rew = () =>{
             <Rew message="Alias illo vel reprehenderit similique voluptatibus libero ex et, dolor facere illum sit error deleniti officia consequuntur animi. Cum totam sequi aut!"/>
             <Rew message="Lorem ipsum dolor sit amet consectetur adipisicing elit.Alias illo vel reprehenderit similique voluptatibus libero ex et, dolor facere illum sit error deleniti officia consequuntur animi. Cum totam sequi aut! "/>
         </div>
+
+        
     )
 }
 

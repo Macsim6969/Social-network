@@ -6,8 +6,10 @@ const CreatePost = () =>{
     let postel = React.createRef();
 
     let addpost = ()=>{
-    let text = postel.current.value;
-    alert(text);}
+        let text = postel.current.value;
+        alert(text);
+    }
+
 
     return(
         <div className={s.posts}>
