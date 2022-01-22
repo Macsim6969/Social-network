@@ -1,8 +1,8 @@
-
+import ss from './Link.module.scss'
 
 const Link = (props) =>{
-    return (
-        <div>{props.name}</div>
+    return ( 
+        <div className={ss.link}>{props.name}</div>
     )
 }
 

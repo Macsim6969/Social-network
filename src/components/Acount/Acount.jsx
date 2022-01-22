@@ -4,13 +4,11 @@ import ss from './Account.module.scss'
 import LinkLog from './LinkLog/LinkLog'
 import SocialInfo from './LinkSocial/SocialInfo'
 import MainLink from './MainLink/MainLink'
-import Timeline from './MainBlog/Timeline'
+import Timeline from './MainBlog/Timeline/Timeline'
 import {NavLink, Route, Routes} from 'react-router-dom'
 
 const Acount = (props) => {
-debugger;
     let inform = props.state.info.map(i => <SocialInfo name={i.name} number={i.number} />);
-    let mainnlink = props.state.mainlink.map(m => <NavLink to='timeline'> <MainLink name={m.name} /></NavLink>);
 
     return (
 
@@ -35,7 +33,7 @@ debugger;
                     </div>
                 </div>
                 <div className={ss.acc_link_main}>
-                {mainnlink}
+                 <MainLink />
                 </div>
                 <div className={ss.acc_main}>
                     <Routes>

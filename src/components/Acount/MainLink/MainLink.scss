@@ -1,0 +1,13 @@
+.main__block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .mainn{
+        text-decoration: none;
+    }
+    .active{
+        background-color: #50b5ff;
+        color: white;
+        border-radius: 15px;
+    }
+}
