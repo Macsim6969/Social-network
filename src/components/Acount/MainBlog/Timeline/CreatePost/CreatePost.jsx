@@ -1,11 +1,19 @@
-import s from './Posts.module.scss'
+import React from 'react';
+import s from './CreatePost.module.scss'
 
 const CreatePost = () =>{
+
+    let postel = React.createRef();
+
+    let addpost = ()=>{
+    let text = postel.current.value;
+    alert(text);}
+
     return(
         <div className={s.posts}>
             <div className={s.posts_inner}>
                 <img src="https://image.flaticon.com/icons/png/512/146/146018.png" alt="" />
-                <input type="text" name="" id="" size={50} placeholder='Write something here....' />
+                <input ref={postel} type="text" name="" id="" size={50} placeholder='Write something here....' />
             </div>
             <div className={s.posts_dop}>
                 <div className={s.dop_inner}>
@@ -13,7 +21,7 @@ const CreatePost = () =>{
                     <div className={s.inner_txt}>Photo/Video</div>
                 </div>
             </div>
-            <div onClick={()=>{alert('hi')}} className={s.posts_sumb}>Post</div>
+            <div onClick={addpost} className={s.posts_sumb}>Post</div>
         </div>
     )
 }
