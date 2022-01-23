@@ -1,4 +1,4 @@
-import ss from './Rew.module.css'
+import ss from './Rew.module.scss'
 
 const Rew = (props) =>{
     return(

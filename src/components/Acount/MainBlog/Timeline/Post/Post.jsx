@@ -1,11 +1,14 @@
+import ss from './Post.module.scss';
 
-
-const Post = () => {
+const Post = (props) => {
     return (
-        <div>
-
+        <div className={ss.post_log}>
+            <img className={ss.post_img} src={props.img} alt="" />
+            <div className={ss.post_txt}>
+                {props.text}
+            </div>
         </div>
     )
 }
 
-export default Post
+export default Post;

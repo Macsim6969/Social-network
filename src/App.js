@@ -8,6 +8,8 @@ import {  Route, Routes } from 'react-router-dom';
 import Acount from './components/Acount/Acount';
 import FIndfriends from './components/Find friends/FIndfriends';
 import Message from './components/Message/Message';
+import Rev from './components/Rev/Rev';
+import { addPost } from './Redux/State';
 
 
 
@@ -25,9 +27,10 @@ function App(props) {
           <Routes>
             <Route path='/message/*' element={<Message state={props.state.message} />} />
             <Route path='findfriend' element={<FIndfriends />} />
-            <Route path="/acount/*" element={<Acount state={props.state.acount} />} />
-            <Route path="/" element={<Maininner />} />
+            <Route path="/acount/*" element={<Acount state={props.state} addPost={props.addPost}/>} />
+            <Route path="/" element={<Maininner state={props.state.mainreview}/>} />
             <Route path="/mylog" element={<Mylog />} />
+            <Route path='./comments' element={<Rev />} />
           </Routes>
         </div>
       </div>

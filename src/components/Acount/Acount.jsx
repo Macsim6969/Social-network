@@ -8,7 +8,7 @@ import Timeline from './MainBlog/Timeline/Timeline'
 import {NavLink, Route, Routes} from 'react-router-dom'
 
 const Acount = (props) => {
-    let inform = props.state.info.map(i => <SocialInfo name={i.name} number={i.number} />);
+    let inform = props.state.acount.info.map(i => <SocialInfo name={i.name} number={i.number} />);
 
     return (
 
@@ -37,7 +37,7 @@ const Acount = (props) => {
                 </div>
                 <div className={ss.acc_main}>
                     <Routes>
-                        <Route path='timeline' element={<Timeline/>}/>
+                        <Route path='timeline' element={<Timeline state={props.state.mainreview} addPost={props.addPost} />}/>
                     </Routes>
                 </div>
             </div>

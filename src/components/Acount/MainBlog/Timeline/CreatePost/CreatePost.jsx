@@ -7,7 +7,7 @@ const CreatePost = () =>{
 
     let addpost = ()=>{
         let text = postel.current.value;
-        alert(text);
+        alert.addPost(text);
     }
 
 
