@@ -8,6 +8,10 @@ let state = {
             {name:'Andreu' , id:3 },
             {name:'ALya' , id:1},
             {name:'MAcs', id :2}
+        ],
+        dia: [
+            {name: 'HI'},
+            {name: ' i love you'}
         ]
     },
     acount:{
