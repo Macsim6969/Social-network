@@ -1,21 +1,26 @@
 import React from 'react';
 import s from './CreatePost.module.scss'
 
-const CreatePost = () =>{
-
+const CreatePost = (props) =>{
+debugger;
     let postel = React.createRef();
 
     let addpost = ()=>{
+        debugger;
         let text = postel.current.value;
-        alert.addPost(text);
+        props.addPost(text);
+        postel.current.value = '';
     }
 
+    let postChange = () =>{
+
+    }
 
     return(
         <div className={s.posts}>
             <div className={s.posts_inner}>
                 <img src="https://image.flaticon.com/icons/png/512/146/146018.png" alt="" />
-                <input ref={postel} type="text" name="" id="" size={50} placeholder='Write something here....' />
+                <input ref={postel} type="text" size={50} onChange={postChange} placeholder='Write something here....' value={props.postMessage} />
             </div>
             <div className={s.posts_dop}>
                 <div className={s.dop_inner}>

@@ -10,7 +10,7 @@ const Timeline = (props) => {
             <div className={ss.header_inner}>
                 <div className={ss.header_log}>Create Post</div>
                 <div className={ss.header_createpost}>
-                    <CreatePost  addPost={props.addPost}/>
+                    <CreatePost postMessage={props.postMessage} addPost={props.postMessage}/>
                 </div>
                 <div className={ss.header_post}>
                     {addrev}

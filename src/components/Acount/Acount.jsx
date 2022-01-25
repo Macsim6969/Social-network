@@ -37,7 +37,7 @@ const Acount = (props) => {
                 </div>
                 <div className={ss.acc_main}>
                     <Routes>
-                        <Route path='timeline' element={<Timeline state={props.state.mainreview} addPost={props.addPost} />}/>
+                        <Route path='timeline' element={<Timeline state={props.state.mainreview}  postMessage={props.state.mainreview} addPost={props.addPost} />}/>
                     </Routes>
                 </div>
             </div>

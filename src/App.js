@@ -10,7 +10,7 @@ import FIndfriends from './components/Find friends/FIndfriends';
 import Message from './components/Message/Message';
 import Rev from './components/Rev/Rev';
 import { addPost } from './Redux/State';
-
+import {addComm} from './Redux/State';
 
 
 
@@ -27,8 +27,8 @@ function App(props) {
           <Routes>
             <Route path='/message/*' element={<Message state={props.state.message} />} />
             <Route path='findfriend' element={<FIndfriends />} />
-            <Route path="/acount/*" element={<Acount state={props.state} addPost={props.addPost}/>} />
-            <Route path="/" element={<Maininner state={props.state.mainreview}/>} />
+            <Route path="/acount/*" element={<Acount state={props.state} addPost={props.addPost} postMessage={props.state}/>} />
+            <Route path="/" element={<Maininner state={props.state} addComm={props.addComm} />} />
             <Route path="/mylog" element={<Mylog />} />
             <Route path='./comments' element={<Rev />} />
           </Routes>
