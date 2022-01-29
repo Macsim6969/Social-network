@@ -1,17 +1,20 @@
 import { type } from '@testing-library/user-event/dist/type';
 import React from 'react';
+import { addPostActionCreater, postChangeActionCreater } from '../../../../../Redux/State';
 import s from './CreatePost.module.scss'
+
+
 
 const CreatePost = (props) =>{ 
     let postel = React.createRef();
-
+ 
     let addpost = ()=>{
-        props.dispatch({type : 'ADD-POST'});  
+        props.dispatch(addPostActionCreater());  
     }
 
     let postChange = () =>{
         let text = postel.current.value;
-        props.dispatch({type : 'CHANGE-NEW-POST' ,newpostText:text});   
+        props.dispatch(postChangeActionCreater(text));   
     }
 
     return(

@@ -8,7 +8,7 @@ const Nav = () => {
                <NavLink className={ss.navlinke} to="acount"><Content name='Oleg Kuplinov' /></NavLink>
                <NavLink className={ss.navlinke} to="findfriend"><Content name='Find Friends' /></NavLink>
                <NavLink className={ss.navlinke} to="acount"><Content name='Groups' /></NavLink>
-               <NavLink className={ss.navlinke} to="acount"><Content name='Saves' /></NavLink>
+               <NavLink className={ss.navlinke} to="saves"><Content name='Saves' /></NavLink>
                <NavLink className={ss.navlinke} to="acount"><Content name='Pages' /></NavLink>
                <NavLink className={ss.navlinke} to="rev"><Content name='Comments' /></NavLink>
             </div>

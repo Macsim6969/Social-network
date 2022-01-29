@@ -3,7 +3,7 @@ import Post from './Post/Post';
 import ss from './Timeline.module.scss'
 
 const Timeline = (props) => {
-
+ 
     let addrev = props.state.rev.map(r => <Post text={r.text} src={r.src}/>)
     return (
         <div className={ss.header}>

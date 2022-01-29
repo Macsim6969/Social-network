@@ -6,7 +6,7 @@ import SocialInfo from './LinkSocial/SocialInfo'
 import MainLink from './MainLink/MainLink'
 import Timeline from './MainBlog/Timeline/Timeline'
 import {NavLink, Route, Routes} from 'react-router-dom'
-
+ 
 const Acount = (props) => {
     let inform = props.state.acount.info.map(i => <SocialInfo name={i.name} number={i.number} />);
 

@@ -9,6 +9,7 @@ import Acount from './components/Acount/Acount';
 import FIndfriends from './components/Find friends/FIndfriends';
 import Message from './components/Message/Message'; 
 import Rev from './components/Rev/Rev';
+import Saves from './components/Saves/Saves';
 
 
 function App(props) {
@@ -20,14 +21,15 @@ function App(props) {
         <div className='block_inner'>
           <Nav />
         </div>
-        <div className='mainblock'>
+        <div className='mainblock'> 
           <Routes>
             <Route path='/message/*' element={<Message state={props.state.message} />} />
             <Route path='findfriend' element={<FIndfriends />} />
             <Route path="/acount/*" element={<Acount state={props.state} dispatch={props.dispatch} />} />
             <Route path="/" element={<Maininner state={props.state} dispatch={props.dispatch} />} />
             <Route path="/mylog" element={<Mylog />} />
-            <Route path='./comments' element={<Rev />} />
+            <Route path='/comments' element={<Rev />} />
+            <Route path='saves' element={<Saves state={props.state} dispatch={props.dispatch} />} />
           </Routes>
         </div>
       </div>
