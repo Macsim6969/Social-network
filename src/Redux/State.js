@@ -4,7 +4,8 @@ const ADD_COMM = 'ADD-COMM'
 const CHANGE_NEW_COMM = "CHANGE-NEW-COMM"
 const CHANGE_SAVE = 'CHANGE-SAVE'
 const CHANGE_NEW_SAVE = 'CHANGE-NEW-SAVE'
-
+const ADD_DIALOG = 'ADD-DIALOG'
+const  ADD_NEW_DIALOG = 'ADD-NEW-DIALOG'
 
 let store = {
     _state :{
@@ -20,8 +21,10 @@ let store = {
             ],
             dia: [
                 {name: 'HI'},
-                {name: ' i love you'}
-            ]
+                {name: ' i love you'},
+                {name: 'Hi , i too))'}
+            ],
+            newdialog : ''
         },
         acount:{
             info:[
@@ -93,10 +96,18 @@ let store = {
             }
             this._state.mainreview.text.push(newsave);
             this._state.mainreview.postSave = '';
-            this.rerenderTree(store);
+            this.rerenderTree(this._state);
         }else if(action.type === CHANGE_NEW_SAVE ){
             this._state.mainreview.postSave = action.newSaveText;
-            this.rerenderTree(store);
+            this.rerenderTree(this._state);
+        }else if ( action.type ===ADD_NEW_DIALOG){
+            this._state.message.newdialog = action.newSaveDialog;
+            this.rerenderTree(this._state); 
+        }else if(action.type === ADD_DIALOG){
+            let text  = this._state.message.newdialog ;
+            this._state.message.dia.push({name: text});
+            this._state.message.newdialog = '';
+            this.rerenderTree(this._state); 
         }
     }
      
@@ -136,6 +147,18 @@ export const addSaveAction = () =>{
 export const postSaveCreater = (text) =>{
     return{
         type : CHANGE_NEW_SAVE , newSaveText:text
+    }
+}
+
+export const addSaveDialog = () =>{
+    return{
+        type :ADD_DIALOG
+    }
+}
+
+export const postSaveDialog = (text) =>{
+    return{
+        type : ADD_NEW_DIALOG , newSaveDialog: text
     }
 }
 window.store= store;
