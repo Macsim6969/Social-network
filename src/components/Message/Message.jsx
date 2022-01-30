@@ -1,4 +1,4 @@
-import { addSaveDialog, postSaveDialog } from '../../Redux/State';
+import { addSaveDialog  ,postSaveDialog } from '../../Redux/Message-reducer';
 import ss from './Message.module.scss'
 import MessageDialogs from './MessageDialogs/MessageDialogs';
 import MessageList from './MessageList/MessageList';

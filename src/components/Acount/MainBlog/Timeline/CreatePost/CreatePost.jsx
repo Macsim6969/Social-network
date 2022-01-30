@@ -1,6 +1,8 @@
 import { type } from '@testing-library/user-event/dist/type';
 import React from 'react';
-import { addPostActionCreater, postChangeActionCreater } from '../../../../../Redux/State';
+import { addPostActionCreater ,postChangeActionCreater } from '../../../../../Redux/Mainreview-reducer';
+
+
 import s from './CreatePost.module.scss'
 
 

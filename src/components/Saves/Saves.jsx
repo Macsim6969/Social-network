@@ -1,6 +1,7 @@
 import DopInfo from "./DopInfo/DopIngo";
 import React from  'react';
-import { addSaveAction, postSaveCreater } from "../../Redux/State";
+import { addSaveAction ,postSaveCreater } from "../../Redux/Mainreview-reducer";
+
 
 
 const  Saves = (props) =>{
