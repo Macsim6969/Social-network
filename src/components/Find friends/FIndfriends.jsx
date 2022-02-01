@@ -1,4 +1,5 @@
 import ss from './Findfriend.module.css'
+import React from 'react';
 
 const FIndfriends = () =>{
     return(

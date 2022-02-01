@@ -1,4 +1,5 @@
 import ss from './Post.module.scss';
+import React from 'react';
 
 const Post = (props) => {
     return (

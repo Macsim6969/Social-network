@@ -1,4 +1,5 @@
 import ss from './LinkSoc.module.scss'
+import React from 'react';
 
 const LinkSoc = (props) => {
     return (

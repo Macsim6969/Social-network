@@ -1,4 +1,5 @@
 import ss from './Link.module.scss'
+import React from 'react';
 
 const Link = (props) =>{
     return ( 

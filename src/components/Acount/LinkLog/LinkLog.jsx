@@ -1,4 +1,5 @@
 import ss from './LinkLog.module.scss'
+import React from 'react';
 
 const LinkLog = (props)=>{
     return(

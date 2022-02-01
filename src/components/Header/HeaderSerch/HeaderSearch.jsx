@@ -1,4 +1,5 @@
 import ss from './HeaderSearch.module.scss'
+import React from 'react';
 
 const HeaderSearch = () => {
     return (

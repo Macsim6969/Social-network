@@ -1,5 +1,6 @@
 import CreatePost from './CreatePost/CreatePost';
 import Post from './Post/Post';
+import React from 'react';
 import ss from './Timeline.module.scss'
 
 const Timeline = (props) => {
