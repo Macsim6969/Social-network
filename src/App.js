@@ -24,11 +24,11 @@ function App(props) {
           <Routes>
             <Route path='message/*' element={<Message  store={props.store} />} />
             <Route path='findfriend' element={<FIndfriends />} />
-            <Route path="acount/*" element={<Acount state={props.state} dispatch={props.dispatch} />} />
-            <Route path="/" element={<Maininner state={props.state} dispatch={props.dispatch} />} />
+            <Route path="acount/*" element={<Acount store={props.store}  />} />
+            <Route path="/" element={<Maininner store={props.store} />} />
             <Route path="mylog" element={<Mylog />} />
             <Route path='comments' element={<Rev />} />
-            <Route path='saves' element={<Saves state={props.state} dispatch={props.dispatch} />} />
+            <Route path='saves' element={<Saves store={props.store}  />} />
           </Routes>
         </div>
       </div>

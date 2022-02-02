@@ -18,7 +18,7 @@ let initialState = {
     newdialog: ''
 }
 
-const messageReducer = (state = initialState, action) => {
+const messageReducer = (state = initialState, action) => { 
 
     switch (action.type) {
         case ADD_DIALOG:

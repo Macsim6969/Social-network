@@ -8,7 +8,9 @@ import Timeline from './MainBlog/Timeline/Timeline'
 import { Route, Routes} from 'react-router-dom'
  
 const Acount = (props) => {
-    let inform = props.state.acount.info.map(i => <SocialInfo name={i.name} number={i.number} />);
+    let state = props.store.getState();
+
+    let inform = state.acount.info.map(i => <SocialInfo name={i.name} number={i.number} />);
 
     return (
 
@@ -37,7 +39,7 @@ const Acount = (props) => {
                 </div>
                 <div className={ss.acc_main}>
                     <Routes>
-                        <Route path='timeline' element={<Timeline state={props.state.mainreview}  dispatch={props.dispatch} changeNewpost={props.changeNewpost}/>}/>
+                        <Route path='timeline' element={<Timeline  store={props.store}   />}/>
                     </Routes>
                 </div>
             </div>

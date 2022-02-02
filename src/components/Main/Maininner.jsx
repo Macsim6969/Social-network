@@ -5,16 +5,17 @@ import Main_rew from './Main_but/Main_rew';
 
 
 const Maininner = (props) => {
-debugger;
-    let post = React.createRef();
+
+    let state = props.store.getState();
+    let postText = state.postText;
 
     let addcomm = () =>{
-        props.dispatch(addCommActionCreater());
+        props.store.dispatch(addCommActionCreater());
     }
 
-    let onchangeCom = () =>{
-        let text = post.current.value;
-        props.dispatch(postChangeComCreater(text));
+    let onchangeCom = (e) =>{
+        let text = e.target.value;
+        props.store.dispatch(postChangeComCreater(text));
     }
 
     return (
@@ -24,10 +25,10 @@ debugger;
                 Ab eveniet est deleniti ut, sapiente similique dolor ipsa. Rem, dolore ipsa? Fugit voluptas, 
                 consectetur libero rem mollitia tempore porro dicta placeat?</div>
             <div>
-                <Main_rew state={props.state.mainreview}  />
+                <Main_rew store={props.store}  />
             </div>
             <div>
-                <input ref={post} value={props.postText} onChange={onchangeCom} type="text" placeholder="type comment pls"/>
+                <input  value={postText} onChange={onchangeCom} type="text" placeholder="type comment pls"/>
                 <button onClick={addcomm}>Type</button>
             </div>
                 

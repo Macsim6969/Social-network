@@ -1,29 +1,30 @@
-import { type } from '@testing-library/user-event/dist/type';
 import React from 'react';
-import { addPostActionCreater ,postChangeActionCreater } from '../../../../../Redux/Mainreview-reducer';
+import { addPostAcc, postChangeAcc } from '../../../../../Redux/Mainreview-reducer';
 
 
 import s from './CreatePost.module.scss'
 
 
-
 const CreatePost = (props) =>{ 
-    let postel = React.createRef();
+    let state = props.store.getState().mainreview;
+
+    let postMewMessage = state.postMewMessage;
  
     let addpost = ()=>{
-        props.dispatch(addPostActionCreater());  
+        props.store.dispatch(addPostAcc());  
+
     }
 
-    let postChange = () =>{
-        let text = postel.current.value;
-        props.dispatch(postChangeActionCreater(text));   
+    let postChange = (e) =>{
+        let text = e.target.value;
+        props.store.dispatch(postChangeAcc(text)) 
     }
 
     return(
         <div className={s.posts}>
             <div className={s.posts_inner}>
                 <img src="https://image.flaticon.com/icons/png/512/146/146018.png" alt="" />
-                <input ref={postel} type="text" size={50} onChange={postChange} placeholder='Write something here....' value={props.postMewMessage} />
+                <input  type="text" size={90} onChange={postChange} placeholder='Write something here....' value={postMewMessage} />
             </div>
             <div className={s.posts_dop}>
                 <div className={s.dop_inner}>

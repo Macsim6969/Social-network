@@ -22,7 +22,7 @@ let initialState = {
         { message: 'Hy alsp i died', src: 'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg' },
         { message: 'Hy alsp i died', src: 'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg' }
     ],
-    postMewMessage: ' Hi how are you ',
+    postMewMessage: '',
     postText: '',
     postSave: 'I love you'
 }; 
@@ -30,33 +30,25 @@ let initialState = {
 const mainreviewReducer = (state =initialState, action) => {
     switch (action.type) {
         case ADD_POST:
-            let newrev = {
-                text: state.postMewMessage,
-                src: 'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg'
-            }
-            state.rev.push(newrev);
+            let text = state.postMewMessage;
+            state.rev.push({text: text , src :'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg'});
             state.postMewMessage = '';
             return state;
         case CHANGE_NEW_POST:
-            state.postMewMessage = action.newpostText;
+            state.postMewMessage = action.PostAcc;
             return state;
         case ADD_COMM:
-            let newtext = {
-                message: state.postText,
-                src: 'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg'
-            }
-            state.text.push(newtext);
-            state.postText = '';
+            let textpost = state.postText;
+            state.text.push({message: textpost , src: 'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg' });
+            state.postText = '' ;
             return state;
         case CHANGE_NEW_COMM:
             state.postText = action.newpostText;
             return state;
         case CHANGE_SAVE:
-            let newsave = {
-                message: state.postSave,
-            }
-            state.text.push(newsave);
-            state.postSave = '';
+            let textsave = state.postSave;
+            state.text.push({message: textsave , src:'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg' });
+            state.postSave = '' ;
             return state;
         case CHANGE_NEW_SAVE:
             state.postSave = action.newSaveText;
@@ -68,16 +60,16 @@ const mainreviewReducer = (state =initialState, action) => {
 }
 
 
-export const addPostActionCreater = () => {
+export const addPostAcc = () => {
 
     return {
         type: ADD_POST
     }
 }
 
-export const postChangeActionCreater = (text) => {
+export const postChangeAcc = (text) => {
     return {
-        type: CHANGE_NEW_POST, newpostText: text
+        type: CHANGE_NEW_POST, PostAcc: text
     }
 }
 
@@ -99,9 +91,9 @@ export const addSaveAction = () => {
     }
 }
 
-export const postSaveCreater = (text) => {
+export const postSaveCreater = (textsave) => {
     return {
-        type: CHANGE_NEW_SAVE, newSaveText: text
+        type: CHANGE_NEW_SAVE, newSaveText: textsave
     }
 }
 
