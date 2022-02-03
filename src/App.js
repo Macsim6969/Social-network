@@ -9,6 +9,7 @@ import FIndfriends from './components/Find friends/FIndfriends';
 import Message from './components/Message/Message'; 
 import Rev from './components/Rev/Rev';
 import Saves from './components/Saves/Saves';
+import MessageContainer from './components/Message/MessageContainer';
 
 
 function App(props) {
@@ -22,7 +23,7 @@ function App(props) {
         </div>
         <div className='mainblock'> 
           <Routes>
-            <Route path='message/*' element={<Message  store={props.store} />} />
+            <Route path='message/*' element={<MessageContainer  store={props.store} />} />
             <Route path='findfriend' element={<FIndfriends />} />
             <Route path="acount/*" element={<Acount store={props.store}  />} />
             <Route path="/" element={<Maininner store={props.store} />} />
