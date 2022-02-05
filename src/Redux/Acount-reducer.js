@@ -17,4 +17,4 @@ const acountReducer = (state =initialState , action) =>{
     )
    }
 
-export default acountReducer;
+export default acountReducer; 

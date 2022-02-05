@@ -23,13 +23,13 @@ function App(props) {
         </div>
         <div className='mainblock'> 
           <Routes>
-            <Route path='message/*' element={<MessageContainer  store={props.store} />} />
-            <Route path='findfriend' element={<FIndfriends />} />
+        <Route path='message/*' element={<MessageContainer  store={props.store} />} /> 
+       { /*   <Route path='findfriend' element={<FIndfriends />} />
             <Route path="acount/*" element={<Acount store={props.store}  />} />
             <Route path="/" element={<Maininner store={props.store} />} />
             <Route path="mylog" element={<Mylog />} />
             <Route path='comments' element={<Rev />} />
-            <Route path='saves' element={<Saves store={props.store}  />} />
+            <Route path='saves' element={<Saves store={props.store}  />} />*/}
           </Routes>
         </div>
       </div>

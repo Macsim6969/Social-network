@@ -1,20 +1,26 @@
-import { addSaveDialog  ,postSaveDialog } from '../../Redux/Message-reducer';
+import { connect } from 'react-redux';
+import { addSaveDialog, postSaveDialog } from '../../Redux/Message-reducer';
 import Message from './Message';
 
 
 
-const MessageContainer = (props) => {
-    let post = props.store.getState();
-
-    let addNewDialogs = ()=>{
-        props.store.dispatch(addSaveDialog());
+let mapStateToProps = (state) => {
+    return {
+        message: state.message
     }
-    let onNewMessDial =(body) =>{
-      props.store.dispatch(postSaveDialog(body));
-    }
-    return (
-        <Message addSaveDialog={addNewDialogs} postSaveDialog={onNewMessDial} state={post.message} />
-    )
 }
+let mapDispatchToProps = (dispatch) => {
+    return {
+        addSaveDialog: () => {
+            dispatch.dispatch(addSaveDialog());
+        },
+        postSaveDialog: (body) => {
+            dispatch.dispatch(postSaveDialog(body));
+        }
+
+    }
+}
+
+const MessageContainer = connect(mapStateToProps, mapDispatchToProps)(Message);
 
 export default MessageContainer;

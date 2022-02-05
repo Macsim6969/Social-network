@@ -8,7 +8,7 @@ const  Saves = (props) =>{
 
     let state = props.store.getState().mainreview;
 
-    let postSave = state.postSave;
+    let postSave = state.postSave; 
 
     let  addClickSave = () =>{
         props.store.dispatch(addSaveAction());
