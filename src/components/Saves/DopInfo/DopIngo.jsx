@@ -3,9 +3,8 @@ import Rev from "../../Rev/Rev";
 
 
 const DopInfo = (props) =>{
-    let state = props.store.getState().mainreview;
 
-    let newrew = state.home.map(r => <Rev message={r.text}  src={r.src}/>);
+    let newrew = props.mainreview.home.map(r => <Rev message={r.text}  src={r.src}/>);
     
     return(
         <div>

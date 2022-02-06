@@ -5,10 +5,9 @@ import { addPostAcc, postChangeAcc } from '../../../../../Redux/Mainreview-reduc
 import s from './CreatePost.module.scss'
 
 
-const CreatePost = (props) =>{ 
-    let state = props.store.getState().mainreview;
+const CreatePost = (props) =>{
 
-    let postMewMessage = state.postMewMessage;
+    let postMewMessage = props.postMewMessage;
  
     let addpost = ()=>{
         props.store.dispatch(addPostAcc());  

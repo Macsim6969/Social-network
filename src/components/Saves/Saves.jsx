@@ -6,9 +6,7 @@ import { addSaveAction ,postSaveCreater } from "../../Redux/Mainreview-reducer";
 
 const  Saves = (props) =>{
 
-    let state = props.store.getState().mainreview;
-
-    let postSave = state.postSave; 
+    let postSave = props.mainreview.postSave;
 
     let  addClickSave = () =>{
         props.store.dispatch(addSaveAction());
@@ -19,7 +17,7 @@ const  Saves = (props) =>{
     }
     return(
         <div>
-            <DopInfo  store={props.store}/>
+            <DopInfo  mainreview={props.mainreview}/>
             <div>
                 <input type="text"   placeholder="write something ......." value={postSave} onChange={ChangeSaves}/>
                 <button onClick={addClickSave}>Click</button>

@@ -61,7 +61,8 @@ let store = {
             postMewMessage: ' Hi how are you ',
             postText: '',
             postSave: 'I love you'
-        }
+        },
+
     },
     getState() {
         return this._state;

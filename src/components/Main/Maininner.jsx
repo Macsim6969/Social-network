@@ -6,8 +6,7 @@ import Main_rew from './Main_but/Main_rew';
 
 const Maininner = (props) => {
 
-    let state = props.store.getState();
-    let postText = state.postText;
+    let postText = props.postText;
 
     let addcomm = () =>{
         props.store.dispatch(addCommActionCreater());
@@ -25,7 +24,7 @@ const Maininner = (props) => {
                 Ab eveniet est deleniti ut, sapiente similique dolor ipsa. Rem, dolore ipsa? Fugit voluptas, 
                 consectetur libero rem mollitia tempore porro dicta placeat?</div>
             <div>
-                <Main_rew store={props.store}  />
+                <Main_rew  mainreview={props.mainreview} />
             </div>
             <div>
                 <input  value={postText} onChange={onchangeCom} type="text" placeholder="type comment pls"/>

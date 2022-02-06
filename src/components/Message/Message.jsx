@@ -5,12 +5,12 @@ import MessageList from './MessageList/MessageList';
 
 
 const Message = (props) => {
+debugger;
 
+    let messel = props.message.mess.map(m => <MessageList name={m.name} id={m.id} />);
+    let newdilogs = props.message.dia.map(n => <MessageDialogs name={n.name} />);
 
-    let messel = props.state.mess.map(m => <MessageList name={m.name} id={m.id} />);
-    let newdilogs = props.state.dia.map(n => <MessageDialogs name={n.name} />);
-
-    let newdialog = props.state.newdialog;
+    let newdialog = props.message.newdialog;
 
     let addNewDialogs = ()=>{
         props.addSaveDialog();
@@ -23,7 +23,7 @@ const Message = (props) => {
         <div className={ss.mess}>
             <div className={ss.mess_peaple}>
                 {messel}
-            </div>
+            </div> 
             <div className={ss.mess_dialogs}>
                 {newdilogs}
 

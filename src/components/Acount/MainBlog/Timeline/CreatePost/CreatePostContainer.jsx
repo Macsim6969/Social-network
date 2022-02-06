@@ -1,29 +1,27 @@
 import React from 'react';
-import { addPostActionCreater ,postChangeActionCreater } from '../../../../../Redux/Mainreview-reducer';
-
-import CreatePost from './CreatePost';
+import { addPostAcc, postChangeAcc } from '../../../../../Redux/Mainreview-reducer';
 
 
-const CreatePostContainer = (props) =>{ 
-    let state = props.store.getState();
+import s from './CreatePost.module.scss'
+import {connect} from "react-redux";
+import CreatePost from "./CreatePost";
 
-    let addpost = ()=>{
-        props.store.dispatch(addPostActionCreater());  
+
+let mapStateToPost = (state) =>{
+    return{
+        postMewMessage : state.postMewMessage
     }
-
-    let postChange = (text) =>{
-        let action = postChangeActionCreater(text)
-        props.store.dispatch(action);   
-    }
-
-    return( 
-        <CreatePost updatepostChange ={postChange} 
-        postMewMessage={state.mainreview}
-        postLog={state.postLog}
-         changeNewpost={state.changeNewpost} 
-         postMessage={state.postMessage}
-            updateaddpost={addpost}/>
-    )
 }
+let mapActionToPost = (dispatch) =>{
+    return{
+        addPostAcc: () =>{
+            dispatch(addPostAcc());
+        },
+        postChangeAcc: (text) =>{
+            dispatch(postChangeAcc(text));
+        }
+    }
+}
+const CreatePostContainer= connect(mapStateToPost ,mapActionToPost)(CreatePost)
 
 export default CreatePostContainer;

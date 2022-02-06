@@ -12,14 +12,14 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         addSaveDialog: () => {
-            dispatch.dispatch(addSaveDialog());
+            dispatch(addSaveDialog());
         },
         postSaveDialog: (body) => {
-            dispatch.dispatch(postSaveDialog(body));
+            dispatch(postSaveDialog(body));
         }
 
     }
-}
+} 
 
 const MessageContainer = connect(mapStateToProps, mapDispatchToProps)(Message);
 
