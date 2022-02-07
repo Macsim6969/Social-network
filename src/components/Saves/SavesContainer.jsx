@@ -9,7 +9,6 @@ let mapStateToProps = (state) =>{
         mainreview : state.mainreview
     }
 }
-
 let mapDispatchToProps = (dispatch) =>{
     return{
         addSaveAction : ()=>{

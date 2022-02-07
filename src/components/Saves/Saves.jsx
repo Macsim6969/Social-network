@@ -1,6 +1,5 @@
 import DopInfo from "./DopInfo/DopIngo";
 import React from  'react';
-import { addSaveAction ,postSaveCreater } from "../../Redux/Mainreview-reducer";
 
 
 
@@ -9,11 +8,11 @@ const  Saves = (props) =>{
     let postSave = props.mainreview.postSave;
 
     let  addClickSave = () =>{
-        props.store.dispatch(addSaveAction());
+        props.addSaveAction();
     }    
     let ChangeSaves = (e) =>{
         let textsave = e.target.value;
-        props.store.dispatch(postSaveCreater(textsave));
+        props.postSaveCreater(textsave);
     }
     return(
         <div>

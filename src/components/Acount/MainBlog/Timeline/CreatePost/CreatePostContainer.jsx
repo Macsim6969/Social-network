@@ -9,7 +9,7 @@ import CreatePost from "./CreatePost";
 
 let mapStateToPost = (state) =>{
     return{
-        postMewMessage : state.postMewMessage
+        postMewMessage : state.mainreview.postMewMessage,
     }
 }
 let mapActionToPost = (dispatch) =>{

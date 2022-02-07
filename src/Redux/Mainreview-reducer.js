@@ -39,28 +39,33 @@ const mainreviewReducer = (state =initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             let text = state.postMewMessage;
-            state.rev.push({text: text , src :'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg'});
-            state.postMewMessage = '';
-            return state;
+            return {
+               ...state , postMewMessage : '', rev: [...state.rev , { text: text,  src: 'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg'} ]
+            }
         case CHANGE_NEW_POST:
-            state.postMewMessage = action.PostAcc;
-            return state;
+            return {
+                ...state , postMewMessage : action.PostAcc
+            }
         case ADD_COMM:
             let texthome = state.postText;
-            state.text.push({message : texthome , src: 'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg'},)
-            state.postText= '' ;
-            return state;
+            return {
+                ...state ,  postText: '', text : [...state.text , {message: texthome, src: 'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg'} ]
+            }
         case CHANGE_NEW_COMM:
-            state.postText = action.newpostText;
-            return state;
+            return {
+                ...state , postText: action.newpostText
+            }
+
         case CHANGE_SAVE:
             let textsave = state.postSave;
-            state.home.push({text: textsave , src:'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg' });
-            state.postSave = '' ;
-            return state;
+            return {
+                ...state , postSave: '' , home: [...state.home , {text: textsave, src: 'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg'} ]
+            }
         case CHANGE_NEW_SAVE:
-            state.postSave = action.newSaveText;
-            return state;
+            return {
+                ...state , postSave: action.newSaveText
+            }
+
         default:
             return state;
     }

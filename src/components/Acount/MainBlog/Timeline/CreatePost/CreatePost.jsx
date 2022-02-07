@@ -7,23 +7,22 @@ import s from './CreatePost.module.scss'
 
 const CreatePost = (props) =>{
 
-    let postMewMessage = props.postMewMessage;
  
     let addpost = ()=>{
-        props.store.dispatch(addPostAcc());  
+        props.addPostAcc();
 
     }
 
     let postChange = (e) =>{
         let text = e.target.value;
-        props.store.dispatch(postChangeAcc(text)) 
+        props.postChangeAcc(text);
     }
 
     return(
         <div className={s.posts}>
             <div className={s.posts_inner}>
                 <img src="https://image.flaticon.com/icons/png/512/146/146018.png" alt="" />
-                <input  type="text" size={90} onChange={postChange} placeholder='Write something here....' value={postMewMessage} />
+                <input  type="text" size={90} onChange={postChange} placeholder='Write something here....' value={props.postMewMessage} />
             </div>
             <div className={s.posts_dop}>
                 <div className={s.dop_inner}>

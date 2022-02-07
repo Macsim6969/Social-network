@@ -8,7 +8,7 @@ import Maininner from "./Maininner";
 
 let mapStateToProps = (state) =>{
     return {
-        postText : state.postText,
+        postText : state.mainreview.postText,
         mainreview: state.mainreview
     }
 }

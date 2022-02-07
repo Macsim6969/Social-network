@@ -6,15 +6,14 @@ import Main_rew from './Main_but/Main_rew';
 
 const Maininner = (props) => {
 
-    let postText = props.postText;
 
     let addcomm = () =>{
-        props.store.dispatch(addCommActionCreater());
+        props.addCommActionCreater();
     }
 
     let onchangeCom = (e) =>{
         let text = e.target.value;
-        props.store.dispatch(postChangeComCreater(text));
+        props.postChangeComCreater(text);
     }
 
     return (
@@ -27,7 +26,7 @@ const Maininner = (props) => {
                 <Main_rew  mainreview={props.mainreview} />
             </div>
             <div>
-                <input  value={postText} onChange={onchangeCom} type="text" placeholder="type comment pls"/>
+                <input  value={props.postText} onChange={onchangeCom} type="text" placeholder="type comment pls"/>
                 <button onClick={addcomm}>Type</button>
             </div>
                 

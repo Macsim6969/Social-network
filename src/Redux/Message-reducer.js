@@ -23,12 +23,14 @@ const messageReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_DIALOG:
             let text = state.newdialog;
-            state.dia.push({ name: text });
-            state.newdialog = '';
-            return state;
+            return {
+                ...state , newdialog: '' , dia: [...state.dia ,{name: text} ]
+            }
         case ADD_NEW_DIALOG:
-            state.newdialog = action.newSaveDialog;
-            return state;
+            return {
+                ...state , newdialog: action.newSaveDialog
+            }
+
         default:
             return state;
     }
