@@ -4,13 +4,12 @@ import ss from './Account.module.scss'
 import LinkLog from './LinkLog/LinkLog'
 import SocialInfo from './LinkSocial/SocialInfo'
 import MainLink from './MainLink/MainLink'
-import Timeline from './MainBlog/Timeline/Timeline'
 import { Route, Routes} from 'react-router-dom'
+import TimelineContainer from "./MainBlog/Timeline/TimelineContainer";
  
 const Acount = (props) => {
-    let state = props.store.getState();
 
-    let inform = state.acount.info.map(i => <SocialInfo name={i.name} number={i.number} />);
+    let inform = props.acount.info.map(i => <SocialInfo name={i.name} number={i.number} />);
 
     return (
 
@@ -39,7 +38,7 @@ const Acount = (props) => {
                 </div>
                 <div className={ss.acc_main}>
                     <Routes>
-                        <Route path='timeline' element={<Timeline  store={props.store}   />}/>
+                        <Route path='timeline' element={<TimelineContainer   />}/>
                     </Routes>
                 </div>
             </div>
