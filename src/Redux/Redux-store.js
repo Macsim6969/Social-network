@@ -2,13 +2,14 @@ import {combineReducers, createStore} from 'redux';
 import acountReducer from './Acount-reducer';
 import mainreviewReducer from './Mainreview-reducer';
 import messageReducer from './Message-reducer';
-import friendreducer from "./Friend-reducer";
+import friendReducer from "./Friend-reducer";
+
 
 let reducer = combineReducers({
     mainreview :mainreviewReducer,
     message :messageReducer,
-    acount: acountReducer,
-    friend : friendreducer
+    friends :friendReducer,
+    acount: acountReducer
 });
 
 let store = createStore(reducer);
