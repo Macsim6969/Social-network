@@ -2,8 +2,8 @@ const ADD = 'ADD';
 const DELETE = 'DELETE';
 const SET_FRIENDS = 'SET-FRIEDNDS';
 
-let initalState = {
-    users: [
+let initalState = { 
+    users: [ 
         {id: 1, add: false, login: 'Jaques Amole', friend: '40 friends', ava: 'https://i.pinimg.com/originals/a8/bd/50/a8bd501a4a8994943eba503bdbef68bf.jpg'},
         {id: 2, add: false, login: 'Lucy Tania', friend: '12 friends', ava: 'https://yt3.ggpht.com/ytc/AKedOLTKKdx0_MMKkwsvy77mvH_xmJ90SIuMN-4uELss=s900-c-k-c0x00ffffff-no-rj'},
         {id: 3, add: false, login: 'Val Adictorian', friend: '0 friends', ava: 'https://i.ytimg.com/vi/jeoJjx-tVFo/maxresdefault.jpg'},

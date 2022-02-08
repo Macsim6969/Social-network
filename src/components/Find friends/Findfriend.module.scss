@@ -1,0 +1,36 @@
+.log_find{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    .find{
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        .findfriend{
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: flex-start;
+            width: 1168px;
+            padding-bottom: 20px;
+            justify-content: space-between;
+            .friendsss{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+            .img{
+                width: 100px;
+                height: 95px;
+                border-radius: 50%;
+            }
+            .friendbiogr{
+                padding-left: 30px;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}

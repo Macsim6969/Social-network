@@ -8,7 +8,7 @@ const CHANGE_SAVE = 'CHANGE-SAVE'
 const CHANGE_NEW_SAVE = 'CHANGE-NEW-SAVE'
 
  
-let initialState = {
+let initialState = { 
     rev: [
         { text: ' Hy , it\'s my first comment. I like this project !!! . I think he help me to quickly start in this language. I love React .', src: 'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg' },
         { text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. ', src: 'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg' },
