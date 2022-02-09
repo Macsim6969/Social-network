@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
-import FIndfriends from "./Findfriends";
 import {addAC, deleteAC, setFriends} from "../../Redux/Friend-reducer";
+import Findfriends from "./FIndfriends";
 
 let mapStateToProps = (state) =>{
     return{
@@ -22,4 +22,4 @@ let mapDispatchToProps = (dispatch) =>{
     }
 }
 
- export default  connect(mapStateToProps, mapDispatchToProps )(FIndfriends );
+ export default  connect(mapStateToProps, mapDispatchToProps )(Findfriends);

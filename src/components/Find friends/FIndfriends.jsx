@@ -1,17 +1,31 @@
 import ss from './Findfriend.module.scss'
 import React from 'react';
+import {setFriends} from "../../Redux/Friend-reducer";
+import * as axios from "axios";
+import usersPhoto from '../../assets/image/users.png';
 
 const Findfriends = (props) => {
+
+    if (props.users.length === 0){
+
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response =>{
+
+            props.setFr( response.data.items)
+        });
+
+
+    }
+
     return (
         <div className={ss.log_find}>
             People You May Know
             <div className={ss.find}>{props.users.map(u =>
                 <div className={ss.findfriend} key={u.id}>
                     <div className={ss.friendsss}>
-                        <nav><img className={ss.img} src={u.ava} /></nav>
+                        <nav><img className={ss.img} src={u.photos.small != null ? u.photos.small : usersPhoto} /></nav>
                         <span className={ss.friendbiogr}>
-                            <div>{u.login}</div>
-                            <div>{u.friend}</div>
+                            <div>{u.name}</div>
+                            <div>{'u.friend'}</div>
                         </span>
                     </div>
                     <div>
