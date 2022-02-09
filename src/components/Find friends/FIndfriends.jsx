@@ -5,20 +5,22 @@ import * as axios from "axios";
 import usersPhoto from '../../assets/image/users.png';
 
 const Findfriends = (props) => {
+    let getUsers = () =>{
+        if (props.users.length === 0){
 
-    if (props.users.length === 0){
-
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response =>{
-
-            props.setFr( response.data.items)
-        });
-
-
+            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response =>{
+    
+                props.setFr( response.data.items)
+            });
+    
+    
+        }
     }
 
     return (
         <div className={ss.log_find}>
             People You May Know
+            <button onClick={getUsers}>Show Me</button>
             <div className={ss.find}>{props.users.map(u =>
                 <div className={ss.findfriend} key={u.id}>
                     <div className={ss.friendsss}>
