@@ -22,7 +22,7 @@ function App(props) {
                 <div className='mainblock'>
                     <Routes>
                         <Route path='message/*' element={<MessageContainer/>}/>
-                        <Route path='findfriend' element={<FIndfriendsContainer/>}/>
+                         <Route path='findfriend' element={<FIndfriendsContainer/>}/> 
                         <Route path="acount/*" element={<AcountContainer store={props.store}/>}/>
                         <Route path="/" element={<MaininnerContainer/>}/>
                         <Route path="mylog" element={<Mylog/>}/>

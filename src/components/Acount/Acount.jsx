@@ -6,6 +6,7 @@ import SocialInfo from './LinkSocial/SocialInfo'
 import MainLink from './MainLink/MainLink'
 import { Route, Routes} from 'react-router-dom'
 import TimelineContainer from "./MainBlog/Timeline/TimelineContainer";
+import PhotoContainer from './MainBlog/Photos/PhotoContainer'
  
 const Acount = (props) => {
 
@@ -39,6 +40,7 @@ const Acount = (props) => {
                 <div className={ss.acc_main}>
                     <Routes>
                         <Route path='timeline' element={<TimelineContainer   />}/>
+                        <Route path = 'photos' element = {<PhotoContainer />} />
                     </Routes>
                 </div>
             </div>

@@ -40,7 +40,7 @@ export const addAC = (id) => {
     return {
         type: ADD, id
     }
-}
+} 
 
 export const deleteAC = (id) => {
     return {
