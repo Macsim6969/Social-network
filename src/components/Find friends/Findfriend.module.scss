@@ -2,7 +2,24 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
+    .logg{
+        margin: 35px 0;
+        span{
+            padding: 20px 45px; 
+            background-color: aqua;
+            font-size: 18px;
+            border-radius: 20px;
+            color: black;
+        }
+        .selector{
+            padding: 20px 45px;
+            border-radius: 20px;
+            background-color: rgb(56, 105, 105);
+            font-size: 18px;
+            color: white;
+        }
+    }
     .find{
         display: flex; 
         flex-direction: column;
@@ -20,11 +37,11 @@
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-            }
-            .img{
-                width: 100px;
-                height: 95px;
-                border-radius: 50%;
+                .img{
+                    width: 100px;
+                    height: 95px;
+                    border-radius: 50%;
+                }
             }
             .friendbiogr{
                 padding-left: 30px;

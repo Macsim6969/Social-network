@@ -1,0 +1,19 @@
+.photo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .photos{
+        margin: 35px 0;
+        span{
+            background-color: aqua;
+            padding: 15px 50px;
+            color: black;
+        }
+        .selector{
+            background-color: rgb(23, 46, 46);
+            padding: 15px 50px;
+            color: rgb(247, 4, 4);
+        }
+    }
+}

@@ -1,10 +1,14 @@
 const P_ADD = 'P-ADD';
 const P_DELETE = 'P-DELETE';
 const P_SET = 'P-SET';
-
+const P_TOTAL = 'P-TOTAL';
+const P_CURRENT= 'P-CURRENT';
 
 let initalState = {
-    users: []
+    users: [],
+    pageSize : 1,
+    totalUsersCount : 0,
+    currentPage : 5
 }
 
 const photoReducer = (state = initalState, action) => {
@@ -30,8 +34,16 @@ const photoReducer = (state = initalState, action) => {
             }
         case P_SET :
             return{
-                ...state , users : [...state.users , ...action.users]
+                ...state , users : action.users
             }
+        case P_TOTAL :
+            return{
+                ...state , totalUsersCount: action.totalCount
+            }
+        case P_CURRENT :
+            return{
+                ...state , currentPage : action.currentPage
+            } 
         default :
            return state ;
  
@@ -54,5 +66,14 @@ export const photoSetAC = (users) =>{
         type : P_SET , users
     }
 }
-
+export const photoCurrentAC = (current) =>{
+    return{
+        type: P_CURRENT , current
+    }
+}
+export const totalAC = (totalCount) =>{
+    return{
+        type: P_TOTAL , totalCount
+    }
+}
 export default photoReducer;

@@ -1,12 +1,15 @@
 import { connect } from "react-redux";
-import { photoAdAC, photoDelAC, photoSetAC } from "../../../../Redux/Photos-reducer";
+import { photoAdAC, photoCurrentAC, photoDelAC, photoSetAC, totalAC } from "../../../../Redux/Photos-reducer";
 import Photo from "./Photo";
 
 
 
 const mapStateToProps = (state) =>{
     return{
-        users : state.photos.users
+        users : state.photos.users,
+        pageSize : state.photos.pageSize,
+        totalUsersCount : state.photos.totalUsersCount,
+        currentPage : state.photos.currentPage
     }
 }
 const mapDispatchToProps = (dispatch) =>{
@@ -19,7 +22,12 @@ const mapDispatchToProps = (dispatch) =>{
         },
         set : (users) =>{
             dispatch(photoSetAC(users));
-
+        },
+        photoCurrentAC: (current) =>{
+            dispatch(photoCurrentAC(current));
+        },
+        totalAC: (totalCount) =>{
+            dispatch(totalAC(totalCount))
         }
     }
 }
