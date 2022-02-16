@@ -1,3 +1,5 @@
+const SET_PROFILE = 'SET_PROFILE';
+
 let initialState = {
     info: [
         { name: 'Posts', number: 880 },
@@ -9,12 +11,25 @@ let initialState = {
         { name: 'About' },
         { name: 'Friends' },
         { name: 'Photos' }
-    ]
+    ],
+    profile: null
 }
-const acountReducer = (state =initialState , action) =>{
-    return(
-        state
-    )
-   }
+const acountReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case SET_PROFILE:
+            return {
+                ...state, profile: action.profile
+            }
+        default: {
+            return state
+        }
+    }
+}
+
+export const setProfileAC = (profile) =>{
+    return{
+        type: SET_PROFILE , profile
+    }
+}
 
 export default acountReducer; 

@@ -1,6 +1,7 @@
 import ss from './Findfriend.module.scss'
 import React from 'react';
 import usersPhoto from '../../assets/image/users.png';
+import { NavLink } from 'react-router-dom';
 
 
 const Findfriends = (props) => {
@@ -26,7 +27,10 @@ const Findfriends = (props) => {
             <div className={ss.find}>{props.users.map(u =>
                 <div className={ss.findfriend} key={u.id}>
                     <div className={ss.friendsss}>
-                        <nav><img className={ss.img} src={u.photos.small != null ? u.photos.small : usersPhoto} />
+                        <nav>
+                            <NavLink to={'/users' + u.id}>
+                            <img className={ss.img} src={u.photos.small != null ? u.photos.small : usersPhoto} />
+                            </NavLink>
                         </nav>
                         <span className={ss.friendbiogr}>
                             <div>{u.name}</div>

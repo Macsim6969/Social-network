@@ -8,6 +8,7 @@ import SavesContainer from "./components/Saves/SavesContainer";
 import MaininnerContainer from "./components/Main/MaininnerContainer";
 import AcountContainer from "./components/Acount/AcountContainer";
 import FIndfriendsContainer from "./components/Find friends/FIndfriendsContainer";
+import ProfileUSersContainer from './components/ProfileUsers/ProfileUSersContainer';
 
 
 function App(props) {
@@ -27,6 +28,7 @@ function App(props) {
                         <Route path="/" element={<MaininnerContainer/>}/>
                         <Route path="mylog" element={<Mylog/>}/>
                         <Route path='saves' element={<SavesContainer/>}/>
+                        <Route path='users' element={<ProfileUSersContainer/>}/>
                     </Routes>
                 </div>
             </div>

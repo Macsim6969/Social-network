@@ -11,6 +11,7 @@ const Nav = () => {
                <NavLink className={ss.navlinke} to="saves"><Content name='Saves' /></NavLink>
                <NavLink className={ss.navlinke} to="acount"><Content name='Pages' /></NavLink>
                <NavLink className={ss.navlinke} to="rev"><Content name='Comments' /></NavLink>
+               <NavLink className={ss.navlinke} to="users"><Content name='ProfileUSers' /></NavLink>
             </div>
     )
 }
