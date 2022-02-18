@@ -16,19 +16,20 @@ let initialState = {
 }
 const acountReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_PROFILE:
+        case SET_PROFILE: {
             return {
                 ...state, profile: action.profile
             }
+        }
         default: {
             return state
         }
     }
 }
 
-export const setProfileAC = (profile) =>{
-    return{
-        type: SET_PROFILE , profile
+export const getUserID = (profile) => {
+    return {
+        type: SET_PROFILE, profile
     }
 }
 

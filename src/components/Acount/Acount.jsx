@@ -9,7 +9,6 @@ import TimelineContainer from "./MainBlog/Timeline/TimelineContainer";
 import PhotoContainer from './MainBlog/Photos/PhotoContainer'
  
 const Acount = (props) => {
-
     let inform = props.acount.info.map(i => <SocialInfo name={i.name} number={i.number} />);
 
     return (
@@ -28,7 +27,7 @@ const Acount = (props) => {
                         <AccLink link='https://w7.pngwing.com/pngs/772/115/png-transparent-computer-icons-telegram-logo-angle-white-triangle.png' />
                     </div>
                     <div className={ss.link_log}>
-                        <LinkLog name="M_A_C_S_669" />
+                        <LinkLog name="M_A_C_S_669" profile={props.profile} />
                     </div>
                     <div className={ss.link_soc}>
                         {inform}

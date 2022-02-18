@@ -4,23 +4,24 @@ import {addAC, deleteAC, isFetchingAC, isLoader, setCurrentAC, setFriends, setTo
 import Findfriends from './FIndfriends';
 import * as axios from "axios";
 import Loader from '../../assets/image/loaders.svg';
+import { getUsers } from '../../API/API';
 
 
 class FindfriendsAPI extends React.Component {
 
     componentDidMount() {
         this.props.isFetchingAC(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+        getUsers(this.props.currentPage , this.props.pageSize).then(response =>{
             this.props.isFetchingAC(false)
             this.props.setFr(response.data.items);
             this.props.setTotalAC(response.data.totalCount)
-        });
+        })        
     }
 
     onpageClick = (current) =>{
         this.props.setCurrentAC(current);
         this.props.isFetchingAC(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${current}&count=${this.props.pageSize}`).then(response => {
+        getUsers(current , this.props.pageSize).then(response =>{
             this.props.setFr(response.data.items);
             this.props.isFetchingAC(false);
         });

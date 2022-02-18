@@ -2,7 +2,7 @@ import './App.scss';
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 import Mylog from './components/Mylog/Mylog';
-import {Route, Routes} from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import MessageContainer from './components/Message/MessageContainer';
 import SavesContainer from "./components/Saves/SavesContainer";
 import MaininnerContainer from "./components/Main/MaininnerContainer";
@@ -24,11 +24,11 @@ function App(props) {
                     <Routes>
                         <Route path='message/*' element={<MessageContainer/>}/>
                          <Route path='findfriend' element={<FIndfriendsContainer/>}/> 
-                        <Route path="acount/*" element={<AcountContainer store={props.store}/>}/>
+                        <Route path="profile/*" element={<AcountContainer store={props.store}/>}/>
                         <Route path="/" element={<MaininnerContainer/>}/>
                         <Route path="mylog" element={<Mylog/>}/>
                         <Route path='saves' element={<SavesContainer/>}/>
-                        <Route path='users' element={<ProfileUSersContainer/>}/>
+                        
                     </Routes>
                 </div>
             </div>

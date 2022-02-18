@@ -2,6 +2,7 @@ import ss from './Findfriend.module.scss'
 import React from 'react';
 import usersPhoto from '../../assets/image/users.png';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 
 
 const Findfriends = (props) => {
@@ -28,8 +29,8 @@ const Findfriends = (props) => {
                 <div className={ss.findfriend} key={u.id}>
                     <div className={ss.friendsss}>
                         <nav>
-                            <NavLink to={'/users' + u.id}>
-                            <img className={ss.img} src={u.photos.small != null ? u.photos.small : usersPhoto} />
+                            <NavLink to={'/profile/:userId'}>
+                                <img className={ss.img} src={u.photos.small != null ? u.photos.small : usersPhoto} />
                             </NavLink>
                         </nav>
                         <span className={ss.friendbiogr}>
@@ -38,15 +39,29 @@ const Findfriends = (props) => {
                         </span>
                     </div>
                     <div>
-                        {u.add ? <button onClick={() => {
-                            props.delete(u.id)
-                        }}>Add friend</button> : <button onClick={() => {
-                            props.add(u.id)
-                        }}>Remove</button>}
+                        {u.add ?
+                            <button onClick={() => {
+                                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, { withCredentials: true ,headers: {"API-KEY" : '9739fd73-191f-4205-acfa-edb2b33872d1'}  }).then(response => {
+                                    if (response.data.resultCode == 0) {
+                                        props.delete(u.id);
+                                    }
+                                });
+                            }
+
+                            }>Remove</button> :
+                            <button onClick={() => {
+                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, { withCredentials: true,headers: {"API-KEY" : '9739fd73-191f-4205-acfa-edb2b33872d1'} }).then(response => {
+                                    if (response.data.resultCode == 0) {
+                                        props.add(u.id);
+                                    }
+                                })
+                            }
+
+                            }>Add Friends</button>}
                     </div>
                 </div>)}
             </div>
-        </div>
+        </div >
     )
 }
 
