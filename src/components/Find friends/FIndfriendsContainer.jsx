@@ -2,16 +2,16 @@ import React from 'react';
 import {connect} from "react-redux";
 import {addAC, deleteAC, isFetchingAC, isLoader, setCurrentAC, setFriends, setTotalAC} from "../../Redux/Friend-reducer";
 import Findfriends from './FIndfriends';
-import * as axios from "axios";
+
 import Loader from '../../assets/image/loaders.svg';
-import { getUsers, usersAPI } from '../../API/API';
+import {  usersAPI } from '../../API/API';
+ 
 
-
-class FindfriendsAPI extends React.Component {
-
+class FindfriendsAPI extends React.Component { 
     componentDidMount() {
         this.props.isFetchingAC(true)
-        usersAPI.getUsers(this.props.currentPage , this.props.pageSize).then(data =>{
+        usersAPI.getUsers(this.props.currentPage , this.props.pageSize)
+        .then(data =>{
             this.props.isFetchingAC(false)
             this.props.setFr(data.items);
             this.props.setTotalAC(data.totalCount)

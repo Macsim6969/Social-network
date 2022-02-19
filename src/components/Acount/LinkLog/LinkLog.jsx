@@ -2,7 +2,6 @@ import ss from './LinkLog.module.scss'
 import React from 'react';
 
 const LinkLog = (props) => {
-    debugger;
     if (!props.profile) {
         return (
             <div className={ss.log}>

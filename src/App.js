@@ -8,8 +8,7 @@ import SavesContainer from "./components/Saves/SavesContainer";
 import MaininnerContainer from "./components/Main/MaininnerContainer";
 import AcountContainer from "./components/Acount/AcountContainer";
 import FIndfriendsContainer from "./components/Find friends/FIndfriendsContainer";
-import ProfileUSersContainer from './components/ProfileUsers/ProfileUSersContainer';
-import NewsContainer from './components/News/NewsContainer';
+import UsersContainer from './components/Users/UsersContainer';
 
 
 function App(props) {
@@ -24,12 +23,12 @@ function App(props) {
                 <div className='mainblock'>
                     <Routes>
                         <Route path='message/*' element={<MessageContainer/>}/>
-                         <Route path='findfriend' element={<FIndfriendsContainer/>}/> 
+                         
                         <Route path="profile/*" element={<AcountContainer store={props.store}/>}/>
                         <Route path="/" element={<MaininnerContainer/>}/>
                         <Route path="mylog" element={<Mylog/>}/>
                         <Route path='saves' element={<SavesContainer/>}/>
-                        <Route path='news' element={<NewsContainer />}/>
+                        <Route path='news' element={<UsersContainer />}/>
                         
                     </Routes>
                 </div>

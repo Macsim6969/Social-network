@@ -1,17 +1,13 @@
-import ss from './Findfriend.module.scss'
-import React from 'react';
+import { NavLink } from "react-router-dom";
+import { usersAPI } from "../../API/API";
 import usersPhoto from '../../assets/image/users.png';
-import { NavLink } from 'react-router-dom';
-import axios from 'axios';
-import { usersAPI } from '../../API/API';
+import ss from './Users.module.scss'
 
- 
-const Findfriends = (props) => {
-
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+const Users = (props) => {
+    let pageCurrent = Math.ceil(props.totalUserCount / props.pageSize)
     let pages = []
-    for (let i = 1; i < pagesCount; i++) {
-        if (pages.length < 10) { 
+    for (let i = 1; i <= pageCurrent; i++) {
+        if (pages.length < 10) {
             pages.push(i);
         }
     }
@@ -45,7 +41,7 @@ const Findfriends = (props) => {
                                 usersAPI.getDelete(u.id)
                                 .then(data => {
                                     if (data.resultCode == 0) {
-                                        props.delete(u.id);
+                                        props.deletes(u.id);
                                     }
                                 });
                             }
@@ -55,7 +51,7 @@ const Findfriends = (props) => {
                                 usersAPI.getADD(u.id)
                                 .then(data => {
                                     if (data.resultCode == 0) {
-                                        props.add(u.id);
+                                        props.addAC(u.id);
                                     }
                                 })
                             }
@@ -68,4 +64,4 @@ const Findfriends = (props) => {
     )
 }
 
-export default Findfriends;
+export default Users;

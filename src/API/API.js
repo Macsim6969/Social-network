@@ -1,5 +1,5 @@
 import * as axios from 'axios';
-
+ 
 
 const instance = axios.create({
     withCredentials : true ,
@@ -10,7 +10,7 @@ const instance = axios.create({
 
 export const usersAPI = {
     getUsers:(currentPage = 1 ,pageSize = 5) =>{
-        return(
+        return( 
            instance.get( `users?page=${currentPage}&count=${pageSize}`)
            .then(response => response.data)
         )

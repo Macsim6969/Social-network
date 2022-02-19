@@ -5,7 +5,6 @@ import MessageList from './MessageList/MessageList';
 
 
 const Message = (props) => {
-    debugger;
     let messel = props.message.mess.map(m => <MessageList name={m.name} id={m.id} />);
     let newdilogs = props.message.dia.map(n => <MessageDialogs name={n.name} />);
 

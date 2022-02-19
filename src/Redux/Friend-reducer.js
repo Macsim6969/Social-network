@@ -1,4 +1,4 @@
-const ADD = 'ADD';
+const ADD = 'ADD'; 
 const DELETE = 'DELETE';
 const SET_FRIENDS = 'SET-FRIEDNDS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
@@ -7,7 +7,7 @@ const SET_lOADER = 'SET-lOADER'
 
 let initalState = { 
     users: [],
-    pageSize : 5,
+    pageSize : 5, 
     totalUsersCount : 0,
     currentPage : 2 ,
     isFetching: false
