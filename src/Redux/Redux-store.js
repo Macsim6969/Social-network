@@ -5,6 +5,7 @@ import messageReducer from './Message-reducer';
 import friendReducer from "./Friend-reducer";
 import photoReducer from './Photos-reducer';
 import authReducer from './auth-reducer';
+import  newsReducer  from './News-reducer';
 
 
 let reducer = combineReducers({
@@ -13,7 +14,8 @@ let reducer = combineReducers({
     friends :friendReducer,
     acount: acountReducer,
     photos : photoReducer,
-    auth : authReducer
+    auth : authReducer,
+    news : newsReducer
 });
 
 let store = createStore(reducer);

@@ -5,11 +5,11 @@ import Message from './Message';
 
 
 let mapStateToProps = (state) => {
-    return {
+    return { 
         message: state.message
     }
 }
-let mapDispatchToProps = (dispatch) => {
+let mapDispatchToProps = (dispatch) => { 
     return {
         addSaveDialog: () => {
             dispatch(addSaveDialog());

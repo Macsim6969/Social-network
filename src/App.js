@@ -9,6 +9,7 @@ import MaininnerContainer from "./components/Main/MaininnerContainer";
 import AcountContainer from "./components/Acount/AcountContainer";
 import FIndfriendsContainer from "./components/Find friends/FIndfriendsContainer";
 import ProfileUSersContainer from './components/ProfileUsers/ProfileUSersContainer';
+import NewsContainer from './components/News/NewsContainer';
 
 
 function App(props) {
@@ -28,6 +29,7 @@ function App(props) {
                         <Route path="/" element={<MaininnerContainer/>}/>
                         <Route path="mylog" element={<Mylog/>}/>
                         <Route path='saves' element={<SavesContainer/>}/>
+                        <Route path='news' element={<NewsContainer />}/>
                         
                     </Routes>
                 </div>

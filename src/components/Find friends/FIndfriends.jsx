@@ -3,6 +3,7 @@ import React from 'react';
 import usersPhoto from '../../assets/image/users.png';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
+import { usersAPI } from '../../API/API';
 
 
 const Findfriends = (props) => {
@@ -41,8 +42,9 @@ const Findfriends = (props) => {
                     <div>
                         {u.add ?
                             <button onClick={() => {
-                                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, { withCredentials: true ,headers: {"API-KEY" : '9739fd73-191f-4205-acfa-edb2b33872d1'}  }).then(response => {
-                                    if (response.data.resultCode == 0) {
+                                usersAPI.getDelete(u.id)
+                                .then(data => {
+                                    if (data.resultCode == 0) {
                                         props.delete(u.id);
                                     }
                                 });
@@ -50,8 +52,9 @@ const Findfriends = (props) => {
 
                             }>Remove</button> :
                             <button onClick={() => {
-                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, { withCredentials: true,headers: {"API-KEY" : '9739fd73-191f-4205-acfa-edb2b33872d1'} }).then(response => {
-                                    if (response.data.resultCode == 0) {
+                                usersAPI.getADD(u.id)
+                                .then(data => {
+                                    if (data.resultCode == 0) {
                                         props.add(u.id);
                                     }
                                 })

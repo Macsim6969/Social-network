@@ -5,18 +5,17 @@ import MessageList from './MessageList/MessageList';
 
 
 const Message = (props) => {
-debugger;
-
+    debugger;
     let messel = props.message.mess.map(m => <MessageList name={m.name} id={m.id} />);
     let newdilogs = props.message.dia.map(n => <MessageDialogs name={n.name} />);
 
     let newdialog = props.message.newdialog;
-
+ 
     let addNewDialogs = ()=>{
         props.addSaveDialog();
-    }
+    } 
     let onNewMessDial =(e) =>{
-      let body =  e.target.value;
+      let body =  e.target.value;  
       props.postSaveDialog(body);
     }
     return (
