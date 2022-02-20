@@ -2,7 +2,7 @@ import './App.scss';
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 import Mylog from './components/Mylog/Mylog';
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import MessageContainer from './components/Message/MessageContainer';
 import SavesContainer from "./components/Saves/SavesContainer";
 import MaininnerContainer from "./components/Main/MaininnerContainer";
@@ -14,22 +14,22 @@ import UsersContainer from './components/Users/UsersContainer';
 function App(props) {
     return (
         <div className="App">
-            <Header name='Oleg'/>
+            <Header name='Oleg' />
             <div className='block'>
 
                 <div className='block_inner'>
-                    <Nav/>
+                    <Nav />
                 </div>
                 <div className='mainblock'>
                     <Routes>
-                        <Route path='message/*' element={<MessageContainer/>}/>
-                         
-                        <Route path="profile/*" element={<AcountContainer store={props.store}/>}/>
-                        <Route path="/" element={<MaininnerContainer/>}/>
-                        <Route path="mylog" element={<Mylog/>}/>
-                        <Route path='saves' element={<SavesContainer/>}/>
-                        <Route path='news' element={<UsersContainer />}/>
-                        
+                        <Route path='message/*' element={<MessageContainer />} />
+                        <Route path='findfriend' element={<FIndfriendsContainer />} />
+                        <Route path="profile/*" element={<AcountContainer store={props.store} />} />
+                        <Route path="/" element={<MaininnerContainer />} />
+                        <Route path="mylog" element={<Mylog />} />
+                        <Route path='saves' element={<SavesContainer />} />
+                        <Route path='news' element={<UsersContainer />} />
+
                     </Routes>
                 </div>
             </div>

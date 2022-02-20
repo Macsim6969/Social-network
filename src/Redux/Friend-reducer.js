@@ -1,16 +1,18 @@
-const ADD = 'ADD'; 
+const ADD = 'ADD';  
 const DELETE = 'DELETE';
 const SET_FRIENDS = 'SET-FRIEDNDS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const SET_TOTAL = 'SET-TOTAL';
-const SET_lOADER = 'SET-lOADER'
+const SET_lOADER = 'SET-lOADER';
+const FOLLOW_FETCH = 'FOLLOW_FETCH';
 
 let initalState = { 
     users: [],
     pageSize : 5, 
     totalUsersCount : 0,
     currentPage : 2 ,
-    isFetching: false
+    isFetching: false,
+    followFetching: [],
 }
 
 const friendReducer = (state = initalState, action) => {
@@ -50,6 +52,12 @@ const friendReducer = (state = initalState, action) => {
             return{
                 ...state , isFetching : action.isFetching
             }
+        case FOLLOW_FETCH :
+            return{
+                ...state , followFetching : action.fetching  
+                ? [...state.followFetching ,action.userId] 
+                : state.followFetching.filter(id => id != action.userId)  
+            }
         default:
             return state;
     }
@@ -84,6 +92,11 @@ export const setTotalAC = (totalCount) =>{
 export const isFetchingAC = (isFetching) =>{
     return{
         type: SET_lOADER , isFetching
+    }
+}
+export const followAC = (fetching , userId) =>{
+    return{
+        type : FOLLOW_FETCH , fetching , userId
     }
 }
 export default friendReducer;

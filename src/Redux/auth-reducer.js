@@ -1,27 +1,26 @@
-const SET_USER_DATA = 'STE-USER-DATA';
-
+const AUTH_STATUS = 'AUTH_STATUS'
 
 let initalState = {
-
-    userId: null,
-    email: null,
+    id: null,
     login: null,
-    isAuth: false
+    email: null,
+    isStatus: false
 }
 
 const authReducer = (state = initalState, action) => {
     switch (action.type) {
-        case SET_USER_DATA:
+        case AUTH_STATUS:
             return {
-                ...state , ...action.data , isAuth : true
+                ...state, ...action.data, isStatus: true
             }
         default:
-            return state;
+            return state
     }
 }
-export const setUserData = (userId , email , login) =>{
+
+export const setStatusAuth = (id , login , email )=>{
     return{
-        type : SET_USER_DATA , data : {userId , email , login}
+        type: AUTH_STATUS , data : {id, login , email}
     }
 }
-export default authReducer;
+export default authReducer

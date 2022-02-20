@@ -1,16 +1,14 @@
-.users{
-    &-div{
-        display: flex;
-        flex-direction: row;
-        &-active{
-            color: red;
-            background-color: black;
-            padding: 15px 20px;
-        }
-        &-div{
-            color: white;
-            background-color: black;
-            padding: 15px 20px;
-        }
-    }
+.findfriend{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.friendsss{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+img{
+    width: 150px;
 }

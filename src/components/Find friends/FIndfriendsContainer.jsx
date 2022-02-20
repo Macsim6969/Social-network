@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {addAC, deleteAC, isFetchingAC, isLoader, setCurrentAC, setFriends, setTotalAC} from "../../Redux/Friend-reducer";
+import {addAC, deleteAC, followAC, isFetchingAC, isLoader, setCurrentAC, setFriends, setTotalAC} from "../../Redux/Friend-reducer";
 import Findfriends from './FIndfriends';
 
 import Loader from '../../assets/image/loaders.svg';
@@ -15,7 +15,7 @@ class FindfriendsAPI extends React.Component {
             this.props.isFetchingAC(false)
             this.props.setFr(data.items);
             this.props.setTotalAC(data.totalCount)
-        })        
+        })         
     }
 
     onpageClick = (current) =>{
@@ -39,6 +39,8 @@ class FindfriendsAPI extends React.Component {
             delete={this.props.delete}
             onpageClick={this.onpageClick}
             users={this.props.users}
+            followFetching={this.props.followFetching}
+            followAC={this.props.followAC}
             />
             </>
         )
@@ -52,7 +54,8 @@ let mapStateToProps = (state) =>{
         pageSize : state.friends.pageSize,
         totalUsersCount : state.friends.totalUsersCount,
         currentPage : state.friends.currentPage,
-        isFetching : state.friends.isFetching
+        isFetching : state.friends.isFetching,
+        followFetching : state.friends.followFetching
     }
 }
 let mapDispatchToProps = (dispatch) =>{
@@ -74,6 +77,9 @@ let mapDispatchToProps = (dispatch) =>{
         },
         isFetchingAC: (isFetching) =>{
             dispatch(isFetchingAC(isFetching))
+        },
+        followAC : (fetching) =>{
+            dispatch(followAC(fetching))
         }
     }
 }

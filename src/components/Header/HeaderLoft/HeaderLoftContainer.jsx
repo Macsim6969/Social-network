@@ -1,34 +1,34 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import HeaderLoft from './HeaderLoft';
-import axios from 'axios';
-import {setUserData} from '../../../Redux/auth-reducer';
+import axios from "axios";
+import React from "react";
+import { connect } from "react-redux";
+import {setStatusAuth} from '../../../Redux/auth-reducer'
+import HeaderLoft from "./HeaderLoft";
 
-class HeaderLoftAPI extends React.Component{
-    
+
+
+class HeaderLoftContainerAPI extends React.Component {
     componentDidMount(){
-        axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me` , {
-            withCredentials: true
-        }).then(response =>{
-            if(response.data.resultCode === 0){
-                let {id , email, login } = response.data.data;
-                this.props.setUserData(id , email , login)
+        axios.get('https://social-network.samuraijs.com/api/1.0/auth/me' , {withCredentials : true})
+        .then(responce =>{
+            if(responce.data.resultCode === 0){
+                let {id , login , email} = responce.data.data;
+                this.props.setStatusAuth(id, login , email)
             }
         })
     }
-    
+
+
     render(){
         return(
-            <HeaderLoft {...this.props} />
+            <HeaderLoft  {...this.props}/>
         )
     }
 }
-
-const mapStateToProps =(state) =>{
+let mapStateToProps = (state )=>{
     return{
-        isAuth : state.auth.isAuth,
-        login: state.auth.login
+        isStatus : state.auth.isStatus,
+        login : state.auth.login
     }
 }
+export default connect (mapStateToProps , {setStatusAuth}) (HeaderLoftContainerAPI)
 
-export default connect(mapStateToProps , {setUserData})(HeaderLoftAPI);

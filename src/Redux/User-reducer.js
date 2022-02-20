@@ -4,13 +4,19 @@ const SET_USERS = 'SET_USERS'
 const CURRENT_AC = 'CURRENT_AC';
 const TOTAL_COUNT = 'TOTAL_COUNT';
 const IS_LOADING = 'ISLOADING';
+const SET_USERSCOM = 'SET_USERSCOM';
+const SET_NEWUSERS = 'SET_NEWUSERS'
 
 let initalState = {
     users: [],
     totalUserCount: 0,
     pageSize: 5,
     currentPage: 2,
-    isLoading: true
+    isLoading: true, 
+    usersCom : [
+        {text : ''}
+    ],
+    newUsersCom : ''
 }
 
 const usersReducer = (state = initalState, action) => {
@@ -49,6 +55,15 @@ const usersReducer = (state = initalState, action) => {
             return {
                 ...state, isLoading: action.isLoading
             }
+        case SET_USERSCOM :
+            let text = state.newUsersCom;
+            return{
+                ...state , newUsersCom : '' , usersCom : [ ...state.usersCom , {text : text}]
+            }
+        case SET_NEWUSERS :
+            return{
+                ...state , newUsersCom : action.newUsersCom
+            }
         default:
             return state
     }
@@ -83,6 +98,16 @@ export const currentPageAC = (current) => {
 export const isLoadingAC = (isLoading) => {
     return {
         type: IS_LOADING, isLoading
+    }
+}
+export const setUSersCom = () =>{
+    return{
+        type: SET_USERSCOM 
+    }
+}
+export const setNewUsersCom = (text) =>{
+    return{
+        type : SET_NEWUSERS ,newUsersCom : text
     }
 }
 export default usersReducer

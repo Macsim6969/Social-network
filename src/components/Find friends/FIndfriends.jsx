@@ -5,13 +5,13 @@ import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { usersAPI } from '../../API/API';
 
- 
+
 const Findfriends = (props) => {
 
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = []
     for (let i = 1; i < pagesCount; i++) {
-        if (pages.length < 10) { 
+        if (pages.length < 10) {
             pages.push(i);
         }
     }
@@ -41,29 +41,33 @@ const Findfriends = (props) => {
                     </div>
                     <div>
                         {u.add ?
-                            <button onClick={() => {
+                            < button disabled={props.followFetching.some(id => id ===u.id)} onClick={() => {
+                                props.followAC(true , u.id)
                                 usersAPI.getDelete(u.id)
-                                .then(data => {
-                                    if (data.resultCode == 0) {
-                                        props.delete(u.id);
-                                    }
-                                });
+                                    .then(data => {
+                                        if (data.resultCode == 0) {
+                                            props.delete(u.id);
+                                        }
+                                        props.followAC(false , u.id)
+                                    });
                             }
 
-                            }>Remove</button> :
-                            <button onClick={() => {
-                                usersAPI.getADD(u.id)
-                                .then(data => {
-                                    if (data.resultCode == 0) {
-                                        props.add(u.id);
-                                    }
-                                })
-                            }
+                        }>Remove</button> :
+                    <button disabled={props.followFetching.some(id => id ===u.id)} onClick={() => {
+                        props.followAC(true , u.id)
+                        usersAPI.getADD(u.id)
+                            .then(data => {
+                                if (data.resultCode == 0) {
+                                    props.add(u.id);
+                                }
+                                props.followAC(false , u.id)
+                            })
+                    }
 
-                            }>Add Friends</button>}
-                    </div>
+                    }>Add Friends</button>}
+                </div>
                 </div>)}
-            </div>
+        </div>
         </div >
     )
 }
