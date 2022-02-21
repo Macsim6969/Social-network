@@ -1,3 +1,5 @@
+import { usersAPI } from "../API/API";
+
 const ADD = 'ADD';  
 const DELETE = 'DELETE';
 const SET_FRIENDS = 'SET-FRIEDNDS';
@@ -85,7 +87,7 @@ export const setCurrentAC = (current) =>{
     }
 }
 export const setTotalAC = (totalCount) =>{
-    return{
+    return{ 
         type: SET_TOTAL, totalCount
     }
 }
@@ -97,6 +99,43 @@ export const isFetchingAC = (isFetching) =>{
 export const followAC = (fetching , userId) =>{
     return{
         type : FOLLOW_FETCH , fetching , userId
+    }
+}
+
+export const getUsersThunk = (currentPage , pageSize) => {
+    return (dispatch) =>{
+    dispatch(isFetchingAC(true));
+        usersAPI.getUsers(currentPage , pageSize)
+        .then(data =>{
+            dispatch(isFetchingAC(false))
+            dispatch(setFriends(data.items));
+            dispatch(setTotalAC(data.totalCount))
+        }) 
+    }
+}
+
+export const acceptAdd = (userId) =>{
+    return (dispatch) =>{
+        dispatch(followAC(true , userId))
+        usersAPI.getDelete(userId)
+            .then(data => {
+                if (data.resultCode == 1) {
+                    dispatch(deleteAC(userId));
+                }
+                dispatch(followAC(false , userId))
+            });
+    }
+}
+export const acceptDelete = (userId) =>{
+    return (dispatch) =>{
+        dispatch(followAC(true , userId))
+        usersAPI.getADD(userId)
+            .then(data => {
+                if (data.resultCode == 0) {
+                    dispatch(addAC(userId));
+                }
+                dispatch(followAC(false , userId))
+            });
     }
 }
 export default friendReducer;

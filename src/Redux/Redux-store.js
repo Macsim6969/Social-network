@@ -1,4 +1,4 @@
-import {combineReducers, createStore} from 'redux';
+import { applyMiddleware, combineReducers, createStore} from 'redux';
 import acountReducer from './Acount-reducer';
 import mainreviewReducer from './Mainreview-reducer';
 import messageReducer from './Message-reducer';
@@ -7,6 +7,7 @@ import photoReducer from './Photos-reducer';
 import authReducer from './auth-reducer';
 import  newsReducer  from './News-reducer';
 import usersReducer from './User-reducer';
+import thunkMiddleware from 'redux-thunk';
 
 
 let reducer = combineReducers({
@@ -20,6 +21,6 @@ let reducer = combineReducers({
     users : usersReducer
 });
 
-let store = createStore(reducer);
+let store = createStore(reducer, applyMiddleware(thunkMiddleware));
 window.store = store;
 export default store;

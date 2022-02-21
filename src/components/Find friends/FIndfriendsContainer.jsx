@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {addAC, deleteAC, followAC, isFetchingAC, isLoader, setCurrentAC, setFriends, setTotalAC} from "../../Redux/Friend-reducer";
+import {acceptAdd, acceptDelete, followAC,  getUsersThunk, setCurrentAC,} from "../../Redux/Friend-reducer";
 import Findfriends from './FIndfriends';
 
 import Loader from '../../assets/image/loaders.svg';
@@ -9,22 +9,11 @@ import {  usersAPI } from '../../API/API';
 
 class FindfriendsAPI extends React.Component { 
     componentDidMount() {
-        this.props.isFetchingAC(true)
-        usersAPI.getUsers(this.props.currentPage , this.props.pageSize)
-        .then(data =>{
-            this.props.isFetchingAC(false)
-            this.props.setFr(data.items);
-            this.props.setTotalAC(data.totalCount)
-        })         
+        this.props.getUsersThunk(this.props.currentPage , this.props.pageSize);      
     }
 
     onpageClick = (current) =>{
-        this.props.setCurrentAC(current);
-        this.props.isFetchingAC(true)
-        usersAPI.getUsers2(current , this.props.pageSize).then(data =>{
-            this.props.setFr(data.items);
-            this.props.isFetchingAC(false);
-        });
+        this.props.getUsersThunk(current , this.props.pageSize)
     }
 
     render() {
@@ -35,8 +24,8 @@ class FindfriendsAPI extends React.Component {
             pageSize={this.props.pageSize}
             totalUsersCount={this.props.totalUsersCount}
             currentPage={this.props.currentPage}
-            add={this.props.add}
-            delete={this.props.delete}
+            acceptAdd={this.props.acceptAdd}
+            acceptDelete={this.props.acceptDelete}
             onpageClick={this.onpageClick}
             users={this.props.users}
             followFetching={this.props.followFetching}
@@ -58,30 +47,6 @@ let mapStateToProps = (state) =>{
         followFetching : state.friends.followFetching
     }
 }
-let mapDispatchToProps = (dispatch) =>{
-    return{
-        add: (id) =>{
-            dispatch(addAC(id))
-        },
-        delete : (id) =>{
-            dispatch(deleteAC(id))
-        },
-        setFr : (users) =>{
-            dispatch(setFriends(users))
-        },
-        setCurrentAC : (current) =>{
-            dispatch(setCurrentAC(current))
-        },
-        setTotalAC : (totalCount) =>{
-            dispatch(setTotalAC(totalCount))
-        },
-        isFetchingAC: (isFetching) =>{
-            dispatch(isFetchingAC(isFetching))
-        },
-        followAC : (fetching) =>{
-            dispatch(followAC(fetching))
-        }
-    }
-}
 
- export default  connect(mapStateToProps, mapDispatchToProps  )(FindfriendsAPI);
+
+ export default  connect(mapStateToProps, {acceptAdd , acceptDelete, setCurrentAC ,followAC ,getUsersThunk}  )(FindfriendsAPI);

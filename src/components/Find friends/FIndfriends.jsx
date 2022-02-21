@@ -41,33 +41,18 @@ const Findfriends = (props) => {
                     </div>
                     <div>
                         {u.add ?
-                            < button disabled={props.followFetching.some(id => id ===u.id)} onClick={() => {
-                                props.followAC(true , u.id)
-                                usersAPI.getDelete(u.id)
-                                    .then(data => {
-                                        if (data.resultCode == 0) {
-                                            props.delete(u.id);
-                                        }
-                                        props.followAC(false , u.id)
-                                    });
+                            < button disabled={props.followFetching.some(id => id === u.id)} onClick={() => {
+                                props.acceptDelete(u.id)
                             }
 
-                        }>Remove</button> :
-                    <button disabled={props.followFetching.some(id => id ===u.id)} onClick={() => {
-                        props.followAC(true , u.id)
-                        usersAPI.getADD(u.id)
-                            .then(data => {
-                                if (data.resultCode == 0) {
-                                    props.add(u.id);
-                                }
-                                props.followAC(false , u.id)
-                            })
-                    }
-
-                    }>Add Friends</button>}
-                </div>
+                            }>Remove</button> :
+                            <button disabled={props.followFetching.some(id => id === u.id)} onClick={() => {
+                                props.acceptAdd(u.id)
+                            }
+                            }>Add Friends</button>}
+                    </div>
                 </div>)}
-        </div>
+            </div>
         </div >
     )
 }
