@@ -6,8 +6,9 @@ import Message from './Message';
 
 let mapStateToProps = (state) => {
     return { 
-        message: state.message
-    }
+        message: state.message,
+        isStatus : state.auth.isStatus
+    } 
 }
 let mapDispatchToProps = (dispatch) => { 
     return {

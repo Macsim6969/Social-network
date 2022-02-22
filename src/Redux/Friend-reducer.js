@@ -70,7 +70,6 @@ export const addAC = (id) => {
         type: ADD, id
     }
 } 
-
 export const deleteAC = (id) => {
     return {
         type: DELETE, id
@@ -119,7 +118,7 @@ export const acceptAdd = (userId) =>{
         dispatch(followAC(true , userId))
         usersAPI.getDelete(userId)
             .then(data => {
-                if (data.resultCode == 1) {
+                if (data.resultCode == 0) {
                     dispatch(deleteAC(userId));
                 }
                 dispatch(followAC(false , userId))
@@ -138,4 +137,5 @@ export const acceptDelete = (userId) =>{
             });
     }
 }
-export default friendReducer;
+
+export default friendReducer; 

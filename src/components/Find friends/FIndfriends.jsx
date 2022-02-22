@@ -42,14 +42,14 @@ const Findfriends = (props) => {
                     <div>
                         {u.add ?
                             < button disabled={props.followFetching.some(id => id === u.id)} onClick={() => {
-                                props.acceptDelete(u.id)
+                                props.acceptAdd(u.id)
                             }
 
                             }>Remove</button> :
                             <button disabled={props.followFetching.some(id => id === u.id)} onClick={() => {
-                                props.acceptAdd(u.id)
+                                props.acceptDelete(u.id)
                             }
-                            }>Add Friends</button>}
+                            }>ADD</button>}
                     </div>
                 </div>)}
             </div>

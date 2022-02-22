@@ -33,7 +33,14 @@ export const usersAPI = {
             .then(response => response.data)
         )
     }
-    
+}
+export const usesrAuth = {
+    getAuth: () =>{
+        return(
+            instance.get('auth/me' )
+            .then(response => response.data)
+        )
+    } 
 }
 
 

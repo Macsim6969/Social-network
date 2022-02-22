@@ -1,3 +1,5 @@
+import { usersAPI, usesrAuth } from "../API/API"
+
 const AUTH_STATUS = 'AUTH_STATUS'
 
 let initalState = {
@@ -13,7 +15,7 @@ const authReducer = (state = initalState, action) => {
             return {
                 ...state, ...action.data, isStatus: true
             }
-        default:
+        default: 
             return state
     }
 }
@@ -21,6 +23,17 @@ const authReducer = (state = initalState, action) => {
 export const setStatusAuth = (id , login , email )=>{
     return{
         type: AUTH_STATUS , data : {id, login , email}
+    }
+}
+
+export const getLogin = () =>{
+    return (dispatch ) =>{
+        usesrAuth.getAuth().then(data =>{
+            if(data.resultCode === 0){
+                let {id , login , email} = data.data;
+                dispatch(setStatusAuth(id, login , email))
+            }
+        })
     }
 }
 export default authReducer

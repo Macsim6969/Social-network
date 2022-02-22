@@ -4,13 +4,12 @@ import ss from './Account.module.scss'
 import LinkLog from './LinkLog/LinkLog'
 import SocialInfo from './LinkSocial/SocialInfo'
 import MainLink from './MainLink/MainLink'
-import { Route, Routes} from 'react-router-dom'
+import { Navigate, Route, Routes} from 'react-router-dom'
 import TimelineContainer from "./MainBlog/Timeline/TimelineContainer";
 import PhotoContainer from './MainBlog/Photos/PhotoContainer'
  
 const Acount = (props) => {
     let inform = props.acount.info.map(i => <SocialInfo name={i.name} number={i.number} />);
-
     return (
 
         <div className={ss.acc_block}>

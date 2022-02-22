@@ -1,3 +1,4 @@
+import { Navigate } from 'react-router-dom';
 import { addSaveDialog  ,postSaveDialog } from '../../Redux/Message-reducer';
 import ss from './Message.module.scss'
 import MessageDialogs from './MessageDialogs/MessageDialogs';
@@ -17,6 +18,7 @@ const Message = (props) => {
       let body =  e.target.value;  
       props.postSaveDialog(body);
     }
+    if(!props.isStatus) return <Navigate to={'/login'}/>
     return (
         <div className={ss.mess}>
             <div className={ss.mess_peaple}>
