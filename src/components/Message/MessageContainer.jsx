@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { hocRedirect } from '../../HOC/HocRedirect';
 import { addSaveDialog, postSaveDialog } from '../../Redux/Message-reducer';
 import Message from './Message';
 
 
 
 let mapStateToProps = (state) => {
-    return { 
-        message: state.message,
-        isStatus : state.auth.isStatus
-    } 
+    return {
+        message: state.message, 
+    }
 }
-let mapDispatchToProps = (dispatch) => { 
+let mapDispatchToProps = (dispatch) => {
     return {
         addSaveDialog: () => {
             dispatch(addSaveDialog());
@@ -20,8 +21,6 @@ let mapDispatchToProps = (dispatch) => {
         }
 
     }
-} 
+}
 
-const MessageContainer = connect(mapStateToProps, mapDispatchToProps)(Message);
-
-export default MessageContainer;
+export default compose(connect(mapStateToProps, mapDispatchToProps) ,hocRedirect)(Message);

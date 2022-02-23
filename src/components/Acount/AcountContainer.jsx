@@ -4,6 +4,8 @@ import {connect} from "react-redux";
 import Acount from "./Acount";
 import {getUserID} from '../../Redux/Acount-reducer'
 import { Navigate } from 'react-router-dom';
+import { hocRedirect } from '../../HOC/HocRedirect';
+import { compose } from 'redux';
 
 
 
@@ -15,7 +17,6 @@ class AcountAPI extends React.Component{
     }
 
     render(){
-        if(!this.props.isStatus) return <Navigate to={'/login'} />
 
         return(
             <Acount profile={this.props.profile}  acount={this.props.acount}/>
@@ -23,17 +24,11 @@ class AcountAPI extends React.Component{
     }
 }
 
-
-
 let mapStateToProps = (state) =>{
     return{
         profile : state.acount.profile,
         acount : state.acount,
-        isStatus : state.auth.isStatus
     }
 }
 
-
-const AcountContainer = connect(mapStateToProps , {getUserID})(AcountAPI)
-
-export default AcountContainer ; 
+export default compose(connect(mapStateToProps , {getUserID}) , hocRedirect)(AcountAPI) ; 

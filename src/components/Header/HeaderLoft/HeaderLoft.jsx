@@ -16,7 +16,7 @@ const HeaderLoft = (props) => {
                     <img className={ss.loft_acc_im} src="https://www.freeiconspng.com/uploads/man-icon-png-29.png" alt="" />
                     <nav className={ss.loft_acc_name}>L_O_G_I_N</nav>
                 </div></NavLink> }
-        </div>
+        </div> 
     )
 }
 
