@@ -1,7 +1,7 @@
 import news from './News.module.scss';
 import React from 'react';
 import { setNewsBLl, setNewsAC} from '../../Redux/News-reducer';
-
+import Status from './Status'
 
 const News = (props) => {
     let infoblock = props.news.news.map(n => <div className={news.info}>
@@ -28,6 +28,9 @@ const News = (props) => {
             </div>
             <div className={news.info_block}>
                 {infoblock}
+            </div>
+            <div>
+                <Status status={'hello my'}/>
             </div>
         </div>
     )

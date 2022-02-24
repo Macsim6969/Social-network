@@ -6,7 +6,7 @@ const MessageDialogs = (props) => {
 
     
 
-    return (
+    return ( 
         <div className={ss.dialogs}>
             <div>{props.name}</div>
         </div >

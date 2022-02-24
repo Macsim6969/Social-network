@@ -14,7 +14,7 @@ class NewsContainerAPI extends React.Component{
     }
 }
 
-
+ 
 let mapStateToProps = (state) =>{
     return{
         news: state.news
