@@ -29,18 +29,35 @@ export const usersAPI = {
     },
     getADD : (userId) =>{
         return(
-            instance.post(`follow/${userId}`)
+            instance.post(`follow/${userId}`) 
             .then(response => response.data)
         )
+    },
+    getProfile(userId) {
+        return profileAPI.getProfile(userId);
     }
 }
-export const usesrAuth = {
+
+export const profileAPI = {
+    getProfile(userId) {
+        return instance.get(`profile/` + userId)
+    },
+    getStatus(status) {
+         return instance.get(`status/` + status)
+    },
+    updateStatus(status) {
+        return instance.put(`status` +   
+         )
+    }
+}
+
+export const usesrAuth  = {
     getAuth: () =>{
         return(
             instance.get('auth/me' )
             .then(response => response.data)
         )
-    } 
+    }
 }
 
 

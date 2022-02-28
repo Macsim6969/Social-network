@@ -29,9 +29,6 @@ const News = (props) => {
             <div className={news.info_block}>
                 {infoblock}
             </div>
-            <div>
-                <Status status={'hello my'}/>
-            </div>
         </div>
     )
 }

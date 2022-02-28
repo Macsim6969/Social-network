@@ -8,7 +8,7 @@ import Maininner from "./Maininner";
 
 let mapStateToProps = (state) =>{
     return {
-        postText : state.mainreview.postText,
+        postText : state.mainreview.postText, 
         mainreview: state.mainreview
     }
 }
@@ -21,7 +21,7 @@ let mapDispatchToProps = (dispatch) =>{
             dispatch(postChangeComCreater(text))
         }
     }
-}
+} 
 const MaininnerContainer = connect(mapStateToProps ,mapDispatchToProps)(Maininner)
 
 export default MaininnerContainer;

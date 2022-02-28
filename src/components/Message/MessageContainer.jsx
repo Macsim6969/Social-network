@@ -10,7 +10,7 @@ let mapStateToProps = (state) => {
     return {
         message: state.message, 
     }
-}
+} 
 let mapDispatchToProps = (dispatch) => {
     return {
         addSaveDialog: () => {
@@ -18,7 +18,7 @@ let mapDispatchToProps = (dispatch) => {
         },
         postSaveDialog: (body) => {
             dispatch(postSaveDialog(body));
-        }
+        },
 
     }
 }

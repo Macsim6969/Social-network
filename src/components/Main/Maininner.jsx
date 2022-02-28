@@ -9,7 +9,7 @@ const Maininner = (props) => {
 
 
     let addcomm = () => {
-        props.addCommActionCreater();
+        props.addCommActionCreater();  
     }
 
     let onchangeCom = (e) => {
@@ -31,8 +31,9 @@ const Maininner = (props) => {
                 <button onClick={addcomm}>Type</button>
             </div>
             <div>
-                <Statuse status={'hirl lofr '}/>
+                <Statuse status={'hi my pussy boy '}/>
             </div>
+            
         </div>
 
     )

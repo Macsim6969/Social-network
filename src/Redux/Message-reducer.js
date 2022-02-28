@@ -15,7 +15,7 @@ let initialState = {
         { name: ' i love you' },
         { name: 'Hi , i too))' } 
     ],
-    newdialog: ''
+    newdialog: '' 
 } 
 
 const messageReducer = (state = initialState, action) => { 

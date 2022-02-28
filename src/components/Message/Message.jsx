@@ -10,7 +10,6 @@ const Message = (props) => {
     let newdilogs = props.message.dia.map(n => <MessageDialogs name={n.name} />);
 
     let newdialog = props.message.newdialog;
- 
     let addNewDialogs = ()=>{
         props.addSaveDialog();
     } 
