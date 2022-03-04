@@ -26,7 +26,7 @@ const Acount = (props) => {
                         <AccLink link='https://w7.pngwing.com/pngs/772/115/png-transparent-computer-icons-telegram-logo-angle-white-triangle.png' />
                     </div>
                     <div className={ss.link_log}>
-                        <LinkLog name="M_A_C_S_669" profile={props.profile} />
+                        <LinkLog name="M_A_C_S_669" updateStatus={props.updateStatus} status={props.status} profile={props.profile} />
                     </div>
                     <div className={ss.link_soc}>
                         {inform}

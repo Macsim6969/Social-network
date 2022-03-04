@@ -3,7 +3,6 @@ import ss from './HeaderLoft.module.scss'
 import React from 'react';
 
 const HeaderLoft = (props) => {
-    debugger;
     return (
         <div className={ss.header_loft}>
             <NavLink to='news' > <img className={ss.loft_nav} src="https://banner2.cleanpng.com/20180614/jt/kisspng-computer-icons-test-icon-meal-k-hoch-paid-survey-5b230a49d12356.7685679415290230498566.jpg" alt="LO" /> </NavLink>

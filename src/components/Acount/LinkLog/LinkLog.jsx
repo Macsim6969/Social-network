@@ -1,5 +1,6 @@
 import ss from './LinkLog.module.scss'
 import React from 'react';
+import StatusLog from '../LinkStatus/Status';
 
 const LinkLog = (props) => {
     if (!props.profile) {
@@ -15,6 +16,7 @@ const LinkLog = (props) => {
         <div className={ss.log}>
             <img className={ss.log_img} src={props.profile.photos.small} alt="" />
             <div className={ss.log_name}>{props.profile.fullName}</div>
+            <StatusLog status ={props.status} updateStatus={props.updateStatus} />
         </div>
     )
 }

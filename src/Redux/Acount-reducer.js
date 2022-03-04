@@ -1,5 +1,7 @@
-const SET_PROFILE = 'SET_PROFILE';
+import { profileAPI } from "../API/API";
 
+const SET_PROFILE = 'SET_PROFILE';
+const SET_STATUS = 'SET_STATUS';
 let initialState = {
     info: [
         { name: 'Posts', number: 880 },
@@ -12,7 +14,8 @@ let initialState = {
         { name: 'Friends' },
         { name: 'Photos' }
     ],
-    profile: null
+    profile: null,
+    status : ''
 }
 const acountReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -21,10 +24,15 @@ const acountReducer = (state = initialState, action) => {
                 ...state, profile: action.profile
             }
         }
+        case SET_STATUS :{
+            return{
+                ...state, status : action.status
+            }
+        }
         default: {
             return state
         }
-    }
+    } 
 }
 
 export const getUserID = (profile) => {
@@ -33,4 +41,18 @@ export const getUserID = (profile) => {
     }
 }
 
+export const getStatus = (status) =>{
+    return{
+        type : SET_STATUS , status
+    }
+}
+
+
+export const updateStatus = (status) => (dispatch) =>{
+    profileAPI.updateStatus(status).then(responce =>{
+        if(responce.data.resultCode === 0){
+            dispatch(getStatus(status));
+        }
+    })
+}
 export default acountReducer; 
