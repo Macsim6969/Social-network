@@ -8,6 +8,8 @@ import authReducer from './auth-reducer';
 import  newsReducer  from './News-reducer';
 import usersReducer from './User-reducer';
 import thunkMiddleware from 'redux-thunk';
+import { reducer as formReducer } from 'redux-form'
+
 
 
 let reducer = combineReducers({
@@ -18,7 +20,8 @@ let reducer = combineReducers({
     photos : photoReducer,
     auth : authReducer,
     news : newsReducer,
-    users : usersReducer
+    users : usersReducer,
+    form: formReducer
 });
 
 let store = createStore(reducer, applyMiddleware(thunkMiddleware));

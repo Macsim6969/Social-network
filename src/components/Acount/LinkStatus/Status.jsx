@@ -25,7 +25,17 @@ class StatusLog extends React.Component {
             status : e.currentTarget.value
         })
     }
+    componentDidUpdate(prevProps , prevState){
+        debugger;
+        if(prevProps.status !== this.props.status){
+            this.setState({
+                status : this.props.status
+            })
+        }
+        console.log('componentdidUpdate')
+    }
     render() {
+        console.log('render')
         return (
             <div>
                 {!this.state.editeMode &&
