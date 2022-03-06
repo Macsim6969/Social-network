@@ -1,5 +1,5 @@
 import React from  'react';
-import { addSaveAction ,postSaveCreater } from "../../Redux/Mainreview-reducer";
+import { addSaveAction  } from "../../Redux/Mainreview-reducer";
 import {connect} from "react-redux";
 import Saves from "./Saves";
 
@@ -11,13 +11,9 @@ let mapStateToProps = (state) =>{
 }
 let mapDispatchToProps = (dispatch) =>{
     return{
-        addSaveAction : ()=>{
-            dispatch(addSaveAction());
-        },
-        postSaveCreater : (textsave) =>{
-            dispatch(postSaveCreater(textsave));
+        addSaveAction : (postSave)=>{
+            dispatch(addSaveAction(postSave));
         }
-
     }
 }
 

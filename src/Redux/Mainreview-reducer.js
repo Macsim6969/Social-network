@@ -31,8 +31,7 @@ let initialState = {
         {text : 'hi' , src: 'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg'}
     ],
     postMewMessage: '',
-    postText: '',
-    postSave: 'I love you'
+    postText: ''
 }; 
 
 const mainreviewReducer = (state =initialState, action) => {
@@ -47,9 +46,9 @@ const mainreviewReducer = (state =initialState, action) => {
                 ...state , postMewMessage : action.PostAcc
             }
         case ADD_COMM:
-            let texthome = state.postText;
+            let texthome = action.postText;
             return {
-                ...state ,  postText: '', text : [...state.text , {message: texthome, src: 'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg'} ]
+                ...state , text : [...state.text , {message: texthome, src: 'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg'} ]
             }
         case CHANGE_NEW_COMM:
             return {
@@ -57,15 +56,10 @@ const mainreviewReducer = (state =initialState, action) => {
             }
 
         case CHANGE_SAVE:
-            let textsave = state.postSave;
+            let textsave = action.postSave;
             return {
-                ...state , postSave: '' , home: [...state.home , {text: textsave, src: 'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg'} ]
+                ...state ,  home: [...state.home , {text: textsave, src: 'https://animesher.com/orig/1/116/1162/11622/animesher.com_circle-icons-anime-boy-manga-1162282.jpg'} ]
             }
-        case CHANGE_NEW_SAVE:
-            return {
-                ...state , postSave: action.newSaveText
-            }
-
         default:
             return state; 
     }
@@ -86,27 +80,21 @@ export const postChangeAcc = (text) => {
     }
 }
 
-export const addCommActionCreater = () => {
+export const addCommActionCreater = (postText) => {
     return {
-        type: ADD_COMM
+        type: ADD_COMM , postText
     }
 }
 
-export const postChangeComCreater = (text) => {
+export const postChangeComCreater = (text) => { 
     return {
         type: CHANGE_NEW_COMM, newpostText: text
     }
 }
 
-export const addSaveAction = () => {
+export const addSaveAction = (postSave) => {
     return {
-        type: CHANGE_SAVE
-    }
-}
-
-export const postSaveCreater = (text) => {
-    return {
-        type: CHANGE_NEW_SAVE, newSaveText: text
+        type: CHANGE_SAVE , postSave
     }
 }
 

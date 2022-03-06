@@ -1,25 +1,21 @@
 import DopInfo from "./DopInfo/DopIngo";
 import React from  'react';
+import SavesForm from "../Form/SavesForm";
 
 
 
 const  Saves = (props) =>{
 
     let postSave = props.mainreview.postSave;
-
-    let  addClickSave = () =>{
-        props.addSaveAction();
-    }    
-    let ChangeSaves = (e) =>{
-        let textsave = e.target.value;
-        props.postSaveCreater(textsave);
-    }
+  
+    let ChangeText = (value) =>{
+       props.addSaveAction(value.postSave)
+    } 
     return(
         <div>
             <DopInfo  mainreview={props.mainreview}/>
             <div>
-                <input type="text"   placeholder="write something ......." value={postSave} onChange={ChangeSaves}/>
-                <button onClick={addClickSave}>Click</button>
+                <SavesForm onSubmit={ChangeText}/>
             </div>
         </div>
     )

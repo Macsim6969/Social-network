@@ -1,5 +1,6 @@
 import React from "react";
 import { addCommActionCreater, postChangeComCreater } from '../../Redux/Mainreview-reducer';
+import HomeForm from "../Form/HomeForm";
 import Statuse from "../News/Status";
 import ss from './Maininner.module.css'
 import Main_rew from './Main_but/Main_rew';
@@ -7,14 +8,8 @@ import Main_rew from './Main_but/Main_rew';
 
 const Maininner = (props) => {
 
-
-    let addcomm = () => {
-        props.addCommActionCreater();  
-    }
-
-    let onchangeCom = (e) => {
-        let text = e.target.value;
-        props.postChangeComCreater(text);
+    let postForm = (value) =>{
+        props.addCommActionCreater(value.postText)
     }
 
     return (
@@ -27,8 +22,7 @@ const Maininner = (props) => {
                 <Main_rew mainreview={props.mainreview} />
             </div>
             <div>
-                <input value={props.postText} onChange={onchangeCom} type="text" placeholder="type comment pls" />
-                <button onClick={addcomm}>Type</button>
+                <HomeForm onSubmit={postForm}/>
             </div>
             <div>
                 <Statuse status={'hi my pussy boy '}/>

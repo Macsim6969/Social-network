@@ -1,13 +1,17 @@
 import React from "react";
 import { Field } from "redux-form";
 import { reduxForm } from "redux-form";
+import { Textarea } from "../../Common/FormsControl/FormsControls";
+import { maxLengthCreator, required } from "../../utilits/validators/validator";
 
+
+const maxLength = maxLengthCreator(30)
 
 const NewsFormaRedux = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field component={'input'} type={'text'} name={'NewDialog'} />
+                <Field component={Textarea} type={'text'} name={'NewDialog'}  validate={[required , maxLength]} />
             </div>
             <div>
                 <button>Send</button>

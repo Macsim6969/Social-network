@@ -14,11 +14,8 @@ let mapStateToProps = (state) =>{
 }
 let mapDispatchToProps = (dispatch) =>{
     return{
-        addCommActionCreater : () =>{
-            dispatch(addCommActionCreater());
-        },
-        postChangeComCreater : (text) =>{
-            dispatch(postChangeComCreater(text))
+        addCommActionCreater : (postText) =>{
+            dispatch(addCommActionCreater(postText));
         }
     }
 } 

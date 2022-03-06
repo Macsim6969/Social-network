@@ -1,13 +1,16 @@
 import React from "react";
 import { Field } from "redux-form";
 import { reduxForm } from "redux-form";
+import { Textarea } from "../../Common/FormsControl/FormsControls";
+import { maxLengthCreator, required } from "../../utilits/validators/validator";
 
+const maxLenght = maxLengthCreator(100)
 
 const HomeFormasRedux = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field component={'input'} name={'postText'} type={'text'}/>
+                <Field component={Textarea} validate={[required , maxLenght ]} name={'postText'} type={'text'} />
             </div>
             <div>
                 <button>Send</button>
@@ -16,9 +19,9 @@ const HomeFormasRedux = (props) => {
     )
 }
 
-const HomeForma = reduxForm({ form: 'homeForm' })(HomeFormasRedux);
+const HomeForma = reduxForm({ form: 'homeforma' })(HomeFormasRedux);
 
-const HomeForm = (props) => {
+const HomeForm = (props) => { 
     return (
         <div>
             <HomeForma onSubmit={props.onSubmit} />

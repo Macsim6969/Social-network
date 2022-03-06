@@ -12,7 +12,7 @@ const Message = (props) => {
     
     let onNewsForm = (value) =>{
         props.addSaveDialog(value.NewDialog)
-    }
+    } 
     return ( 
         
         <div className={ss.mess}>

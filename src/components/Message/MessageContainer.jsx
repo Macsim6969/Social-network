@@ -9,7 +9,7 @@ import Message from './Message';
 let mapStateToProps = (state) => {
     return {
         message: state.message, 
-    }
+    } 
 } 
 let mapDispatchToProps = (dispatch) => {
     return { 
