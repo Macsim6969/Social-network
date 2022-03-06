@@ -10,6 +10,7 @@ import AcountContainer from "./components/Acount/AcountContainer";
 import FIndfriendsContainer from "./components/Find friends/FIndfriendsContainer";
 import UsersContainer from './components/Users/UsersContainer';
 import Login from './components/Login/Login';
+import Login2 from './components/Login/Login2';
 
 
 function App(props) {

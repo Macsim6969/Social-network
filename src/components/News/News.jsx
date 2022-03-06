@@ -2,6 +2,7 @@ import news from './News.module.scss';
 import React from 'react';
 import { setNewsBLl, setNewsAC} from '../../Redux/News-reducer';
 import Status from './Status'
+import NewsForm from '../Form/NewsForm';
 
 const News = (props) => {
     let infoblock = props.news.news.map(n => <div className={news.info}>
@@ -23,8 +24,7 @@ const News = (props) => {
                 Check News
             </div>
             <div className={news.seatch_block}>
-                <input className={news.type} value={newmess} onChange={addMessB} type="text" placeholder='Type your news' />
-                <button className={news.click} onClick={addMEss}>Search</button>
+                <NewsForm/>
             </div>
             <div className={news.info_block}>
                 {infoblock}

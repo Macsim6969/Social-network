@@ -2,7 +2,6 @@ import React from "react"
 import { Field, reduxForm } from 'redux-form'
 
 
-
 const  LoginForm = (props) => {
     console.log('UPdate')
     return (
@@ -21,7 +20,7 @@ const  LoginForm = (props) => {
             </div>
         </form>
     )
-}
+}   
 const Login = (props) => {
     const onSubmit = (formData) =>{
         console.log(formData)

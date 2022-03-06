@@ -15,37 +15,25 @@ let initialState = {
         { name: ' i love you' },
         { name: 'Hi , i too))' } 
     ],
-    newdialog: '' 
 } 
 
 const messageReducer = (state = initialState, action) => { 
 
     switch (action.type) {
         case ADD_DIALOG:
-            let text = state.newdialog;
+            let text = action.NewDialog;
             return {
-                ...state , newdialog: '' , dia: [...state.dia ,{name: text} ]
+                ...state  , dia: [...state.dia ,{name: text} ]
             }
-        case ADD_NEW_DIALOG:
-            return {
-                ...state , newdialog: action.newSaveDialog 
-            }
-
         default:
             return state;
     }
 
 }
 
-export const addSaveDialog = () => {
+export const addSaveDialog = (NewDialog) => {
     return {
-        type: ADD_DIALOG
-    }
-}
-
-export const postSaveDialog = (text) => {
-    return {
-        type: ADD_NEW_DIALOG, newSaveDialog: text
+        type: ADD_DIALOG , NewDialog
     }
 }
 
