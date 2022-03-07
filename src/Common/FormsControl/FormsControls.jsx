@@ -6,7 +6,7 @@ const FormControl = ({input , meta , child , ...props}) =>{
     return (
         <div className={ss.formControl + " " + (showError ? ss.error : '')}>
             <div>
-            {props.child }
+            {props.children }
             </div>
             {showError && <span>{meta.error}</span>}
         </div>
@@ -14,17 +14,17 @@ const FormControl = ({input , meta , child , ...props}) =>{
 }
 
 export const Textarea = (props) => {
-   
+    const {input , meta , children , ...restProps} = props
     return (
-        <FormControl {...props}><textarea {...input}  {...props} placeholder='sdfsdfsdfsdf' /></FormControl>
+        <FormControl {...props}><textarea {...input}  {...restProps} placeholder='sdfsdfsdfsdf' /></FormControl>
     )
 }
 
 
-export const Input = ({ input, meta, ...props }) => {
-   
+export const Input = (props) => {
+    const {input , meta , children , ...restProps} = props
     return (
-        <FormControl {...props}><input {...input}  {...props} placeholder='sdfsdfsdfsdf' />
+        <FormControl {...props}><input {...input}  {...restProps} placeholder='sdfsdfsdfsdf' />
         </FormControl>
     )
 }
