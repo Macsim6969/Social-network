@@ -17,7 +17,7 @@ class AcountAPI extends React.Component{
             this.props.getStatus(response.status)
 
         }) 
-    }
+    } 
 
     render(){
 

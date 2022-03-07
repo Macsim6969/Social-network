@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 import { usesrAuth } from "../../../API/API";
 import {getLogin, setStatusAuth} from '../../../Redux/auth-reducer'
 import HeaderLoft from "./HeaderLoft";
+import {logout} from '../../../Redux/auth-reducer'
 
 
 
 class HeaderLoftContainerAPI extends React.Component {
+    
     componentDidMount(){
         this.props.getLogin();
     }
@@ -21,8 +23,9 @@ class HeaderLoftContainerAPI extends React.Component {
 let mapStateToProps = (state )=>{
     return{
         isStatus : state.auth.isStatus,
-        login : state.auth.login
+        login : state.auth.login,
+        
     }
 }
-export default connect (mapStateToProps , {setStatusAuth , getLogin}) (HeaderLoftContainerAPI)
+export default connect (mapStateToProps , {setStatusAuth , getLogin , logout}) (HeaderLoftContainerAPI)
 

@@ -49,14 +49,20 @@ export const profileAPI = {
         return instance.put(`profile/status/2` + status )
     }
 }
-
+ 
 export const usesrAuth  = {
     getAuth: () =>{
         return(
             instance.get('auth/me' )
-            .then(response => response.data)
         )
+    },
+    login(email , password , rememberMe = false){
+        return instance.post(`auth/login` , {email , password , rememberMe})
+    },
+    logout(){
+        return instance.delete(`auth/login`)
     }
+
 }
 
 

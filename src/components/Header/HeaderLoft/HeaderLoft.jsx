@@ -10,7 +10,7 @@ const HeaderLoft = (props) => {
             <NavLink to='/message/'><img className={ss.loft_nav} src="http://smartstar.ulcraft.com/uploads/s/z/m/u/zmumom9ovepz/img/full_FdnfvqRY.png" alt="" /></NavLink>
             <NavLink to='/setter'><img className={ss.loft_nav} src="https://icon-library.com/images/white-gear-icon-png/white-gear-icon-png-24.jpg" alt="" /></NavLink>
 
-            {props.isStatus ? <NavLink className={ss.loft_acc_nav} to='/login' >{props.login}</NavLink> : <NavLink className={ss.loft_acc_nav} to='/login'>
+            {props.isStatus ? <NavLink className={ss.loft_acc_nav} to='/login' >{props.login} - <button onClick={props.logout} >Logout</button></NavLink> : <NavLink className={ss.loft_acc_nav} to='/login'>
                 <div className={ss.loft_acc}>
                     <img className={ss.loft_acc_im} src="https://www.freeiconspng.com/uploads/man-icon-png-29.png" alt="" />
                     <nav className={ss.loft_acc_name}>L_O_G_I_N</nav>
