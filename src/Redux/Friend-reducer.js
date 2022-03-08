@@ -42,7 +42,7 @@ const friendReducer = (state = initalState, action) => {
             return {
                 ...state, users: action.users
             }
-        case SET_CURRENT_PAGE:
+        case SET_CURRENT_PAGE:  
             return{
                 ...state , currentPage : action.currentPage
             }
