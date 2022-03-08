@@ -4,6 +4,7 @@ import Users from "./Users"
 import Loader from '../../assets/image/loaders.svg';
 import { usersAPI } from "../../API/API";
 import React from "react";
+import { getcurrentPage, getisLoading, getnewUsersCom, getPageSize, gettotalUserCount, getUsers, getusersCom } from "../../Redux/Users-selector";
 
 class UserContainerAPI extends React.Component{
     
@@ -44,18 +45,18 @@ class UserContainerAPI extends React.Component{
         usersCom={this.props.usersCom}/>
         </>    
         ) 
-    }
+    } 
 }
 
 let mapStateToProps = (state ) =>{
     return{
-        usersCom : state.users.usersCom,
-        users : state.users.users,
-        totalUserCount : state.users.totalUserCount,
-        pageSize : state.users.pageSize,
-        currentPage : state.users.currentPage,
-        isLoading : state.users.isLoading,
-        newUsersCom : state.users.newUsersCom
+        usersCom : getusersCom(state),
+        users : getUsers(state),
+        totalUserCount : gettotalUserCount(state),
+        pageSize : getPageSize(state),
+        currentPage : getcurrentPage(state),
+        isLoading : getisLoading(state),
+        newUsersCom : getnewUsersCom(state)
     }
 }
 

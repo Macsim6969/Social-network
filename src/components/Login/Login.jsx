@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import { Field, reduxForm } from 'redux-form'
 import { Input } from "../../Common/FormsControl/FormsControls"
 import { required } from "../../utilits/validators/validator"
-import {logine , logout} from '../../Redux/auth-reducer'
+import {logine } from '../../Redux/auth-reducer'
 import { Navigate } from "react-router-dom"
 
 
@@ -53,4 +53,4 @@ const mapStateToProps = (state) => ({
     isStatus: state.auth.isStatus
 })
 
-export default connect (mapStateToProps , {logine , logout})(Login)
+export default connect (mapStateToProps , {logine })(Login)

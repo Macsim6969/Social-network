@@ -13,7 +13,7 @@ let initalState = {
     pageSize: 5,
     currentPage: 2,
     isLoading: true, 
-    usersCom : [
+    usersCom : [ 
         {text : ''}
     ],
     newUsersCom : ''

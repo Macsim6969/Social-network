@@ -14,7 +14,7 @@ const authReducer = (state = initalState, action) => {
     switch (action.type) {
         case AUTH_STATUS:
             return {
-                ...state, ...action.payload
+                ...state, ...action.payload , isStatus : true
             }
         default:
             return state

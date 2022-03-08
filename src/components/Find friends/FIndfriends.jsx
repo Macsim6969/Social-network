@@ -19,7 +19,7 @@ const Findfriends = (props) => {
     return (
         <div className={ss.log_find}>
             People You May Know
-            <div className={ss.logg}>
+            <div className={ss.logg}> 
                 {pages.map(p => {
                     return <span className={props.currentPage === p && ss.selector}
                         onClick={(e) => { props.onpageClick(p) }}>{p}</span>
