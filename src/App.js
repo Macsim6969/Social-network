@@ -11,17 +11,17 @@ import AcountContainer from "./components/Acount/AcountContainer";
 import FIndfriendsContainer from "./components/Find friends/FIndfriendsContainer";
 import UsersContainer from './components/Users/UsersContainer';
 import Login from './components/Login/Login';
-import Login2 from './components/Login/Login2';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import {getUserID , getStatus} from './Redux/Acount-reducer'
 
 
 class App extends React.Component {
     componentDidMount() {
         axios.get('https://social-network.samuraijs.com/api/1.0/profile/2').then(response => {
             debugger;
-            this.props.getUserID(response.data);
-            this.props.getStatus(response.status)
+            getUserID(response.data);
+            getStatus(response.status)
 
         })
     }
@@ -53,4 +53,4 @@ class App extends React.Component {
     }
 }
 
-export default connect ()(App);
+export default connect(null , {getUserID})(App);
