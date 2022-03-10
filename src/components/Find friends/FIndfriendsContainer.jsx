@@ -37,8 +37,9 @@ class FindfriendsAPI extends React.Component {
 }
 
 
+
 let mapStateToProps = (state) =>{
-    return{
+    return{ 
         users : state.friends.users,
         pageSize : state.friends.pageSize,
         totalUsersCount : state.friends.totalUsersCount,
