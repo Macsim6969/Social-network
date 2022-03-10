@@ -17,15 +17,7 @@ import {getUserID , getStatus} from './Redux/Acount-reducer'
 
 
 class App extends React.Component {
-    componentDidMount() {
-        axios.get('https://social-network.samuraijs.com/api/1.0/profile/2').then(response => {
-            debugger;
-            getUserID(response.data);
-            getStatus(response.status)
-
-        })
-    }
-
+    
     render() {
         return (
             <div className="App">

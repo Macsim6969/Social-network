@@ -1,5 +1,6 @@
 import React from "react";
 import { addCommActionCreater, postChangeComCreater } from '../../Redux/Mainreview-reducer';
+import StatusHook from "../Acount/LinkStatus/StatusHook";
 import HomeForm from "../Form/HomeForm";
 import Statuse from "../News/Status";
 import ss from './Maininner.module.css'
@@ -25,7 +26,7 @@ const Maininner = (props) => {
                 <HomeForm onSubmit={postForm}/>
             </div>
             <div>
-                <Statuse status={'hi my pussy boy '}/>
+                <StatusHook status={'hi my pussy boy '}/>
             </div>
             
         </div>

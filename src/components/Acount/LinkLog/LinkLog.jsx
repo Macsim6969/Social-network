@@ -1,8 +1,8 @@
 import ss from './LinkLog.module.scss'
 import React from 'react';
-import StatusLog from '../LinkStatus/Status';
+import StatusHook from '../LinkStatus/Status';
 
-const LinkLog = (props) => {
+const LinkLog = (props) => { 
     if (!props.profile) {
         return (
             <div className={ss.log}>
@@ -16,7 +16,7 @@ const LinkLog = (props) => {
         <div className={ss.log}>
             <img className={ss.log_img} src={props.profile.photos.small} alt="" />
             <div className={ss.log_name}>{props.profile.fullName}</div>
-            <StatusLog status ={props.status} updateStatus={props.updateStatus} />
+            <StatusHook status ={props.status} updateStatus={props.updateStatus} />
         </div>
     )
 }

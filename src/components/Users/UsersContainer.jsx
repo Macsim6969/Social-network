@@ -50,7 +50,7 @@ class UserContainerAPI extends React.Component{
 }
 
 let mapStateToProps = (state ) =>{
-    return{
+    return{ 
         usersCom : getusersCom(state),
         users : getUsers(state),
         totalUserCount : gettotalUserCount(state),
