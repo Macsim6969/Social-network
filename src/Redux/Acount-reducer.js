@@ -15,7 +15,7 @@ let initialState = {
         { name: 'Photos' }
     ],
     profile: null,
-    status : ''
+    status: ''
 }
 const acountReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -24,15 +24,15 @@ const acountReducer = (state = initialState, action) => {
                 ...state, profile: action.profile
             }
         }
-        case SET_STATUS :{
-            return{
-                ...state, status : action.status
+        case SET_STATUS: {
+            return {
+                ...state, status: action.status
             }
         }
         default: {
             return state
         }
-    } 
+    }
 }
 
 export const getUserID = (profile) => {
@@ -41,18 +41,17 @@ export const getUserID = (profile) => {
     }
 }
 
-export const getStatus = (status) =>{
-    return{
-        type : SET_STATUS , status
+export const getStatus = (status) => {
+    return {
+        type: SET_STATUS, status
     }
 }
 
 
-export const updateStatus = (status) => (dispatch) =>{
-    profileAPI.updateStatus(status).then(responce =>{
-        if(responce.data.resultCode === 0){
-            dispatch(getStatus(status));
-        }
-    })
+export const updateStatus = (status) => async (dispatch) => {
+    const responce = await profileAPI.updateStatus(status)
+    if (responce.data.resultCode === 0) {
+        dispatch(getStatus(status));
+    }
 }
 export default acountReducer; 
