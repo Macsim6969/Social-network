@@ -8,10 +8,10 @@ import {logine } from '../../Redux/auth-reducer'
 import { Navigate } from "react-router-dom"
 
 
-const  LoginForm = (props) => {
+const  LoginForm = ({handleSubmit , error} ) => {
     
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div>
                 <Field component={Input} name={"email"} type="email" placeholder="email" validate={[required]} />
             </div>
@@ -24,8 +24,8 @@ const  LoginForm = (props) => {
             <div>
                 <button>Login</button>
             </div>
-           { props.error && <div className={ss.form_erroe}>
-                {props.error}
+           { error && <div className={ss.form_erroe}>
+                {error}
             </div>} 
         </form>
     )  

@@ -4,6 +4,8 @@ import usersPhoto from '../../assets/image/users.png';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { usersAPI } from '../../API/API';
+import Paginator from './Paginator';
+import Friends from './Friends';
 
 
 const Findfriends = (props) => {
@@ -17,41 +19,11 @@ const Findfriends = (props) => {
     }
 
     return (
-        <div className={ss.log_find}>
-            People You May Know
-            <div className={ss.logg}> 
-                {pages.map(p => {
-                    return <span className={props.currentPage === p && ss.selector}
-                        onClick={(e) => { props.onpageClick(p) }}>{p}</span>
-                })}
-
-            </div>
-            <div className={ss.find}>{props.users.map(u =>
-                <div className={ss.findfriend} key={u.id}>
-                    <div className={ss.friendsss}>
-                        <nav>
-                            <NavLink to={'/profile/:userId'}>
-                                <img className={ss.img} src={u.photos.small != null ? u.photos.small : usersPhoto} />
-                            </NavLink>
-                        </nav>
-                        <span className={ss.friendbiogr}>
-                            <div>{u.name}</div>
-                            <div>{'u.friend'}</div>
-                        </span>
-                    </div>
-                    <div>
-                        {u.add ?
-                            < button disabled={props.followFetching.some(id => id === u.id)} onClick={() => {
-                                props.acceptAdd(u.id)
-                            }
-
-                            }>Remove</button> :
-                            <button disabled={props.followFetching.some(id => id === u.id)} onClick={() => {
-                                props.acceptDelete(u.id)
-                            }
-                            }>ADD</button>}
-                    </div>
-                </div>)}
+        <div className={ss.log_find}>f
+           <h1>People You May Know</h1>
+            <Paginator currentPage={props.currentPage} onpageClick={props.onpageClick} totalUsersCount={props.totalUsersCount} pageSize={props.pageSize}/>
+            <div className={ss.find}>{props.users.map(u => <Friends user={u} key={u.id}  followFetching={props.followFetching} acceptDelete={props.acceptDelete} acceptAdd={props.acceptAdd}/>
+                )}
             </div>
         </div >
     )
