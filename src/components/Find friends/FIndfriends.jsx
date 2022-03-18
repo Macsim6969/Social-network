@@ -10,16 +10,8 @@ import Friends from './Friends';
 
 const Findfriends = (props) => {
 
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-    let pages = []
-    for (let i = 1; i < pagesCount; i++) {
-        if (pages.length < 10) {
-            pages.push(i);
-        }
-    }
-
     return (
-        <div className={ss.log_find}>f
+        <div className={ss.log_find}>
            <h1>People You May Know</h1>
             <Paginator currentPage={props.currentPage} onpageClick={props.onpageClick} totalUsersCount={props.totalUsersCount} pageSize={props.pageSize}/>
             <div className={ss.find}>{props.users.map(u => <Friends user={u} key={u.id}  followFetching={props.followFetching} acceptDelete={props.acceptDelete} acceptAdd={props.acceptAdd}/>
