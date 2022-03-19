@@ -1,5 +1,8 @@
+import { profileAPI } from "../API/API";
+
 const ADD_DIALOG = 'ADD-DIALOG'
 const ADD_NEW_DIALOG = 'ADD-NEW-DIALOG'
+const SAVE_PHOTO = 'SAVE_PHOTO'
 
 let initialState = { 
     mess: [
@@ -36,5 +39,17 @@ export const addSaveDialog = (NewDialog) => {
         type: ADD_DIALOG , NewDialog
     }
 }
+export const savePhotoSuccess = (photos) =>{
+    return{
+        type: SAVE_PHOTO , photos
+    }
+}
 
+export const savePhoto = (file) => async (dispatch) =>{
+    let responce = await profileAPI.savePhooto(file)
+
+    if(responce.data.resultCode === 0){
+        dispatch(savePhotoSuccess(responce.data.photos))
+    }
+}
 export default messageReducer;

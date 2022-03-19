@@ -13,6 +13,12 @@ const Message = (props) => {
     let onNewsForm = (value) =>{
         props.addSaveDialog(value.NewDialog)
     } 
+
+    const  sendPhoto = (e) =>{
+        if(e.target.files.length){
+            props.savePhoto(e.target.files[0])
+        }
+    }
     return ( 
         
         <div className={ss.mess}>
@@ -23,6 +29,9 @@ const Message = (props) => {
                 {newdilogs}
                 <div>
                     <NewsForm onSubmit={onNewsForm}/>
+                </div>
+                <div>
+                    <input type="file" onChange={sendPhoto}/>
                 </div>
             </div>
         </div>
