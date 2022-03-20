@@ -47,11 +47,23 @@ export const getStatus = (status) => {
     }
 }
 
+export const getUserProfile = () => async (dispatch) =>{
+    let response = await profileAPI.getProfile()
+    dispatch(getUserID(response.data))
+}
 
 export const updateStatus = (status) => async (dispatch) => {
     const responce = await profileAPI.updateStatus(status)
     if (responce.data.resultCode === 0) {
         dispatch(getStatus(status));
+    }
+}
+export const saveProfile = (profile) => async (dispatch , getState) => {
+    const userId = getState().auth.userId
+    let response = await profileAPI.saveProfile(profile)
+    debugger;
+    if (response.data.resultCode === 0) {
+      dispatch(getUserProfile(userId));
     }
 }
 export default acountReducer; 

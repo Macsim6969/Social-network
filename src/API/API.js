@@ -47,6 +47,9 @@ export const profileAPI = {
     }, 
     updateStatus(status) {
         return instance.put(`profile/status/2` + status )
+    },
+    saveProfile(profile) {
+        return instance.put(`profile` , profile)
     }
 }
  
@@ -62,7 +65,13 @@ export const usesrAuth  = {
     logout(){
         return instance.delete(`auth/login`)
     }
-
+}
+export const usersACCOUNT = {
+    getAcc: () =>{
+        return(
+            instance.get(`profile/2`)
+        )
+    }
 }
 
 

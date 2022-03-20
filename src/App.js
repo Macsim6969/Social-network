@@ -11,9 +11,9 @@ import AcountContainer from "./components/Acount/AcountContainer";
 import FIndfriendsContainer from "./components/Find friends/FIndfriendsContainer";
 import UsersContainer from './components/Users/UsersContainer';
 import Login from './components/Login/Login';
-import axios from 'axios';
 import { connect } from 'react-redux';
-import {getUserID , getStatus} from './Redux/Acount-reducer'
+import {getUserID } from './Redux/Acount-reducer'
+import ProfileUSersContainer from './components/ProfileUsers/ProfileUSersContainer';
 
 
 class App extends React.Component {
@@ -37,6 +37,7 @@ class App extends React.Component {
                             <Route path='saves' element={<SavesContainer />} />
                             <Route path='news' element={<UsersContainer />} />
                             <Route path='login' element={<Login />} />
+                            <Route path='users' element={<ProfileUSersContainer />}/>
                         </Routes>
                     </div>
                 </div>
