@@ -2,7 +2,7 @@ import * as axios from 'axios';
 import React from 'react'
 import {connect} from "react-redux";
 import Acount from "./Acount";
-import {getUserID , getStatus , updateStatus} from '../../Redux/Acount-reducer'
+import {getUserID , getStatus , updateStatus} from '../../Redux/Acount-reducer.ts'
 import { Navigate } from 'react-router-dom';
 import { hocRedirect } from '../../HOC/HocRedirect';
 import { compose } from 'redux';

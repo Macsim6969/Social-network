@@ -1,23 +1,34 @@
+import { type } from 'os';
+import { ProfileType } from './../Types/Types';
 import { profileAPI } from "../API/API";
 
 const SET_PROFILE = 'SET_PROFILE';
 const SET_STATUS = 'SET_STATUS';
+
+type infoType ={
+    name: string
+    number: number
+}
+type mainlinkType ={
+    name:string
+}
 let initialState = {
     info: [
         { name: 'Posts', number: 880 },
         { name: 'Followers', number: 400 },
         { name: 'Following', number: 330 }
-    ],
+    ] as Array<infoType>,
     mainlink: [
         { name: 'Timeline' },
         { name: 'About' },
         { name: 'Friends' },
         { name: 'Photos' }
-    ],
-    profile: null,
+    ]as Array<mainlinkType>,
+    profile: null as Array<ProfileType>,
     status: ''
 }
-const acountReducer = (state = initialState, action) => {
+type initialStateType = typeof initialState
+const acountReducer = (state = initialState, action:any):initialStateType => {
     switch (action.type) {
         case SET_PROFILE: {
             return {
@@ -34,20 +45,26 @@ const acountReducer = (state = initialState, action) => {
         }
     }
 }
-
-export const getUserID = (profile) => {
+type getUserIDType ={
+    type: typeof SET_PROFILE
+    profile: ProfileType
+}
+export const getUserID = (profile):getUserIDType => {
     return {
         type: SET_PROFILE, profile
     }
 }
-
-export const getStatus = (status) => {
+type getStatusType ={
+    type: typeof SET_STATUS
+    status: string
+}
+export const getStatus = (status):getStatusType => {
     return {
         type: SET_STATUS, status
     }
 }
 
-export const getUserProfile = () => async (dispatch) =>{
+export const getUserProfile = (userId) => async (dispatch) =>{
     let response = await profileAPI.getProfile()
     dispatch(getUserID(response.data))
 }

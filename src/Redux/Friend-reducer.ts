@@ -1,3 +1,5 @@
+import { type } from 'os';
+import { UserType } from './../Types/Types';
 import { usersAPI } from "../API/API";
 import { updateObjectArray } from "../utilits/validators/object-helper";
 
@@ -10,15 +12,17 @@ const SET_lOADER = 'SET-lOADER';
 const FOLLOW_FETCH = 'FOLLOW_FETCH';
 
 let initalState = {
-    users: [],
+    users: [] as Array<UserType>,
     pageSize: 5,
     totalUsersCount: 0,
     currentPage: 2,
     isFetching: false,
-    followFetching: [],
+    followFetching: [] as Array<number>,
 }
 
-const friendReducer = (state = initalState, action) => {
+type initialStateType = typeof initalState
+
+const friendReducer = (state = initalState, action: any): initialStateType => {
 
     switch (action.type) {
         case ADD:
@@ -58,37 +62,66 @@ const friendReducer = (state = initalState, action) => {
     }
 }
 
-export const addAC = (id) => {
+type addACType ={
+    type: typeof ADD
+    id: number
+}
+export const addAC = (id: number):addACType => {
     return {
         type: ADD, id
     }
 }
-export const deleteAC = (id) => {
+type deleteACType ={
+    type: typeof DELETE
+    id: number
+}
+export const deleteAC = (id: number):deleteACType => {
     return {
         type: DELETE, id
     }
 }
-export const setFriends = (users) => {
+type setFriendsType ={
+    type: typeof SET_FRIENDS
+    users: UserType
+}
+export const setFriends = (users):setFriendsType => {
     return {
         type: SET_FRIENDS, users
     }
 }
-export const setCurrentAC = (current) => {
+type setCurrentACType ={
+    type: typeof SET_CURRENT_PAGE
+    current: number
+}
+export const setCurrentAC = (current):setCurrentACType => {
     return {
         type: SET_CURRENT_PAGE, current
     }
 }
-export const setTotalAC = (totalCount) => {
+type setTotalACType ={
+    type: typeof SET_TOTAL
+    totalCount: number
+}
+export const setTotalAC = (totalCount):setTotalACType => {
     return {
         type: SET_TOTAL, totalCount
     }
 }
-export const isFetchingAC = (isFetching) => {
+type isFetchingACType ={
+    type: typeof SET_lOADER
+    isFetching: boolean
+}
+export const isFetchingAC = (isFetching):isFetchingACType => {
     return {
         type: SET_lOADER, isFetching
     }
 }
-export const followAC = (fetching, userId) => {
+type followACType ={
+    type: typeof FOLLOW_FETCH
+    fetching: any
+    userId: number
+}
+export const followAC = (fetching, userId):followACType => {
     return {
         type: FOLLOW_FETCH, fetching, userId
     }
@@ -106,7 +139,7 @@ export const getUsersThunk = (currentPage, pageSize) => {
     }
 }
 
-const addDeleteFlow = async (dispatch, userId, usersAPI, actionCreator) => {
+export const addDeleteFlow = async (dispatch, userId, usersAPI, actionCreator) => {
     dispatch(followAC(true, userId))
     let data = await usersAPI(userId)
 

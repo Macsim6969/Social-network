@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {acceptAdd, acceptDelete, followAC,  getUsersThunk, setCurrentAC,} from "../../Redux/Friend-reducer";
+import {acceptAdd, acceptDelete, followAC,  getUsersThunk, setCurrentAC,} from "../../Redux/Friend-reducer.ts";
 import Findfriends from './FIndfriends';
 
 import Loader from '../../assets/image/loaders.svg';

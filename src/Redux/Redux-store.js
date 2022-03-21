@@ -1,10 +1,10 @@
 import { applyMiddleware, combineReducers, createStore} from 'redux';
-import acountReducer from './Acount-reducer';
+import acountReducer from './Acount-reducer.ts';
 import mainreviewReducer from './Mainreview-reducer';
-import messageReducer from './Message-reducer';
-import friendReducer from "./Friend-reducer";
+import messageReducer from './Message-reducer.ts';
+import friendReducer from "./Friend-reducer.ts";
 import photoReducer from './Photos-reducer';
-import authReducer from './auth-reducer';
+import authReducer from './auth-reducer.ts';
 import  newsReducer  from './News-reducer';
 import usersReducer from './User-reducer';
 import thunkMiddleware from 'redux-thunk';

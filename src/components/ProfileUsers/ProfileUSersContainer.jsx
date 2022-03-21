@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import React from "react";
 import * as axios from "axios";
 import ProfileUSers from "./ProfileUSers";
-import {getUserID ,saveProfile} from '../../Redux/Acount-reducer';
+import {getUserID ,saveProfile} from '../../Redux/Acount-reducer.ts';
 
 
 class ProfileUSersContainerAPI extends React.Component{

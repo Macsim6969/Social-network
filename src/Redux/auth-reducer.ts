@@ -3,25 +3,39 @@ import { usersAPI, usesrAuth } from "../API/API"
 
 const AUTH_STATUS = 'AUTH_STATUS'
 
+
 let initalState = {
-    id: null,
-    login: null,
-    email: null,
+    id: null as number | null,
+    login: null as string | null,
+    email: null as string | null,
     isStatus: false
 }   
+export type InitialStateType = typeof initalState
 
-const authReducer = (state = initalState, action) => {
+const authReducer = (state = initalState, action: any):InitialStateType => { 
     switch (action.type) {
         case AUTH_STATUS:
             return {
-                ...state, ...action.payload 
+                ...state, ...action.payload , id: 'dfdfdf'
             }
         default:
             return state
     }
 }
 
-export const setStatusAuth = (id, login, email , isStatus) => {
+type inititalStatusPayload = {
+    id: number | null
+    login: string | null
+    email: string | null
+    isStatus: boolean
+}
+
+type initialStatusauthType = {
+    type: typeof AUTH_STATUS,
+    payload :inititalStatusPayload
+}
+
+export const setStatusAuth = (id : number | null, login: string | null, email: string | null, isStatus: boolean):initialStatusauthType => {
     return {
         type: AUTH_STATUS, payload: { id, login, email , isStatus}
     }
@@ -39,7 +53,7 @@ export const getLogin = () => {
 }
 
 
-export const logine = (email, password, rememberMe) => (dispatch) => {
+export const logine = (email: string, password: string, rememberMe: boolean) => (dispatch: any) => {
     usesrAuth.login(email, password, rememberMe ).then(response => {
         if (response.data.resultCode === 0) {
             dispatch(getLogin())
@@ -52,7 +66,7 @@ export const logine = (email, password, rememberMe) => (dispatch) => {
 }
 
 
-export const logout = () => (dispatch) => {
+export const logout = () => (dispatch: any) => {
     usesrAuth.logout().then(response => {
         if (response.data.resultCode === 0) {
             dispatch(setStatusAuth(null, null, null , false))

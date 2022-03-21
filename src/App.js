@@ -12,7 +12,7 @@ import FIndfriendsContainer from "./components/Find friends/FIndfriendsContainer
 import UsersContainer from './components/Users/UsersContainer';
 import Login from './components/Login/Login';
 import { connect } from 'react-redux';
-import {getUserID } from './Redux/Acount-reducer'
+import {getUserID } from './Redux/Acount-reducer.ts'
 import ProfileUSersContainer from './components/ProfileUsers/ProfileUSersContainer';
 
 

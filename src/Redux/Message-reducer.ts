@@ -1,9 +1,18 @@
+import { PhotoType } from './../Types/Types';
+import { type } from 'os';
 import { profileAPI } from "../API/API";
 
 const ADD_DIALOG = 'ADD-DIALOG'
 const ADD_NEW_DIALOG = 'ADD-NEW-DIALOG'
 const SAVE_PHOTO = 'SAVE_PHOTO'
 
+type messDialog ={
+    name: string
+    id: number
+}
+type diaDialog={
+    name: string
+}
 let initialState = { 
     mess: [
         { name: 'Vanya', id: 5 }, 
@@ -12,15 +21,17 @@ let initialState = {
         { name: 'Andreu', id: 3 },
         { name: 'ALya', id: 1 },
         { name: 'MAcs', id: 2 }
-    ],
+    ] as Array<messDialog>,
     dia: [
         { name: 'HI' },
         { name: ' i love you' },
         { name: 'Hi , i too))' } 
-    ],
+    ]as Array<diaDialog>,
 } 
 
-const messageReducer = (state = initialState, action) => { 
+export type initialStateType = typeof initialState
+
+const messageReducer = (state = initialState, action:any) : initialStateType => { 
 
     switch (action.type) {
         case ADD_DIALOG:
@@ -34,12 +45,21 @@ const messageReducer = (state = initialState, action) => {
 
 }
 
-export const addSaveDialog = (NewDialog) => {
+type addSaveDialogType = {
+    type: typeof ADD_DIALOG
+    NewDialog: string
+}
+export const addSaveDialog = (NewDialog: string):addSaveDialogType => {
     return {
         type: ADD_DIALOG , NewDialog
     }
 }
-export const savePhotoSuccess = (photos) =>{
+
+type savePhotoSuccessType = {
+    type: typeof SAVE_PHOTO
+    photos: PhotoType
+}
+export const savePhotoSuccess = (photos):savePhotoSuccessType =>{
     return{
         type: SAVE_PHOTO , photos
     }
