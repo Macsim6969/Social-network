@@ -1,14 +1,21 @@
 import ss from './Findfriend.module.scss'
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
+type PropsType = {
+    totalUsersCount: number
+    pageSize: number
+    currentPage: number
+    onpageClick: (pageNumber: number) => void
+    portionSize?: number
+}
 
-const Paginator = ({ totalUsersCount, pageSize, currentPage, onpageClick, portionSize = 10 }) => {
+const Paginator: FC<PropsType> = ({ totalUsersCount, pageSize, currentPage, onpageClick, portionSize = 10 }) => {
 
     let pagesCount = Math.ceil(totalUsersCount / pageSize);
     let pages = []
     for (let i = 1; i < pagesCount; i++) {
         pages.push(i);
-    }
+    } 
 
     let portionCount = Math.ceil(pagesCount / portionSize);
     let [portionNumber , setportionNumber] = useState(1);

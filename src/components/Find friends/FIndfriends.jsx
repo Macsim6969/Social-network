@@ -4,10 +4,10 @@ import usersPhoto from '../../assets/image/users.png';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { usersAPI } from '../../API/API';
-import Paginator from './Paginator';
-import Friends from './Friends';
+import Paginator from './Paginator.tsx';
+import Friends from './Friends.tsx';
 
-
+ 
 const Findfriends = (props) => {
 
     return (

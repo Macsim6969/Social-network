@@ -1,3 +1,4 @@
+import { PhotoType } from './../Types/Types';
 const ADD = 'ADD';
 const DELETE = 'DELETE';
 const SET_USERS = 'SET_USERS'
@@ -7,8 +8,15 @@ const IS_LOADING = 'ISLOADING';
 const SET_USERSCOM = 'SET_USERSCOM';
 const SET_NEWUSERS = 'SET_NEWUSERS'
 
+type UserType ={
+    id: number
+    name: string
+    status: string
+    photos: PhotoType
+}
+
 let initalState = {
-    users: [],
+    users: [] as Array<UserType>,
     totalUserCount: 0,
     pageSize: 5,
     currentPage: 2,
@@ -19,7 +27,10 @@ let initalState = {
     newUsersCom : ''
 }
 
-const usersReducer = (state = initalState, action) => {
+
+type initalStateType = typeof initalState
+
+const usersReducer = (state = initalState, action:any): initalStateType => {
     switch (action.type) {
         case ADD:
             return {
@@ -49,7 +60,7 @@ const usersReducer = (state = initalState, action) => {
             }
         case CURRENT_AC:
             return {
-                ...state, currentPAge: action.currentPage
+                ...state, currentPage: action.currentPage
             }
         case IS_LOADING:
             return {
@@ -68,44 +79,74 @@ const usersReducer = (state = initalState, action) => {
             return state
     }
 }
-
-export const addAC = (id) => {
+type addACType = {
+    type: typeof ADD ,
+    id: number
+}
+export const addAC = (id):addACType => {
     return {
         type: ADD, id
     }
 
 }
-export const deletes = (id) => {
+type deltesType ={
+    type: typeof DELETE
+    id: number
+}
+export const deletes = (id):deltesType => {
     return {
         type: DELETE, id
     }
 }
-export const setUsers = (users) => {
+type setUsersType ={
+    type: typeof SET_USERS
+    users: UserType
+}
+export const setUsers = (users): setUsersType => {
     return {
         type: SET_USERS, users
     }
 }
-export const totalCount = (totalCount) => {
+type totalCountType ={
+    type: typeof TOTAL_COUNT
+    totalCount: number
+}
+export const totallCount = (totalCount):totalCountType => {
     return {
         type: TOTAL_COUNT, totalCount
     }
 }
-export const currentPageAC = (current) => {
+type currentPageACType ={
+    type: typeof CURRENT_AC
+    current : number
+}
+export const currentPageAC = (current): currentPageACType => {
     return {
         type: CURRENT_AC, current
     }
 }
-export const isLoadingAC = (isLoading) => {
+type isLoadingAcType ={
+    type: typeof IS_LOADING
+    isLoading: boolean
+}
+export const isLoadingAC = (isLoading):isLoadingAcType => {
     return {
         type: IS_LOADING, isLoading
     }
 }
-export const setUSersCom = () =>{
+type setUsersComType ={
+    type: typeof SET_USERSCOM
+}
+export const setUSersCom = ():setUsersComType =>{
     return{
         type: SET_USERSCOM 
     }
 }
-export const setNewUsersCom = (text) =>{
+type setNewUsersCom ={
+    type: typeof SET_NEWUSERS
+    newUsersCom: string
+}
+export const setNewUsersCom = (text):setNewUsersCom =>{
     return{
         type : SET_NEWUSERS ,newUsersCom : text
     }

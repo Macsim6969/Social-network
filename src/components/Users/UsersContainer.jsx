@@ -1,10 +1,10 @@
 import { connect } from "react-redux"
-import {setUsers, addAC , deletes, totalCount ,setUSersCom, setNewUsersCom, currentPageAC , isLoadingAC} from '../../Redux/User-reducer'
+import {setUsers, addAC , deletes, totallCount ,setUSersCom, setNewUsersCom, currentPageAC , isLoadingAC} from '../../Redux/User-reducer.ts'
 import Users from "./Users"
 import Loader from '../../assets/image/loaders.svg';
 import { usersAPI } from "../../API/API";
 import React from "react";
-import { getcurrentPage, getisLoading, getnewUsersCom, getPageSize, gettotalUserCount, getUsers, getusersCom, getusersSelector } from "../../Redux/Users-selector";
+import { getcurrentPage, getisLoading, getnewUsersCom, getPageSize, gettotalUserCount, getUsers, getusersCom, getusersSelector } from "../../Redux/Users-selector.ts";
 
 
 class UserContainerAPI extends React.Component{
@@ -15,7 +15,7 @@ class UserContainerAPI extends React.Component{
         .then(data =>{
             this.props.isLoadingAC(false)
             this.props.setUsers(data.items)
-            this.props.totalCount(data.totalCount)
+            this.props.totallCount(data.totalCount)
         })
     }
     
@@ -62,4 +62,4 @@ let mapStateToProps = (state ) =>{
 }
 
 
-export default connect(mapStateToProps , {setUsers, setUSersCom, setNewUsersCom, addAC , deletes, totalCount , currentPageAC , isLoadingAC})(UserContainerAPI);
+export default connect(mapStateToProps , {setUsers, setUSersCom, setNewUsersCom, addAC , deletes, totallCount , currentPageAC , isLoadingAC})(UserContainerAPI);

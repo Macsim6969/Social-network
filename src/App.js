@@ -8,7 +8,7 @@ import MessageContainer from './components/Message/MessageContainer';
 import SavesContainer from "./components/Saves/SavesContainer";
 import MaininnerContainer from "./components/Main/MaininnerContainer";
 import AcountContainer from "./components/Acount/AcountContainer";
-import FIndfriendsContainer from "./components/Find friends/FIndfriendsContainer";
+import FIndfriendsContainer from "./components/Find friends/FIndfriendsContainer.tsx";
 import UsersContainer from './components/Users/UsersContainer';
 import Login from './components/Login/Login';
 import { connect } from 'react-redux';

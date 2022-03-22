@@ -2,11 +2,18 @@ import ss from './Findfriend.module.scss'
 import React from 'react';
 import usersPhoto from '../../assets/image/users.png';
 import { NavLink } from 'react-router-dom';
+import { UserType } from '../../Types/Types';
 
+type Props ={
+     users: UserType
+     acceptAdd: () => void
+     acceptDelete: () => void
+     followFetching: Array<number>
+}
 
 const Friends = ({user , acceptAdd ,acceptDelete , followFetching}) => {
     let u = user
-    return (
+    return ( 
         <div>
             <div className={ss.friendsss}>
                 <nav>

@@ -1,7 +1,10 @@
+import { FC } from 'react';
 import NewsForm from '../Form/NewsForm';
 import ss from './Message.module.scss'
 import MessageDialogs from './MessageDialogs/MessageDialogs';
 import MessageList from './MessageList/MessageList';
+
+
 
 
 const Message = (props) => {
