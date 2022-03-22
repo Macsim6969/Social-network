@@ -1,7 +1,10 @@
+import { AppStateType } from './Redux-store';
 import { type } from 'os';
 import { UserType } from './../Types/Types';
 import { usersAPI } from "../API/API";
 import { updateObjectArray } from "../utilits/validators/object-helper";
+import { Dispatch } from 'redux';
+import { ThunkAction } from 'redux-thunk';
 
 const ADD = 'ADD';
 const DELETE = 'DELETE';
@@ -22,18 +25,18 @@ let initalState = {
 
 type initialStateType = typeof initalState
 
-const friendReducer = (state = initalState, action: any): initialStateType => {
+const friendReducer = (state = initalState, action: ActionsTypes): initialStateType => {
 
     switch (action.type) {
         case ADD:
             return {
                 ...state,
-                users: updateObjectArray(state.users , action.id , "id" , {add : true})
-                
+                users: updateObjectArray(state.users, action.id, "id", { add: true })
+
             }
         case DELETE:
             return {
-                ...state, users: updateObjectArray(state.users , action.id , "id" , {add: false})
+                ...state, users: updateObjectArray(state.users, action.id, "id", { add: false })
             }
         case SET_FRIENDS:
             return {
@@ -41,7 +44,7 @@ const friendReducer = (state = initalState, action: any): initialStateType => {
             }
         case SET_CURRENT_PAGE:
             return {
-                ...state, currentPage: action.currentPage
+                ...state, currentPage: action.current
             }
         case SET_TOTAL:
             return {
@@ -62,73 +65,78 @@ const friendReducer = (state = initalState, action: any): initialStateType => {
     }
 }
 
-type addACType ={
+type ActionsTypes = addACType | deleteACType | setFriendsType | setCurrentACType | setTotalACType | isFetchingACType | followACType
+
+type addACType = {
     type: typeof ADD
     id: number
 }
-export const addAC = (id: number):addACType => {
+export const addAC = (id: number): addACType => {
     return {
         type: ADD, id
     }
 }
-type deleteACType ={
+type deleteACType = {
     type: typeof DELETE
     id: number
 }
-export const deleteAC = (id: number):deleteACType => {
+export const deleteAC = (id: number): deleteACType => {
     return {
         type: DELETE, id
     }
 }
-type setFriendsType ={
+type setFriendsType = {
     type: typeof SET_FRIENDS
     users: UserType
 }
-export const setFriends = (users):setFriendsType => {
+export const setFriends = (users): setFriendsType => {
     return {
         type: SET_FRIENDS, users
     }
 }
-type setCurrentACType ={
+type setCurrentACType = {
     type: typeof SET_CURRENT_PAGE
     current: number
 }
-export const setCurrentAC = (current):setCurrentACType => {
+export const setCurrentAC = (current): setCurrentACType => {
     return {
         type: SET_CURRENT_PAGE, current
     }
 }
-type setTotalACType ={
+type setTotalACType = {
     type: typeof SET_TOTAL
     totalCount: number
 }
-export const setTotalAC = (totalCount):setTotalACType => {
+export const setTotalAC = (totalCount): setTotalACType => {
     return {
         type: SET_TOTAL, totalCount
     }
 }
-type isFetchingACType ={
+type isFetchingACType = {
     type: typeof SET_lOADER
     isFetching: boolean
 }
-export const isFetchingAC = (isFetching):isFetchingACType => {
+export const isFetchingAC = (isFetching): isFetchingACType => {
     return {
         type: SET_lOADER, isFetching
     }
 }
-type followACType ={
+type followACType = {
     type: typeof FOLLOW_FETCH
     fetching: any
     userId: number
 }
-export const followAC = (fetching, userId):followACType => {
+export const followAC = (fetching, userId): followACType => {
     return {
         type: FOLLOW_FETCH, fetching, userId
     }
 }
+type GetStateType = () => AppStateType
+type DispatchType = Dispatch<ActionsTypes>
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 
-export const getUsersThunk = (currentPage, pageSize) => {
-    return (dispatch) => {
+export const getUsersThunk = (currentPage: number, pageSize: number): ThunkType => {
+    return async (dispatch) => {
         dispatch(isFetchingAC(true));
         usersAPI.getUsers(currentPage, pageSize)
             .then(data => {
@@ -139,7 +147,7 @@ export const getUsersThunk = (currentPage, pageSize) => {
     }
 }
 
-export const addDeleteFlow = async (dispatch, userId, usersAPI, actionCreator) => {
+export const addDeleteFlow = async (dispatch: DispatchType, userId: number, usersAPI: any, actionCreator: (userId)=> deleteACType| addACType) => {
     dispatch(followAC(true, userId))
     let data = await usersAPI(userId)
 
@@ -149,10 +157,10 @@ export const addDeleteFlow = async (dispatch, userId, usersAPI, actionCreator) =
     dispatch(followAC(false, userId))
 }
 
-export const acceptAdd = (userId) => async (dispatch) => {
+export const acceptAdd = (userId): ThunkType => async (dispatch) => {
     addDeleteFlow(dispatch, userId, usersAPI.getDelete.bind(usersAPI), deleteAC);
 }
-export const acceptDelete = (userId) => async (dispatch) => {
+export const acceptDelete = (userId): ThunkType => async (dispatch) => {
     addDeleteFlow(dispatch, userId, usersAPI.getADD.bind(usersAPI), addAC)
 }
 

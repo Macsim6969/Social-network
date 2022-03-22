@@ -1,4 +1,4 @@
-import * as axios from 'axios';
+import axios from 'axios';
  
 
 const instance = axios.create({
@@ -39,8 +39,8 @@ export const usersAPI = {
 }
 
 export const profileAPI = {
-    getProfile() {
-        return instance.get(`profile/2` )
+    getProfile(userId) {
+        return instance.get(`profile/2` + userId )
     },
     getStatus(status) {
          return instance.get(`profile/status/2` + status)
@@ -52,11 +52,27 @@ export const profileAPI = {
         return instance.put(`profile` , profile)
     }
 }
- 
+
+
+export enum ResultCodeEnum {
+    Success =0,
+    Error = 1
+}
+
+type MeResponseType ={
+    data: {
+        id:number
+        email: string
+        login: string
+    }
+    resultCode : ResultCodeEnum
+    messages: Array<string>
+}
+
 export const usesrAuth  = {
     getAuth: () =>{
         return(
-            instance.get('auth/me' )
+            instance.get<MeResponseType>('auth/me' ).then(res => res.data)
         )
     },
     login(email , password , rememberMe = false){

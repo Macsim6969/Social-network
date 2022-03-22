@@ -1,5 +1,5 @@
 import { stopSubmit } from "redux-form"
-import { usersAPI, usesrAuth } from "../API/API"
+import { ResultCodeEnum, usersAPI, usesrAuth } from "../API/API"
 
 const AUTH_STATUS = 'AUTH_STATUS'
 
@@ -43,9 +43,9 @@ export const setStatusAuth = (id : number | null, login: string | null, email: s
 
 export const getLogin = () => {
     return (dispatch) => {
-        usesrAuth.getAuth().then(response => {
-            if (response.data.resultCode === 0) {
-                let { id, login, email  } = response.data.data;
+        let Medata = await  usesrAuth.getAuth();
+            if (Medata.resultCode === ResultCodeEnum.Success) {
+                let { id, login, email  } = Medata.data;
                 dispatch(setStatusAuth(id, login, email , true))
             }
         })
