@@ -64,8 +64,9 @@ export const getStatus = (status):getStatusType => {
     }
 }
 
+
 export const getUserProfile = (userId) => async (dispatch) =>{
-    let response = await profileAPI.getProfile()
+    let response = await profileAPI.getProfile(userId)
     dispatch(getUserID(response.data))
 }
 

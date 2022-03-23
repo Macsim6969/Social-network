@@ -1,14 +1,17 @@
-import React from "react"
+import React, { FC } from "react"
 import ss from './Login.module.scss'
 import { connect } from "react-redux"
-import { Field, reduxForm } from 'redux-form'
+import { Field, InjectedFormProps, reduxForm } from 'redux-form'
 import { Input } from "../../Common/FormsControl/FormsControls"
 import { required } from "../../utilits/validators/validator"
-import {logine } from '../../Redux/auth-reducer.ts'
+import {logine } from '../../Redux/auth-reducer'
 import { Navigate } from "react-router-dom"
 
+type IPropsForm ={
+    onSubmit: (formData) => void
+}
 
-const  LoginForm = ({handleSubmit , error} ) => {
+const LoginForm: FC<InjectedFormProps<LoginFormValuesType, IPropsForm> & IPropsForm> = ({handleSubmit , error} ) => {
     
     return (
         <form onSubmit={handleSubmit}>
@@ -31,9 +34,21 @@ const  LoginForm = ({handleSubmit , error} ) => {
     )  
 }   
 
-const LoginReduxForm = reduxForm({form: 'login'})(LoginForm);
+const LoginReduxForm = reduxForm<LoginFormValuesType , IPropsForm>({form: 'login'})(LoginForm);
 
-const Login = (props) => {
+type MapStateType ={
+    isStatus: boolean
+}
+type MapDispatchType ={
+    logine  : (email: string, password:string, rememberMe: boolean) => void 
+}
+
+type LoginFormValuesType ={
+    email: string
+    password : string
+    rememberMe: boolean
+}
+const Login: FC<MapStateType & MapDispatchType>  = (props) => {
     const onSubmit = (formData) =>{
        props.logine(formData.email , formData.password , formData.rememberMe)
     }

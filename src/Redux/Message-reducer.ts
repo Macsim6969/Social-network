@@ -1,6 +1,9 @@
+import { ThunkAction } from 'redux-thunk';
+import { Dispatch } from 'redux';
 import { PhotoType } from './../Types/Types';
 import { type } from 'os';
 import { profileAPI } from "../API/API";
+import { AppStateType } from './Redux-store';
 
 const ADD_DIALOG = 'ADD-DIALOG'
 const ADD_NEW_DIALOG = 'ADD-NEW-DIALOG'
@@ -45,6 +48,8 @@ const messageReducer = (state = initialState, action:any) : initialStateType => 
 
 }
 
+type ActionType =addSaveDialogType|savePhotoSuccessType
+
 type addSaveDialogType = {
     type: typeof ADD_DIALOG
     NewDialog: string
@@ -65,7 +70,10 @@ export const savePhotoSuccess = (photos):savePhotoSuccessType =>{
     }
 }
 
-export const savePhoto = (file) => async (dispatch) =>{
+type DispatchType = Dispatch<ActionType>
+type ThunkType = ThunkAction<Promise<void> , AppStateType, unknown, ActionType>
+
+export const savePhoto = (file):ThunkType => async (dispatch:DispatchType) =>{
     let responce = await profileAPI.savePhooto(file)
 
     if(responce.data.resultCode === 0){

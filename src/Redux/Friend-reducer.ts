@@ -33,7 +33,7 @@ const friendReducer = (state = initalState, action: ActionsTypes): initialStateT
                 ...state,
                 users: updateObjectArray(state.users, action.id, "id", { add: true })
 
-            }
+            } 
         case DELETE:
             return {
                 ...state, users: updateObjectArray(state.users, action.id, "id", { add: false })
@@ -89,7 +89,7 @@ type setFriendsType = {
     type: typeof SET_FRIENDS
     users: UserType
 }
-export const setFriends = (users): setFriendsType => {
+export const setFriends = (users: UserType): setFriendsType => {
     return {
         type: SET_FRIENDS, users
     }
@@ -157,10 +157,10 @@ export const addDeleteFlow = async (dispatch: DispatchType, userId: number, user
     dispatch(followAC(false, userId))
 }
 
-export const acceptAdd = (userId): ThunkType => async (dispatch) => {
+export const acceptAdd = (userId): ThunkType => async (dispatch:DispatchType) => {
     addDeleteFlow(dispatch, userId, usersAPI.getDelete.bind(usersAPI), deleteAC);
 }
-export const acceptDelete = (userId): ThunkType => async (dispatch) => {
+export const acceptDelete = (userId): ThunkType => async (dispatch: DispatchType) => {
     addDeleteFlow(dispatch, userId, usersAPI.getADD.bind(usersAPI), addAC)
 }
 
