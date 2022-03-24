@@ -1,5 +1,5 @@
 import React from 'react'
-import { usersAPI } from '../../API/API'
+import { usersAPI } from '../../API/API.ts'
 import users from '../../assets/image/users.png'
 import ss from './Users.module.scss'
 import { NavLink } from 'react-router-dom';

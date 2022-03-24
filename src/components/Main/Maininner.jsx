@@ -1,8 +1,6 @@
 import React from "react";
-import { addCommActionCreater, postChangeComCreater } from '../../Redux/Mainreview-reducer';
 import StatusHook from "../Acount/LinkStatus/StatusHook";
 import HomeForm from "../Form/HomeForm";
-import Statuse from "../News/Status";
 import ss from './Maininner.module.css'
 import Main_rew from './Main_but/Main_rew';
 

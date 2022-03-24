@@ -1,6 +1,5 @@
  import React from "react";
 import { connect } from "react-redux";
-import { usesrAuth } from "../../../API/API";
 import {getLogin, setStatusAuth} from '../../../Redux/auth-reducer.ts'
 import HeaderLoft from "./HeaderLoft";
 import {logout} from '../../../Redux/auth-reducer.ts'

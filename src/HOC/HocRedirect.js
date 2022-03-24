@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import Login from '../components/Login/Login';
+import Login from '../components/Login/Login.tsx';
 let mapStateRedirectToProps = (state) =>{
     return{
         isStatus : state.auth.isStatus

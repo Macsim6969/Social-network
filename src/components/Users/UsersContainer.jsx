@@ -2,7 +2,7 @@ import { connect } from "react-redux"
 import {setUsers, addAC , deletes, totallCount ,setUSersCom, setNewUsersCom, currentPageAC , isLoadingAC} from '../../Redux/User-reducer.ts'
 import Users from "./Users"
 import Loader from '../../assets/image/loaders.svg';
-import { usersAPI } from "../../API/API";
+import { usersAPI } from "../../API/API.ts";
 import React from "react";
 import { getcurrentPage, getisLoading, getnewUsersCom, getPageSize, gettotalUserCount, getUsers, getusersCom, getusersSelector } from "../../Redux/Users-selector.ts";
 

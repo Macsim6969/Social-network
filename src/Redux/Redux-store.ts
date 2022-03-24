@@ -1,12 +1,12 @@
 import { applyMiddleware, combineReducers, createStore} from 'redux';
-import acountReducer from './Acount-reducer';
-import mainreviewReducer from './Mainreview-reducer';
-import messageReducer from './Message-reducer';
-import friendReducer from "./Friend-reducer";
-import photoReducer from './Photos-reducer';
-import authReducer from './auth-reducer';
-import  newsReducer  from './News-reducer';
-import usersReducer from './User-reducer';
+import acountReducer from './Acount-reducer.ts';
+import mainreviewReducer from './Mainreview-reducer.ts';
+import messageReducer from './Message-reducer.ts'; 
+import friendReducer from "./Friend-reducer.ts";
+import photoReducer from './Photos-reducer.ts';
+import authReducer from './auth-reducer.ts';
+import  newsReducer  from './News-reducer.ts';
+import usersReducer from './User-reducer.ts';
 import thunkMiddleware from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form'
 
@@ -26,6 +26,9 @@ let reducer = combineReducers({
 
 type RootReducerType  = typeof reducer
 export type AppStateType = ReturnType<RootReducerType>
+
+type PropertiesTypes<T> = T extends {[key: string]: infer U} ? U : never
+export type InfermActionsTypes<T extends {[key: string]: (...args : any[]) => any}> = ReturnType<PropertiesTypes<T>>
 
 
 let store = createStore(reducer, applyMiddleware(thunkMiddleware));

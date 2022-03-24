@@ -1,9 +1,5 @@
 import ss from './Findfriend.module.scss'
 import React from 'react';
-import usersPhoto from '../../assets/image/users.png';
-import { NavLink } from 'react-router-dom';
-import axios from 'axios';
-import { usersAPI } from '../../API/API';
 import Paginator from './Paginator.tsx';
 import Friends from './Friends.tsx';
 

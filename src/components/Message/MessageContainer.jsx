@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { hocRedirect } from '../../HOC/HocRedirect';
 import { addSaveDialog ,savePhoto} from '../../Redux/Message-reducer.ts';
-import Message from './Message';
+import Message from './Message.tsx';
 
 
 

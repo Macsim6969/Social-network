@@ -1,5 +1,5 @@
 import React from "react";
-import { addCommActionCreater, postChangeComCreater } from '../../Redux/Mainreview-reducer';
+import { addCommActionCreater, postChangeComCreater } from '../../Redux/Mainreview-reducer.ts';
 import ss from './Maininner.module.css'
 import Main_rew from './Main_but/Main_rew';
 import {connect} from "react-redux";

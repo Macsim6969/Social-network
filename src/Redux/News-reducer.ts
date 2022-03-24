@@ -1,14 +1,21 @@
 const SET_NEWS = 'SET_NEWS';
 const SET_NEWS_AC = 'SET_NEWS_AC'
 
+
+type newsType ={
+    message: string
+}
+
 let initalState = {
     news: [
         { message: '7898798' }
-    ],
+    ] as Array<newsType>,
     setnews: ''
 }
 
-const newsReducer = (state = initalState, action) => {
+type initalStateType = typeof initalState
+
+const newsReducer = (state = initalState, action: ActionType):initalStateType => {
     switch (action.type) {
         case SET_NEWS:
             let text = state.setnews;
@@ -24,12 +31,20 @@ const newsReducer = (state = initalState, action) => {
     }
 }
 
-export const addNews = () =>{
+type ActionType = addNewsType | addNewsACType
+type addNewsType = {
+    type: typeof SET_NEWS
+}
+export const addNews = ():addNewsType =>{
     return{
         type: SET_NEWS 
     }
 }
-export const addNewsAC = (text) =>{
+type addNewsACType ={
+    type: typeof SET_NEWS_AC
+    newSaveNEws: string
+}
+export const addNewsAC = (text):addNewsACType =>{
     return{
         type: SET_NEWS_AC , newSaveNEws: text
     }

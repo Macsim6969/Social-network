@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { photoAdAC, photoCurrentAC, photoDelAC, photoSetAC, totalAC } from "../../../../Redux/Photos-reducer";
+import { actions } from "../../../../Redux/Photos-reducer.ts";
 import Photo from "./Photo";
 
 
@@ -15,19 +15,19 @@ const mapStateToProps = (state) =>{
 const mapDispatchToProps = (dispatch) =>{
     return{
         add : (id) =>{
-            dispatch(photoAdAC(id));
+            dispatch(actions.photoAdAC(id));
         },
         delete : (id) =>{
-            dispatch(photoDelAC(id));
+            dispatch(actions.photoDelAC(id));
         },
         set : (users) =>{
-            dispatch(photoSetAC(users));
+            dispatch(actions.photoSetAC(users));
         },
         photoCurrentAC: (current) =>{
-            dispatch(photoCurrentAC(current));
+            dispatch(actions.photoCurrentAC(current));
         },
         totalAC: (totalCount) =>{
-            dispatch(totalAC(totalCount))
+            dispatch(actions.totalAC(totalCount))
         }
     }
 }

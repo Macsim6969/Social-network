@@ -1,5 +1,5 @@
 import React from  'react';
-import { addSaveAction  } from "../../Redux/Mainreview-reducer";
+import { addSaveAction  } from "../../Redux/Mainreview-reducer.ts";
 import {connect} from "react-redux";
 import Saves from "./Saves";
 

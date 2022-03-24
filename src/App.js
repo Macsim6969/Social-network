@@ -10,7 +10,7 @@ import MaininnerContainer from "./components/Main/MaininnerContainer";
 import AcountContainer from "./components/Acount/AcountContainer";
 import FIndfriendsContainer from "./components/Find friends/FIndfriendsContainer.tsx";
 import UsersContainer from './components/Users/UsersContainer';
-import Login from './components/Login/Login';
+import Login from './components/Login/Login.tsx';
 import { connect } from 'react-redux';
 import {getUserID } from './Redux/Acount-reducer.ts'
 import ProfileUSersContainer from './components/ProfileUsers/ProfileUSersContainer';

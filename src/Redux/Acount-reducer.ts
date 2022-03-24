@@ -1,6 +1,5 @@
-import { type } from 'os';
 import { ProfileType } from './../Types/Types';
-import { profileAPI } from "../API/API";
+import { profileAPI } from "../API/API.ts";
 
 const SET_PROFILE = 'SET_PROFILE';
 const SET_STATUS = 'SET_STATUS';

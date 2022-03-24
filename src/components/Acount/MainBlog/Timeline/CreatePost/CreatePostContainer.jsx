@@ -1,5 +1,5 @@
 import React from 'react';
-import { addPostAcc, postChangeAcc } from '../../../../../Redux/Mainreview-reducer';
+import { addPostAcc, postChangeAcc } from '../../../../../Redux/Mainreview-reducer.ts';
 
 
 import s from './CreatePost.module.scss'

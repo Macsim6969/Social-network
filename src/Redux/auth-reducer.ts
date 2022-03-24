@@ -1,7 +1,7 @@
 import { ThunkAction } from 'redux-thunk';
 import { Dispatch } from "react"
 import { stopSubmit } from "redux-form"
-import { ResultCodeEnum, usersAPI, usesrAuth } from "../API/API"
+import { ResultCodeEnum, usersAPI, usesrAuth } from "../API/API.ts"
 import { AppStateType } from "./Redux-store"
 
 const AUTH_STATUS = 'AUTH_STATUS'

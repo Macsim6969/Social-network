@@ -1,6 +1,6 @@
 import React from 'react'
 import { reduxForm } from 'redux-form'
-import { dopFields, Input, Textarea } from '../../Common/FormsControl/FormsControls'
+import { dopFields, Input, Textarea } from '../../Common/FormsControl/FormsControls.tsx'
 
 const ProfileDataForm = ({ handleSubmit, profile }) => {
     return (

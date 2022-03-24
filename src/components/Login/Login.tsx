@@ -2,9 +2,9 @@ import React, { FC } from "react"
 import ss from './Login.module.scss'
 import { connect } from "react-redux"
 import { Field, InjectedFormProps, reduxForm } from 'redux-form'
-import { Input } from "../../Common/FormsControl/FormsControls"
-import { required } from "../../utilits/validators/validator"
-import {logine } from '../../Redux/auth-reducer'
+import { Input } from "../../Common/FormsControl/FormsControls.tsx"
+import { required } from "../../utilits/validators/validator.ts"
+import {logine } from '../../Redux/auth-reducer.ts'
 import { Navigate } from "react-router-dom"
 
 type IPropsForm ={

@@ -2,7 +2,7 @@ import { ThunkAction } from 'redux-thunk';
 import { Dispatch } from 'redux';
 import { PhotoType } from './../Types/Types';
 import { type } from 'os';
-import { profileAPI } from "../API/API";
+import { profileAPI } from "../API/API.ts";
 import { AppStateType } from './Redux-store';
 
 const ADD_DIALOG = 'ADD-DIALOG'
