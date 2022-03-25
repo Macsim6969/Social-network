@@ -26,5 +26,5 @@ let mapStateToProps = (state )=>{
         
     }
 }
-export default connect (mapStateToProps , {setStatusAuth , getLogin , logout}) (HeaderLoftContainerAPI)
+export default connect (mapStateToProps , { getLogin , logout}) (HeaderLoftContainerAPI)
 

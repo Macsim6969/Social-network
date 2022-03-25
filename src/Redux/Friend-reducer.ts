@@ -1,7 +1,7 @@
 import { AppStateType, InfermActionsTypes } from './Redux-store';
 import { type } from 'os';
 import { UserType } from './../Types/Types';
-import { usersAPI } from "../API/API.ts";
+import { usersAPI } from "../API/User-Api.ts";
 import { updateObjectArray } from "../utilits/validators/object-helper";
 import { Dispatch } from 'redux';
 import { ThunkAction } from 'redux-thunk';

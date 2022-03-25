@@ -1,5 +1,5 @@
 import { ProfileType } from './../Types/Types';
-import { profileAPI } from "../API/API.ts";
+import { profileAPI } from "../API/Profile-Api.ts";
 
 const SET_PROFILE = 'SET_PROFILE';
 const SET_STATUS = 'SET_STATUS';

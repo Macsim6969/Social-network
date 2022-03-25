@@ -51,6 +51,7 @@ const photoReducer = (state = initalState, action: ActionsTypes):initalStateType
 type ActionType = AppStateType
 
 type ActionsTypes = InfermActionsTypes<typeof actions>
+
 export const actions ={
     photoAdAC : (id: number) =>{
         return{
