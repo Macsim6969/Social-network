@@ -12,9 +12,13 @@ let initalState = {
     users: [] as Array<UserType>,
     pageSize: 5,
     totalUsersCount: 0,
-    currentPage: 2,
+    currentPage: 1,
     isFetching: false,
     followFetching: [] as Array<number>,
+    filter: {
+        term: '',
+        friend: null as null | boolean 
+    }
 }
 
 type initialStateType = typeof initalState
@@ -54,12 +58,15 @@ const friendReducer = (state = initalState, action: ActionsTypes): initialStateT
                     ? [...state.followFetching, action.userId]
                     : state.followFetching.filter(id => id != action.userId)
             }
+        case 'FR/SET_FILTER':
+            return{ ...state , filter: action.payload}
         default:
             return state;
     }
 }
 
 type ActionsTypes = InfermActionsTypes<typeof actions>
+export type FilterForm = typeof initalState.filter
 
 export const actions ={
     addAC : (id: number) => {
@@ -77,17 +84,17 @@ export const actions ={
             type: "SET_FRIENDS", users
         } as const
     },
-    setCurrentAC : (current) => {
+    setCurrentAC : (current: number) => {
         return {
             type: "SET_CURRENT_PAGE", current
         } as const
     },
-    setTotalAC :(totalCount) => {
+    setTotalAC :(totalCount: number) => {
         return {
             type: "SET_TOTAL", totalCount
         } as const 
     },
-    isFetchingAC : (isFetching) => {
+    isFetchingAC : (isFetching: boolean) => {
         return {
             type: "SET_lOADER", isFetching
         } as const 
@@ -95,6 +102,11 @@ export const actions ={
     followAC :(fetching, userId) => {
         return {
             type: "FOLLOW_FETCH", fetching, userId
+        } as const 
+    },
+    setFilter : (filter: FilterForm) =>{
+        return{
+            type: 'FR/SET_FILTER', payload: {filter}
         } as const 
     }
 }
@@ -104,10 +116,11 @@ type GetStateType = () => AppStateType
 type DispatchType = Dispatch<ActionsTypes>
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 
-export const getUsersThunk = (currentPage: number, pageSize: number): ThunkType => {
+export const getUsersThunk = (currentPage: number, pageSize: number, filter: FilterForm): ThunkType => {
     return async (dispatch) => {
         dispatch(actions.isFetchingAC(true));
-        usersAPI.getUsers(currentPage, pageSize)
+        dispatch(actions.setFilter(filter))
+        usersAPI.getUsers(currentPage, pageSize, filter.term, filter.friend)
             .then(data => {
                 dispatch(actions.isFetchingAC(false))
                 dispatch(actions.setFriends(data.items));

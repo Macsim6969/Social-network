@@ -29,7 +29,7 @@ class UserContainerAPI extends React.Component{
         })
     }
 
-    render(){
+    render(){ 
         return(
         <>
         {this.props.isLoading ? <img src={Loader}/> : null}
@@ -42,8 +42,7 @@ class UserContainerAPI extends React.Component{
         onpageClick={this.onpageClick}
         setUSersCom={this.props.setUSersCom} 
         setNewUsersCom={this.props.setNewUsersCom}
-        newUsersCom={this.props.newUsersCom}
-        usersCom={this.props.usersCom}/>
+        newUsersCom={this.props.newUsersCom}/>
         </>    
         ) 
     } 

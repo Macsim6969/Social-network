@@ -3,10 +3,12 @@ import { usersAPI } from '../../API/User-Api.ts'
 import users from '../../assets/image/users.png'
 import ss from './Users.module.scss'
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Users = (props) => {
-debugger;
 
+    const usersCom = useSelector(usersCom)
+ 
 let textdoc = props.usersCom.map(c =><div> {c.text} </div>  )
     let newusersss = props.newUsersCom
     let newPOstUSER = () =>{

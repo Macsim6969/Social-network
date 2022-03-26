@@ -29,3 +29,7 @@ export const getnewUsersCom = (state: AppStateType) =>{
 export const getusersCom = (state: AppStateType) =>{
     return state.users.usersCom
 }
+
+export const getUsersFilter = (state: AppStateType) =>{
+    return state.users.filter
+}

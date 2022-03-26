@@ -6,9 +6,9 @@ import { profileAPI } from './Profile-Api.ts';
 
 
 export const usersAPI = {
-    getUsers:(currentPage = 1 ,pageSize = 5) =>{
+    getUsers:(currentPage = 1 ,pageSize = 5, term: string ='', friend: null | boolean = null) =>{
         return( 
-           instance.get<GetItemsType>( `users?page=${currentPage}&count=${pageSize}`)
+           instance.get<GetItemsType>( `users?page=${currentPage}&count=${pageSize}&term=${term}`+ (friend == null ? '' : `&friend=${friend}`))
            .then(res => res.data)
         )
     } , 
