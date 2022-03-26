@@ -5,15 +5,14 @@ import Nav from './components/Nav/Nav';
 import Mylog from './components/Mylog/Mylog';
 import { Routes, Route } from 'react-router-dom';
 import MessageContainer from './components/Message/MessageContainer';
-import SavesContainer from "./components/Saves/SavesContainer";
 import MaininnerContainer from "./components/Main/MaininnerContainer";
-import AcountContainer from "./components/Acount/AcountContainer";
+import AcountContainer from "./components/Acount/AcountContainer.tsx";
 import FIndfriendsContainer from "./components/Find friends/FIndfriendsContainer.tsx";
 import UsersContainer from './components/Users/UsersContainer';
 import Login from './components/Login/Login.tsx';
 import { connect } from 'react-redux';
 import {getUserID } from './Redux/Acount-reducer.ts'
-import ProfileUSersContainer from './components/ProfileUsers/ProfileUSersContainer';
+import ProfileUSersContainer from './components/ProfileUsers/ProfileUSersContainer.tsx';
 
 
 class App extends React.Component {
@@ -34,7 +33,6 @@ class App extends React.Component {
                             <Route path="profile/*" element={<AcountContainer />} />
                             <Route path="/" element={<MaininnerContainer />} />
                             <Route path="mylog" element={<Mylog />} />
-                            <Route path='saves' element={<SavesContainer />} />
                             <Route path='news' element={<UsersContainer />} />
                             <Route path='login' element={<Login />} />
                             <Route path='users' element={<ProfileUSersContainer />}/>

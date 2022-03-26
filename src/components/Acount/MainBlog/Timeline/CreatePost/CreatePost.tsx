@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 
 import s from './CreatePost.module.scss'
 
 
-const CreatePost = (props) =>{
+type Props ={
+    addPostAcc: () => void
+    postChangeAcc: (text: string) => void
+    postMewMessage: string
+
+}
+const CreatePost: FC<Props> = (props) =>{
 
  
     let addpost = ()=>{

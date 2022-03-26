@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Link from "./Link/Link";
+import Link from "./Link/Link.tsx";
 import  './MainLink.scss';
 import React from 'react';
 

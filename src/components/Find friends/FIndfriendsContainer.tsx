@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { acceptAdd, acceptDelete, followAC, getUsersThunk, setCurrentAC, } from "../../Redux/Friend-reducer.ts";
-import Findfriends from './FIndfriends';
+import Findfriends from './FIndfriends.tsx';
 
 import Loader from '../../assets/image/loaders.svg';
 import {UserType} from '../../Types/Types'
@@ -68,4 +68,4 @@ let mapStateToProps = (state: AppStateType):MapStateType => {
 }
 
 
-export default connect<MapDispatchType,MapStateType ,AppStateType>(mapStateToProps, { acceptAdd, acceptDelete, getUsersThunk })(FindfriendsAPI);
+export default connect<MapStateType, MapDispatchType, {} ,AppStateType>(mapStateToProps, { acceptAdd, acceptDelete, getUsersThunk })(FindfriendsAPI);

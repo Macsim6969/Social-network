@@ -1,14 +1,14 @@
 import React from 'react'
-import AccLink from './LinkSoc/LinkSoc'
+import AccLink from './LinkSoc/LinkSoc.tsx'
 import ss from './Account.module.scss'
-import LinkLog from './LinkLog/LinkLog'
-import SocialInfo from './LinkSocial/SocialInfo'
-import MainLink from './MainLink/MainLink'
+import LinkLog from './LinkLog/LinkLog.tsx'
+import SocialInfo from './LinkSocial/SocialInfo.tsx'
+import MainLink from './MainLink/MainLink.tsx'
 import { Navigate, Route, Routes} from 'react-router-dom'
-import TimelineContainer from "./MainBlog/Timeline/TimelineContainer";
+import TimelineContainer from "./MainBlog/Timeline/TimelineContainer.tsx";
 import PhotoContainer from './MainBlog/Photos/PhotoContainer'
  
-const Acount = (props) => {
+const Acount = (props) => { 
     let inform = props.acount.info.map(i => <SocialInfo name={i.name} number={i.number} />);
     return (
 

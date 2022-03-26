@@ -1,10 +1,9 @@
 import React from 'react';
 import { addPostAcc, postChangeAcc } from '../../../../../Redux/Mainreview-reducer.ts';
-
-
-import s from './CreatePost.module.scss'
 import {connect} from "react-redux";
-import CreatePost from "./CreatePost";
+import CreatePost from "./CreatePost.tsx";
+
+
 
 
 let mapStateToPost = (state) =>{

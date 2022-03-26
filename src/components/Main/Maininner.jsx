@@ -1,5 +1,5 @@
 import React from "react";
-import StatusHook from "../Acount/LinkStatus/StatusHook";
+import StatusHook from "../Acount/LinkStatus/StatusHook.tsx";
 import HomeForm from "../Form/HomeForm";
 import ss from './Maininner.module.css'
 import Main_rew from './Main_but/Main_rew';

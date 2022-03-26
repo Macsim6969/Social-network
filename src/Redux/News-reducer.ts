@@ -1,6 +1,6 @@
 import { AppStateType, InfermActionsTypes } from "./Redux-store";
 
-type newsType ={
+export type newsType ={
     message: string
 }
 

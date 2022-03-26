@@ -8,7 +8,7 @@ const CHANGE_SAVE = 'CHANGE-SAVE'
 const CHANGE_NEW_SAVE = 'CHANGE-NEW-SAVE'
 
 
-type revType = {
+export type revType = {
     text: string
     src: string
 }

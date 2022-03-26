@@ -1,6 +1,6 @@
 import ss from './LinkLog.module.scss'
 import React from 'react';
-import StatusHook from '../LinkStatus/StatusHook';
+import StatusHook from '../LinkStatus/StatusHook.tsx';
 
 const LinkLog = (props) => { 
     if (!props.profile) {

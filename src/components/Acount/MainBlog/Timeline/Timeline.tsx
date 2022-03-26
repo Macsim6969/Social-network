@@ -1,12 +1,11 @@
-import CreatePost from './CreatePost/CreatePost';
-import Post from './Post/Post';
+import Post from './Post/Post.tsx';
 import React from 'react';
 import ss from './Timeline.module.scss'
-import CreatePostContainer from "./CreatePost/CreatePostContainer";
+import CreatePostContainer from "./CreatePost/CreatePostContainer.tsx";
 
 const Timeline = (props) => {
  
-    let addrev = props.mainreview.rev.map(r => <Post text={r.text} src={r.src}/>)
+    let addrev = props.mainreview.map(r => <Post text={r.text} src={r.src}/>)
     return (
         <div className={ss.header}>
             <div className={ss.header_inner}>

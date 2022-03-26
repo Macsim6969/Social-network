@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import ProfileDataFormRedux from "./ProfleDataForm";
+import React from "react";
+import { ProfileType } from "../../Types/Types";
 
+type PropsType = {
+    profile: ProfileType
+    saveProfile: (formData) => void 
+}
 
-const ProfileUSers = ({ profile, saveProfile }) => {
+const ProfileUSers: FC<PropsType> = ({ profile, saveProfile }) => {
 
     let [editMode, seteditMode] = useState(false)
 

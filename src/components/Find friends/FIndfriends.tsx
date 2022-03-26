@@ -1,10 +1,23 @@
 import ss from './Findfriend.module.scss'
-import React from 'react';
+import React, { FC } from 'react';
 import Paginator from './Paginator.tsx';
 import Friends from './Friends.tsx';
+import { UserType } from '../../Types/Types';
 
- 
-const Findfriends = (props) => {
+
+type PropsType ={
+    currentPage: number
+    onpageClick: () => void
+    totalUsersCount: number
+    pageSize: number
+    users: UserType
+    followFetching: () => void
+    acceptDelete: (userId: number) => void 
+    acceptAdd: (userId: number) => void
+
+}
+
+const Findfriends: FC<PropsType> = (props) => {
 
     return (
         <div className={ss.log_find}>
@@ -17,4 +30,4 @@ const Findfriends = (props) => {
     )
 }
 
-export default Findfriends;
+export default Findfriends; 
