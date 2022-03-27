@@ -21,7 +21,7 @@ export const getcurrentPage = (state: AppStateType)=>{
 export const getisLoading = (state: AppStateType) =>{
     return state.users.isLoading
 }
-
+ 
 export const getnewUsersCom = (state: AppStateType) =>{
     return state.users.newUsersCom
 }
@@ -30,6 +30,3 @@ export const getusersCom = (state: AppStateType) =>{
     return state.users.usersCom
 }
 
-export const getUsersFilter = (state: AppStateType) =>{
-    return state.users.filter
-}

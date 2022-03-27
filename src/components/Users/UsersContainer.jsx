@@ -42,7 +42,7 @@ class UserContainerAPI extends React.Component{
         onpageClick={this.onpageClick}
         setUSersCom={this.props.setUSersCom} 
         setNewUsersCom={this.props.setNewUsersCom}
-        newUsersCom={this.props.newUsersCom}/>
+        newUsersCom={this.props.newUsersCom}чё/>
         </>    
         ) 
     } 

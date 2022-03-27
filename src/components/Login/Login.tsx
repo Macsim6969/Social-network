@@ -1,25 +1,26 @@
 import React, { FC } from "react"
 import ss from './Login.module.scss'
-import { connect } from "react-redux"
+import { connect, useDispatch, useSelector } from "react-redux"
 import { Field, InjectedFormProps, reduxForm } from 'redux-form'
 import { Input } from "../../Common/FormsControl/FormsControls.tsx"
 import { required } from "../../utilits/validators/validator.ts"
-import {logine } from '../../Redux/auth-reducer.ts'
+import { logine } from '../../Redux/auth-reducer.ts'
 import { Navigate } from "react-router-dom"
+import { AppStateType } from '../../Redux/Redux-store.ts'
 
-type IPropsForm ={
+type IPropsForm = {
     onSubmit: (formData) => void
 }
 
-const LoginForm: FC<InjectedFormProps<LoginFormValuesType, IPropsForm> & IPropsForm> = ({handleSubmit , error} ) => {
-    
+const LoginForm: FC<InjectedFormProps<LoginFormValuesType, IPropsForm> & IPropsForm> = ({ handleSubmit, error }) => {
+
     return (
         <form onSubmit={handleSubmit}>
             <div>
                 <Field component={Input} name={"email"} type="email" placeholder="email" validate={[required]} />
             </div>
             <div>
-                <Field component={Input} name={"password"} type="password" placeholder="password" validate={[required]}/>
+                <Field component={Input} name={"password"} type="password" placeholder="password" validate={[required]} />
             </div>
             <div>
                 <Field component={Input} name={"rememberMe"} type="checkbox" /> Remember me
@@ -27,33 +28,32 @@ const LoginForm: FC<InjectedFormProps<LoginFormValuesType, IPropsForm> & IPropsF
             <div>
                 <button>Login</button>
             </div>
-           { error && <div className={ss.form_erroe}>
+            {error && <div className={ss.form_erroe}>
                 {error}
-            </div>} 
+            </div>}
         </form>
-    )  
-}   
-
-const LoginReduxForm = reduxForm<LoginFormValuesType , IPropsForm>({form: 'login'})(LoginForm);
-
-type MapStateType ={
-    isStatus: boolean
-}
-type MapDispatchType ={
-    logine  : (email: string, password:string, rememberMe: boolean) => void 
+    )
 }
 
-type LoginFormValuesType ={
+const LoginReduxForm = reduxForm<LoginFormValuesType, IPropsForm>({ form: 'login' })(LoginForm);
+
+
+type LoginFormValuesType = {
     email: string
-    password : string
+    password: string
     rememberMe: boolean
 }
-const Login: FC<MapStateType & MapDispatchType>  = (props) => {
-    const onSubmit = (formData) =>{
-       props.logine(formData.email , formData.password , formData.rememberMe)
+const Login: FC = () => {
+
+    const isStatus = useSelector((state: AppStateType) => state.auth.isStatus)
+
+    const dispatch = useDispatch()
+
+    const onSubmit = (formData) => {
+        dispatch(logine(formData.email, formData.password, formData.rememberMe))
     }
 
-    if(props.isStatus){
+    if (isStatus) {
         return <Navigate replace to='/' />
     }
     return (
@@ -64,8 +64,4 @@ const Login: FC<MapStateType & MapDispatchType>  = (props) => {
     )
 }
 
-const mapStateToProps = (state) => ({
-    isStatus: state.auth.isStatus
-})
-
-export default connect (mapStateToProps , {logine })(Login)
+export default Login

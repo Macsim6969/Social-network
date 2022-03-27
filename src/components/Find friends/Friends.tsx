@@ -3,15 +3,19 @@ import React, { FC } from 'react';
 import usersPhoto from '../../assets/image/users.png';
 import { NavLink } from 'react-router-dom';
 import { UserType } from '../../Types/Types';
+import { useSelector } from 'react-redux';
 
 type Props ={
-     users: UserType
+     user: UserType
      acceptAdd: (userId: number) => void
      acceptDelete: (userId: number) => void
      followFetching: Array<number>
 }
 
 const Friends: FC<Props> = ({user , acceptAdd ,acceptDelete , followFetching}) => {
+
+    
+
     let u = user
     return ( 
         <div>
