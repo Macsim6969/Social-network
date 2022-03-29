@@ -9,6 +9,7 @@ import  newsReducer  from './News-reducer.ts';
 import usersReducer from './User-reducer.ts';
 import thunkMiddleware, { ThunkAction } from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form'
+import charthReducer from './Chart-reducer.ts';
 
 
 
@@ -21,7 +22,8 @@ let reducer = combineReducers({
     auth : authReducer,
     news : newsReducer,
     users : usersReducer,
-    form: formReducer
+    form: formReducer,
+    chat: charthReducer
 });
 
 type RootReducerType  = typeof reducer

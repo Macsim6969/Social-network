@@ -10,7 +10,7 @@ const Nav = () => {
                <NavLink className={ss.navlinke} to="acount"><Content name='Groups' /></NavLink>
                <NavLink className={ss.navlinke} to="saves"><Content name='Saves' /></NavLink>
                <NavLink className={ss.navlinke} to="profile"><Content name='Pages' /></NavLink>
-               <NavLink className={ss.navlinke} to="rev"><Content name='Comments' /></NavLink>
+               <NavLink className={ss.navlinke} to="chat"><Content name='Charts' /></NavLink>
                <NavLink className={ss.navlinke} to="users"><Content name='ProfileUSers' /></NavLink>
             </div>
     )

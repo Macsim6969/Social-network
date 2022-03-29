@@ -4,7 +4,7 @@ import { instance } from "./API.ts"
 
 export const profileAPI = {
     getProfile(userId) {
-        return instance.get<ProfileType>(`profile/2` + userId ).then(res => res.data)
+        return instance.get<ProfileType>(`profile/1080` + userId ).then(res => res.data)
     },
     getStatus(status) {
          return instance.get<string>(`profile/status/2` + status).then(res => res.data)

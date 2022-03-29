@@ -11,7 +11,7 @@ import { compose } from 'redux';
 class AcountAPI extends React.Component{
 
     omponentDidMount() {
-        axios.get('https://social-network.samuraijs.com/api/1.0/profile/2').then(response => {
+        axios.get('https://social-network.samuraijs.com/api/1.0/profile/22362').then(response => {
             getUserID(response.data);
             getStatus(response.status)
 

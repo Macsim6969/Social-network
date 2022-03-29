@@ -18,7 +18,7 @@ type MapType = {
 class ProfileUSersContainerAPI extends React.Component<PropsType>{
 
     componentDidMount() {
-        axios.get('https://social-network.samuraijs.com/api/1.0/profile/2').then(response => {
+        axios.get('https://social-network.samuraijs.com/api/1.0/profile/22362').then(response => {
             this.props.getUserID(response.data)
         })
     }

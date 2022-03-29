@@ -13,6 +13,7 @@ import Login from './components/Login/Login.tsx';
 import { connect } from 'react-redux';
 import {getUserID } from './Redux/Acount-reducer.ts'
 import ProfileUSersContainer from './components/ProfileUsers/ProfileUSersContainer.tsx';
+import { ChartPage } from './components/ChatPage/Chat.tsx';
 
 
 class App extends React.Component {
@@ -36,6 +37,7 @@ class App extends React.Component {
                             <Route path='news' element={<UsersContainer />} />
                             <Route path='login' element={<Login />} />
                             <Route path='users' element={<ProfileUSersContainer />}/>
+                            <Route path='chat' element={<ChartPage />}/>
                         </Routes>
                     </div>
                 </div>
