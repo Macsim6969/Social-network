@@ -8,6 +8,9 @@ import MessageList from './MessageList/MessageList';
 
 
 const Message = (props) => {
+
+
+
     let messel = props.message.mess.map(m => <MessageList name={m.name} id={m.id} />);
     let newdilogs = props.message.dia.map(n => <MessageDialogs name={n.name} />);
 
@@ -22,6 +25,9 @@ const Message = (props) => {
             props.savePhoto(e.target.files[0])
         }
     }
+
+
+    
     return ( 
         
         <div className={ss.mess}>

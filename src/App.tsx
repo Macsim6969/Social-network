@@ -11,12 +11,14 @@ import FindFriendPage from "./components/Find friends/FIndfriendsContainer.tsx";
 import UsersContainer from './components/Users/UsersContainer';
 import Login from './components/Login/Login.tsx';
 import { connect } from 'react-redux';
-import {getUserID } from './Redux/Acount-reducer.ts'
 import ProfileUSersContainer from './components/ProfileUsers/ProfileUSersContainer.tsx';
 import { ChartPage } from './components/ChatPage/Chat.tsx';
 
+type AppType ={
+    name: string
+}
 
-class App extends React.Component {
+class App extends React.Component<AppType> {
     
     render() {
         return (
@@ -46,4 +48,4 @@ class App extends React.Component {
     }
 }
 
-export default connect(null , {getUserID})(App);
+export default connect(null , null)(App);

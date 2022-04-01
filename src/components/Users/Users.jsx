@@ -1,18 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { usersAPI } from '../../API/User-Api.ts'
 import users from '../../assets/image/users.png'
 import ss from './Users.module.scss'
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import {setUsers, addAC , deletes, totallCount ,setUSersCom, setNewUsersCom, currentPageAC , isLoadingAC} from '../../Redux/User-reducer.ts'
+import {getuserCom, getnewUsersCom} from '../../Redux/Users-selector.ts'
+
 
 const Users = (props) => {
-
-    const usersCom = useSelector(usersCom)
  
-let textdoc = props.usersCom.map(c =><div> {c.text} </div>  )
-    let newusersss = props.newUsersCom
+
+    const usersCom = useState(getuserCom)
+    const newUsersCom = useState(getnewUsersCom)
+
+    const dispatch = useDispatch()
+
+    const setUSersComAC = () =>{
+        dispatch(setUSersCom())
+    }
+    
+
+let textdoc = usersCom.map(c =><div> {c.text} </div>  )
+    let newusersss = newUsersCom
     let newPOstUSER = () =>{
-        props.setUSersCom();
+        setUSersComAC();
     }
 
     let onNewMessDial =(e)=>{

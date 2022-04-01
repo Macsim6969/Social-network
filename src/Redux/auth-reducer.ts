@@ -66,7 +66,7 @@ export const logine = (email: string, password: string, rememberMe: boolean): Th
 }
 
 
-export const logout = () => async (dispatch) => {
+export const logout = (): ThunkType => async (dispatch) => {
     usesrAuth.logout().then(res => {
         if (res.data.resultCode === 0) {
             dispatch(actions.setStatusAuth(null, null, null, false))

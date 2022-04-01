@@ -3,11 +3,8 @@ import { Dispatch } from 'redux';
 import { PhotoType } from './../Types/Types';
 import { type } from 'os';
 import { profileAPI } from "../API/Profile-Api.ts";
-import { AppStateType } from './Redux-store';
+import { AppStateType, InfermActionsTypes } from './Redux-store';
 
-const ADD_DIALOG = 'ADD-DIALOG'
-const ADD_NEW_DIALOG = 'ADD-NEW-DIALOG'
-const SAVE_PHOTO = 'SAVE_PHOTO'
 
 type messDialog ={
     name: string
@@ -37,7 +34,7 @@ export type initialStateType = typeof initialState
 const messageReducer = (state = initialState, action:any) : initialStateType => { 
 
     switch (action.type) {
-        case ADD_DIALOG:
+        case "ADD_DIALOG":
             let text = action.NewDialog;
             return {
                 ...state  , dia: [...state.dia ,{name: text} ]
@@ -48,25 +45,18 @@ const messageReducer = (state = initialState, action:any) : initialStateType => 
 
 }
 
-type ActionType =addSaveDialogType|savePhotoSuccessType
+type ActionType = InfermActionsTypes<typeof actions>
 
-type addSaveDialogType = {
-    type: typeof ADD_DIALOG
-    NewDialog: string
-}
-export const addSaveDialog = (NewDialog: string):addSaveDialogType => {
-    return {
-        type: ADD_DIALOG , NewDialog
-    }
-}
-
-type savePhotoSuccessType = {
-    type: typeof SAVE_PHOTO
-    photos: PhotoType
-}
-export const savePhotoSuccess = (photos):savePhotoSuccessType =>{
-    return{
-        type: SAVE_PHOTO , photos
+export const actions = {
+    addSaveDialog :(NewDialog: string) => {
+        return {
+            type: "ADD_DIALOG" , NewDialog
+        }
+    },
+    savePhotoSuccess :(photos) =>{
+        return{
+            type: "SAVE_PHOTO" , photos
+        }
     }
 }
 
@@ -77,7 +67,7 @@ export const savePhoto = (file):ThunkType => async (dispatch:DispatchType) =>{
     let responce = await profileAPI.savePhooto(file)
 
     if(responce.data.resultCode === 0){
-        dispatch(savePhotoSuccess(responce.data.photos))
+        dispatch(actions.savePhotoSuccess(responce.data.photos))
     }
 }
 export default messageReducer;
